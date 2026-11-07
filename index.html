@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title> Conociendo al cliente | CX - VENTO Motorcycles</title>
+  <title> Conociendo al cliente | VENTO Motorcycles</title>
 <style>
   :root {
   --bg: #f4f6f8;
@@ -746,25 +746,36 @@
 .cx-home-section-title{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:1px solid #dfe3ea;padding-bottom:12px;margin-bottom:18px}.cx-home-section-title h2{margin:0;font-size:24px}.cx-home-section-title span{font-size:12px;color:#64748b}.cx-home-charts{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.cx-home-chart{border:1px solid #e1e6ee;border-radius:14px;padding:16px;min-height:260px}.cx-home-chart h3{margin:0 0 4px;font-size:17px}.cx-home-chart p{margin:0 0 12px;color:#64748b;font-size:12px}.cx-home-chart.volume{grid-column:1/-1;min-height:230px}.cx-home-chart.risk-focus{min-height:300px}.cx-home-chart.risk-focus .cx-svg{min-height:235px}.cx-svg{width:100%;height:auto;display:block;overflow:visible}.multi-response-note{margin:10px 0 14px;padding:10px 12px;border:1px solid #dbe4f4;border-radius:10px;background:#f7f9fd;color:#40516d;font-size:12px;line-height:1.45}.multi-response-note strong{color:#0a1e73}.cx-home-legend{display:flex;gap:16px;margin-top:8px;font-size:12px;color:#475569}.cx-dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px}.cx-dot.nps{background:#0a1e73}.cx-dot.csat{background:#64748b}
 #cxBackHome{position:fixed;right:28px;bottom:22px;z-index:99980;border:0;border-radius:999px;background:#0a1e73;color:#fff;padding:12px 18px;font-weight:800;cursor:pointer;box-shadow:0 8px 22px rgba(15,23,42,.2)}
 @media(max-width:850px){.cx-home-kpis{grid-template-columns:repeat(2,1fr)}.cx-home-charts{grid-template-columns:1fr}.cx-home-chart.volume{grid-column:auto}.cx-home-head-inner{flex-direction:column}.cx-home-toolbar .primary{margin-left:0}}
+.card h3{line-height:1.35;min-height:38px}.comparison-card>span{line-height:1.35;min-height:30px}.split-card>div:first-child{line-height:1.35;min-height:36px}.section-title{gap:12px;flex-wrap:wrap}table th{white-space:normal}@media(max-width:750px){.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cx-overview-help{font-size:13px;color:#526173;line-height:1.5;margin:0 0 16px}.cx-overview-details{border-top:1px solid #e2e8f0;margin-top:18px;padding-top:14px}.cx-overview-details>summary{cursor:pointer;color:#17365d;font-size:15px;font-weight:700;line-height:1.5;padding:6px 0}.cx-overview-detail-body{padding-top:14px}.cx-inline-panel{margin:16px 0 0!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important}.cx-inline-panel .section-title{margin-bottom:14px}.cx-inline-panel .section-title h2{font-size:17px}.cx-overview-details[open]>summary{margin-bottom:10px}@media(max-width:650px){.cx-overview-details>summary{font-size:14px}}
+
+#monthlyComparisonSection .cx-overview-details>h3{font-size:16px;color:#17365d;margin:0 0 12px;font-weight:700}#cxScoreBreakdown .cx-overview-detail-body{padding-top:0}#cxMonthlyHistory #trendSection{margin-top:0!important}
+#cxModelTools{width:100%;padding:14px 0 0;border-top:1px solid #e2e8f0;margin-top:12px}#cxModelTools select{min-width:290px;max-width:100%;height:110px;padding:7px;border:1px solid #cbd5e1;border-radius:8px}#cxModelTools label{display:block;font-weight:700;margin-bottom:7px}.cx-extra-note{font-size:13px;line-height:1.6;color:#526173}.cx-extra-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.cx-extra-card{background:#f5f7fb;border:1px solid #e2e8f0;border-radius:12px;padding:15px}.cx-extra-card strong{display:block;font-size:25px;color:#0a1e73}.cx-extra-table{width:100%;border-collapse:collapse}.cx-extra-table th,.cx-extra-table td{text-align:left;padding:9px;border-bottom:1px solid #e2e8f0}.bar-row{height:auto!important;min-height:38px}.bar-label{white-space:normal!important}@media(max-width:700px){.cx-extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#cxHomeOverlay,#cxBackHome,#cxMonthlyHistory,#monthlyInsight,#cxScoreBreakdown[hidden]{display:none!important}
+html,body{overflow:auto!important} #cxExactAnswers summary{cursor:pointer;color:#17365d;font-weight:700}
+#cxExactAnswers table{margin-bottom:18px}.cx-table-scroll{overflow:auto}.cx-table-scroll th,.cx-table-scroll td{white-space:normal}
+.cx-table-scroll td:not(:first-child){white-space:nowrap} #cxModelsTable h2{margin-top:0}
+
+#cxModelTools{position:relative}.model-picker{max-width:420px;position:relative}.model-picker summary{list-style:none;cursor:pointer;position:relative;border:1px solid #cbd5e1;border-radius:12px;padding:10px 42px 10px 14px;background:#f8fafc;color:#17365d}.model-picker summary::-webkit-details-marker{display:none}.model-picker summary:hover,.model-picker[open] summary{border-color:#4167b0;background:#f1f5fe}.model-caption{font-size:12px;font-weight:700;color:#526173}.model-picker summary strong{display:block;overflow-wrap:anywhere}.model-chevron{position:absolute;right:16px;top:15px;font-size:21px}.model-picker[open] .model-chevron{transform:rotate(180deg)}.model-menu{border:1px solid #cbd5e1;background:white;border-radius:12px;padding:12px;margin-top:6px;box-shadow:0 8px 22px #14284918}.model-menu input[type=search]{width:100%;padding:9px;border:1px solid #b9c6d9;border-radius:8px}.model-options{border:0;padding:3px;margin:9px 0;max-height:205px;overflow:auto;min-width:0}.model-options label{display:flex!important;align-items:center;gap:9px;padding:7px;border-radius:7px;margin:0!important;font-size:14px;cursor:pointer}.model-options label:hover,.model-options label:focus-within{background:#edf3fd}.model-options input{accent-color:#173f88;flex:none}.model-actions{display:flex;justify-content:space-between;gap:10px}.model-actions button{padding:7px 12px;border:1px solid #cbd5e1;border-radius:8px;background:white;color:#17365d;cursor:pointer}.model-actions button:disabled{opacity:.5;cursor:default}#cxDoneModels{background:#17365d;color:white;border-color:#17365d}.model-picker :focus-visible{outline:2px solid #4167b0;outline-offset:2px}
 </style>
 </head>
 <body>
 <div id="cxHomeOverlay">
-  <div class="cx-home-head"><div class="cx-home-head-inner"><div><h1>Conociendo al cliente</h1><p>Resumen ejecutivo y comportamiento mes con mes · VENTO Motorcycles</p></div><div class="cx-home-source">Fuente: Base CX Canales – Histórico 2026</div></div></div>
+  <div class="cx-home-head"><div class="cx-home-head-inner"><div><h1>Conociendo al cliente</h1><p>Resumen ejecutivo y comportamiento mes con mes · VENTO Motorcycles</p></div><div class="cx-home-source">Fuente: histórico de la encuesta por canal de venta</div></div></div>
   <div class="cx-home-wrap">
     <section class="cx-home-card">
       <div class="cx-home-toolbar"><strong>Resumen:</strong><select id="cxHomePeriod"></select><select id="cxHomeChannel"></select><button id="cxHomeRefresh">↻ Actualizar datos</button><button class="primary" id="cxEnterAnalysis">Ver análisis detallado →</button></div>
       <div class="cx-home-kpis">
         <div class="cx-home-kpi"><span>RESPUESTAS VÁLIDAS</span><strong id="cxKpiValid">—</strong><small id="cxKpiValidDelta">—</small></div>
-        <div class="cx-home-kpi"><span>NPS</span><strong id="cxKpiNps">—</strong><small id="cxKpiNpsDelta">—</small></div>
+        <div class="cx-home-kpi"><span>Índice de recomendación</span><strong id="cxKpiNps">—</strong><small id="cxKpiNpsDelta">—</small></div>
         <div class="cx-home-kpi"><span>CSAT POSITIVO</span><strong id="cxKpiCsat">—</strong><small id="cxKpiCsatDelta">—</small></div>
         <div class="cx-home-kpi"><span>EXPERIENCIA VULNERABLE</span><strong id="cxKpiRisk">—</strong><small id="cxKpiRiskDelta">—</small></div>
       </div><div class="cx-home-status" id="cxHomeStatus">Preparando resumen con los datos del dashboard original…</div>
     </section>
     <section class="cx-home-card"><div class="cx-home-section-title"><h2>Comportamiento histórico</h2><span id="cxHomeRange">Periodos disponibles</span></div>
       <div class="cx-home-charts">
-        <div class="cx-home-chart"><h3>Evolución de la experiencia</h3><p>NPS y CSAT positivo durante todos los periodos cargados.</p><div id="cxChartExperience"></div><div class="cx-home-legend"><span><i class="cx-dot nps"></i>NPS</span><span><i class="cx-dot csat"></i>CSAT positivo</span></div></div>
-        <div class="cx-home-chart risk-focus"><h3>Experiencia vulnerable</h3><p>Porcentaje de clientes con al menos una señal de alerta.</p><div id="cxChartRisk"></div></div>
+        <div class="cx-home-chart"><h3>Evolución de la experiencia</h3><p>Índice de recomendación y Clientes satisfechos durante todos los periodos cargados.</p><div id="cxChartExperience"></div><div class="cx-home-legend"><span><i class="cx-dot nps"></i>Índice de recomendación</span><span><i class="cx-dot csat"></i>Clientes satisfechos</span></div></div>
+        <div class="cx-home-chart risk-focus"><h3>Clientes por revisar</h3><p>Porcentaje de clientes con al menos una señal de alerta.</p><div id="cxChartRisk"></div></div>
         <div class="cx-home-chart volume"><h3>Volumen de respuestas válidas</h3><p>Base analizada en cada periodo.</p><div id="cxChartVolume"></div></div>
       </div>
     </section>
@@ -776,7 +787,7 @@
     <div class="topbar-inner">
       <div class="brand">
     <!-- MODIFICADO: logo VENTO incrustado para que funcione sin carpetas externas. -->
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAA8CAYAAADc3IdaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNCNEQzRkREOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNCNEQzRkRFOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0I0RDNGREI5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0I0RDNGREM5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7kx7wmAAAU70lEQVR42uxdCbhX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"
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAA8CAYAAADc3IdaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNCNEQzRkREOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNCNEQzRkRFOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0I0RDNGREI5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0I0RDNGREM5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7kx7wmAAAU70lEQVR42uxdCbhX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Índice de recomendacióncV/W4hzHVTwWepBRmMQwXvWB5TlkzTCwC5hJZq9nlORO98OkTeLJSvmFPYckgGlbWaz71jcFz3E/TnToPtelHQrvZZuF77CNpf6kWr3D5eqR4LfkANuXEHM0taVfB8f9oVRgYcD8lJIdMMxnvFCQjF0XW8jUpswSEHYZw2EZd3B/+GeFPNcPuj5tRNZWaAJVg3USZ86N7MwvV6UVTj6kawglgKG7PXMrzYJQdHPEBE5PYQgyHxvVqq8gN0rWsgzuOieCHnI+oTEk1vWiPHCtoPl5ansnBc3QLI44DTlb4leFm6Z3gWcFc9lf5J8ch4Md2rQuUICVYr3kEl0f5wJL0qxGBg95HkYSqhZ5CsbjF/DLkEy2kxzqf2VxcQaZ1QHAnRKqX3n6Esn7eggB1U1zw/1ZR5XniQhUkXi86CugdSP5Db/l1lZTbJJOyqrLztEgnoYT+Cu+Xk56KiovTJwx/WqHiPu36LyolhkudRO2EqnaQKA66gsXqQ+gznQV0lNI49K434w8YmAaNMLQN9hsV4miGChXxgl2tyrUiptMxAm/AdIkllzQJY3+jnPuz/5wiuOiw2IS+IsXFgp0+NINNnA1UYYPdc1rViaYfiCLkscGx9DfQZxoIXDREraSjOMkPzXrdAiBVgkBex2rr+PO59ElPDvlOWY+ivEeCqVSCT+QK7F8QZiiMhWiPVNufVuKCfQd8rhOLsolnXpBFg9wJZ39ictA5D8SJYH8bQsJ9ZDFwSEb7VBTKhqY8ktlCcAHBZjOM/itbIKwbHNxtDcQAbCmBtY0x70Hxrndjltfijzk8NYnWcV3rjAFBWABNq91yONRRHyGWBU74yBtRIItnb1OAKQ3GeNRiKA4CTcHker2307TxJ8kMvggU906KIGpYiVp9G3OG3qazPc4I13nAojoRowVoW5YGmWCedCa9JzlkSimM0IR6L9O/lMbG6gPooMpoVewwW9AcjI9olWsVArBQf8zVS5TeMFnJXdhHSBEAB/0YEeH7kTW2h4fHVNWLEzrW6wP15uKbh4NoliAXb0a3Bxi5DqY2shXUCNmwGdjBJ5oUALD2cVGdTqZ+HE4ssBUjTiwmCCKbj3T6XxruZyUbyYaPw/Ql6bP3nvIC/Ntzu/ZR18pAO3E3t62ecDbFcG+Da0TFP1vQs5qzEG5NXaI6dgwni3YyMmAOpnBAnseI2QoxAqMo3eUiwxthOxTEdiiOZA4TsHKcsT2UpQKRsYZpYZTnXmi7pwOXilRxfy9hwL6TSNgwXXawxYE8qyxtdx+UfgzuZSjN67uYQh2pKJ/VLZeW6Hqws/6N8gZTOxHgoToA5ALFqTUVX9IdR5xh6rldc7hcaoDuuc+NQaQhVH8h2cLmSHxKTScD3j1A9pH/an/rxeFjdqqdImMaaIufVdcryWamVRqQ+U5aT3whq0BeZHCE+RQbsc0sWp3ZRuQmLaCwv5OwS2AR00ot8Ss/0zvD4I1nf9co6RTo9pnQhizejqZ0fZLidEAcf06yOD21UNiwKXg/HUGmnrAOA6yl9V5e4AZIV4nXLWE3zhv0Q1LCwhVbpEqw0mboeEy3sjD9QozaqBBLY/sPChlGH18l3Bo/oSiAPYUsqLKd8WAkkkEAC2UiwipNhSCCBBHIFEoKVQAIJJAQrgQQSSCAhWAkkkEBCsBJIIIEEEoKVQAIJJBARuOV0hx8NwgEQEvIae7un3z+CLhcrK8L+dq+0G1R3B2WdnNFEuZ+mg+DSYZy2xA0PwoSOEPRvKOH72ANfF2WFlNR2qQKnt3GEY5YHDpw4rZO3Gh7KQ/xylBO+bso6xVrn1KFeTuPO440DbJGtEhlC+6cnw6M6Z6ttZ8XdSvfLHPDA5w5eyn+jsqPv7ldcXOLSpxbKciZFna5hFy0fZIHc8kho6OdE2MPNk57wYP3jkIfmvHkDVy1p/wL2Adlyb/GaR67Xhr+ddYgKCPlO5FlHsHdD/lMVZZ145QQL6H13RNhfHHSMiJkDqQwPeP6o67mEXdPOCrs47X49Kitt9x/xaGgVKm9rnkm2hANp3XBNFJ6F19UD10BNHJu9znqje30F7ZnD6XjdcF0l7N/OHrhOtdUbmHavNZWNfO8BDxyDJO3xwNPVr45g4XeOYoxArKhMj6J/AfvRTHMeS7jObyHfdwCVZYL+zoi4v0NtuEE7GgahVW4cVurU5wredfBxP26LDURKkZ1s971O9sDHjlAC7HLPeNQDp7O3sgIk3Y63n6K2D3LGoQwIAUFwaHoisIUugwei0d+G080D+1AqRysrJMlvApHDySvUA+1sylzNZJc6qUDz55VeFoENHtzAZCZUKDfRb8TDPcdHsU3g3RUZFq72wJ9K0If6S1R2QKpNSGkzO8QYdWQJAjCkAKQpcDd7KCvH3RSN+mUREqtmtnlbz7TjHuZuIxEJK9k+ZpxMg1AcHO00gV4OUaUn35+qrGyN1T3ekbr3sxdLDe6JCVZ9j49whMNz7ZlgjRMcxlqNP1jAAHpujhv3xARrT515UVZ2UDfY7CeGK+toJABiMqNIxQuRA4sFnOZoHquHeOEux4LxCatK7fz3U70ZWfLh1eXr7z7jrWybrhPsYPvth2ehz2abC5BSMWzy6S/uf0TzHeUBILcyY4OY40HKOlClO63HI6WiYWWf+7P548bBB5fyTgvdxy5MKYcq/fSy+Q7Qfdyk8fG8ZapB0FvRooDOAse9N2aOqjITz7Pofi4fLNtR6eWIGqycs9K+xFzEARrzBuhHY9lW52SXLIXhrL86SKe/1FdsmheFfSnhaWmTwH5haWs960Rvs+lRIyFYgLuZYHWAHGwTWxC9/pNKQNl2/Jc97rdhDgqT97hBorWadXkf2Dimf9HfZ+b4eC9W3jnQ1jK3sMllXNbSuODjuVb5H8YLowEMRjh4445cHCzq73ts/Oit/DOYYI32xKGsEaTVGWT73Y7L1k2HN4E3IyNYhOxl6D9Y/zKcRYwKlkGra7wjZf2oAQWiR70GtoUWN6xlLgOi76ksYztBc77qZKP40csCxkrMdsr7aLKUjrAF1dfpx1Sd00ZgASR8A5gjnk3/v09znFI6yjZeimHbe9zE2FVpYrYfzPYgqCkrKw4z0RFbvHKytWM8fgejNGC1QJSpiuzW4nNpXNZ5bHSe/WBRvz3PwUCXOjX4G9ZJZ30i04Y6LriwFlLzONFDpdJebTuWbrz682nUOGn7QCZo7bVHzcVKONhuXYKpPc2C8ERKmeZnwUCaZSrfa1omcNhCU8mss+WtwocYOurMBBaT3h54UlbCb3zeN4Pr9fWoMzgqK6ED7hKp9Yfqjo7ISlgN4yPANdgD1xkRWlIlbfqDSvMod03CN0Xw/ns98AzUmIN9hOO2mPXVfrhKPN45k+tMd7h3VLkFuN9Rl1a5cVhLmd3+jak2rEu3M/uM3egamxgE7mu1x667kv1mbmF9QSUPFv8uqj9XOO+phIHSXEvnsgzdSrn7GKH/UOY/4oHnJx6D733eV8YimZcY3Y+5kU6a4vpmQX9XcDsl1h/oLaGchzUtsJMxfIx4t72FRSs/XEs9cD1NuGD0uUTpG0PcYInDeDqt5eW8Nt+PmNM/j7ne1rb5BtFZmdYmHFp7sweeZTy3fpzm4rS/rXfR74FjGuBxMvtG2/tWeOiu6nO9/g7z+CHVuY/1kP9knaIv/F+AAQAXSJQyz5YlawAAAABJRU5ErkJggg=="
     class="brand-logo"
     alt="VENTO"
     onerror="this.style.display='none';document.getElementById('brandFallback').style.display='grid';">
@@ -790,7 +801,7 @@
   </div>
 
 </div>
-      <div class="meta-chip">Fuente: Base CX Canales – Histórico 2026</div>
+      <div class="meta-chip">Fuente: histórico de la encuesta por canal de venta</div>
     </div>
   </div>
 
@@ -798,7 +809,7 @@
     <section class="panel">
       <div class="toolbar">
         <div>
-          <strong>Vista:</strong>
+          <strong>Canal seleccionado:</strong>
           <span id="currentViewLabel">Global</span>
         </div>
         <select id="periodSelect" class="period-select" aria-label="Seleccionar mes"></select>
@@ -817,22 +828,22 @@
 
     <section class="panel" id="monthlyComparisonSection">
       <div class="section-title">
-        <h2>Comparativo mensual</h2>
-        <span id="comparisonPeriodLabel">Comparativo mensual</span>
+        <h2>Qué cambió frente al mes anterior</h2>
+        <span id="comparisonPeriodLabel">Qué cambió frente al mes anterior</span>
       </div>
       <div class="comparison-grid">
         <!-- MODIFICADO: los recuadros ahora explican la variación al pasar el cursor o dar clic. -->
-        <div class="comparison-card explainable" tabindex="0"><span>Respuestas válidas</span><strong id="cmpValid">—</strong><small id="cmpValidDelta">—</small><div class="comparison-explanation" id="cmpValidExplain"></div></div>
-        <div class="comparison-card explainable" tabindex="0"><span>NPS</span><strong id="cmpNps">—</strong><small id="cmpNpsDelta">—</small><div class="comparison-explanation" id="cmpNpsExplain"></div></div>
-        <div class="comparison-card explainable" tabindex="0"><span>CSAT positivo</span><strong id="cmpCsat">—</strong><small id="cmpCsatDelta">—</small><div class="comparison-explanation" id="cmpCsatExplain"></div></div>
-        <div class="comparison-card explainable" tabindex="0"><span>Experiencia vulnerable</span><strong id="cmpRisk">—</strong><small id="cmpRiskDelta">—</small><div class="comparison-explanation" id="cmpRiskExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Encuestas usadas en el cálculo</span><strong id="cmpValid">—</strong><small id="cmpValidDelta">—</small><div class="comparison-explanation" id="cmpValidExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Índice de recomendación</span><strong id="cmpNps">—</strong><small id="cmpNpsDelta">—</small><div class="comparison-explanation" id="cmpNpsExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Clientes satisfechos</span><strong id="cmpCsat">—</strong><small id="cmpCsatDelta">—</small><div class="comparison-explanation" id="cmpCsatExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Clientes por revisar</span><strong id="cmpRisk">—</strong><small id="cmpRiskDelta">—</small><div class="comparison-explanation" id="cmpRiskExplain"></div></div>
       </div>
       <div class="nota" id="monthlyInsight" style="margin-top:14px;"></div>
     </section>
 
     <section class="panel" id="trendSection">
       <div class="section-title">
-        <h2>Tendencia de la experiencia</h2>
+        <h2>Cómo cambian las calificaciones mes a mes</h2>
         <span id="trendScopeLabel">Evolución mensual de la vista seleccionada</span>
       </div>
       <div class="trend-grid" id="trendGrid"></div>
@@ -840,8 +851,8 @@
 
     <section class="panel" id="healthSection">
       <div class="section-title">
-        <h2>1. Salud general de la experiencia</h2>
-        <span id="sampleNote">Indicadores calculados sobre registros válidos</span>
+        <h2>1. Cómo nos califican los clientes</h2>
+        <span id="sampleNote">Resultados de las encuestas usadas en el cálculo</span>
       </div>
       <div class="kpi-grid">
         <div class="card">
@@ -850,23 +861,23 @@
           <div class="sub" id="kpiValid">0 válidas</div>
         </div>
         <div class="card">
-          <h3>NPS <span class="info" data-tip="Net Promoter Score. Mide probabilidad de recomendación de la marca. Promotores: 9-10; Pasivos: 7-8; Detractores: 0-6. Un NPS alto indica que la marca genera recomendación orgánica, que es el canal de adquisición de menor costo y mayor confianza. Un NPS bajo señala riesgo de boca en boca, (un negativo activo).">?</span></h3>
+          <h3>Índice de recomendación <span class="info" data-tip="Restamos el porcentaje que dio de 0 a 6 al porcentaje que dio 9 o 10 a recomendar VENTO. El resultado va de menos 100 a 100 puntos; no es un porcentaje de clientes. Los colores siguen los rangos internos del tablero.">?</span></h3>
           <div class="value" id="kpiNps">0</div>
           <div class="sub"><span id="npsStatus" class="status green">Muy bueno</span></div>
           <div class="kpi-explanation" id="npsStatusExplanation"></div>
         </div>
         <div class="card">
-          <h3>% Promotores <span class="info" data-tip="Clientes que califican 9 o 10. Representan mayor probabilidad de recomendación y percepción positiva de VENTO.">?</span></h3>
+          <h3>Dispuestos a recomendar <span class="info" data-tip="Clientes que califican 9 o 10. Representan mayor probabilidad de recomendación y percepción positiva de VENTO.">?</span></h3>
           <div class="value" id="kpiPromoters">0%</div>
           <div class="sub" id="kpiPromotersCount">0 clientes</div>
         </div>
         <div class="card">
-          <h3>% Detractores <span class="info" data-tip="Clientes que califican de 0 a 6. Indican riesgo de recomendación negativa o experiencia insatisfactoria.">?</span></h3>
+          <h3>Poco dispuestos a recomendar <span class="info" data-tip="Clientes que califican de 0 a 6. Indican riesgo de recomendación negativa o experiencia insatisfactoria.">?</span></h3>
           <div class="value" id="kpiDetractors">0%</div>
           <div class="sub" id="kpiDetractorsCount">0 clientes</div>
         </div>
         <div class="card">
-          <h3>Experiencia vulnerable <span class="info" data-tip="Clientes que dieron una baja recomendación en NPS o reportaron una experiencia negativa en CSAT. Es una alerta temprana: ayuda a detectar señales que pueden afectar la percepción de marca, la recompra o la recomendación, aunque el resultado general sea favorable.">?</span></h3>
+          <h3>Clientes por revisar <span class="info" data-tip="Registros con una calificación de 0 a 6 para recomendar VENTO o una compra calificada como mala o muy mala. Revisamos el caso antes de decidir qué atención necesita.">?</span></h3>
           <div class="value" id="kpiRisk">0%</div>
           <div class="sub" id="kpiRiskCount">0 casos</div>
         </div>
@@ -876,24 +887,24 @@
 
      <section class="panel">
       <div class="section-title">
-        <h2>2. Distribución NPS y CSAT</h2>
+        <h2>2. Qué dicen de la compra y de recomendar VENTO</h2>
         <span>Recomendación de marca y experiencia general de compra.</span>
       </div>
-      <div class="section-help"><strong>¿Qué muestra esta sección?</strong> El NPS clasifica a los clientes según su intención de recomendar VENTO: promotores (9–10), pasivos (7–8) y detractores (0–6). El CSAT muestra cómo calificaron su experiencia de compra: positiva, neutral o negativa. Ambos indicadores se leen juntos porque un cliente puede estar satisfecho con la compra y, aun así, no recomendar; o presentar una mala experiencia y mantener afinidad con la marca.</div>
+      <div class="section-help"><strong>Son dos preguntas distintas.</strong> Una pregunta qué tan probable es que recomienden VENTO; la otra, cómo les fue con la compra. Un cliente puede estar satisfecho y todavía no estar convencido de recomendar la marca. Por eso mostramos ambas respuestas.</div>
       <div class="two-col">
         <div>
-          <h3>Distribución NPS</h3>
+          <h3>¿Qué tan dispuestos están a recomendar VENTO?</h3>
           <div class="nps-split">
             <div class="split-card">
-              <div>Promotores</div>
+              <div>Dispuestos a recomendar</div>
               <div class="num positivo" id="npsPromoters">0%</div>
             </div>
             <div class="split-card">
-              <div>Pasivos</div>
+              <div>Calificaron con 7 u 8</div>
               <div class="num neutro" id="npsPassives">0%</div>
             </div>
             <div class="split-card">
-              <div>Detractores</div>
+              <div>Poco dispuestos a recomendar</div>
               <div class="num alerta" id="npsDetractors">0%</div>
             </div>
           </div>
@@ -905,17 +916,17 @@
           </table>
         </div>
         <div>
-          <h3>Distribución CSAT</h3>
+          <h3>¿Cómo califican su compra?</h3>
           <div class="bar-row">
-            <div class="bar-header"><span>Experiencia positiva</span><span id="csatPosLabel"></span></div>
+            <div class="bar-header"><span>Compra buena o muy buena</span><span id="csatPosLabel"></span></div>
             <div class="bar-track"><div class="bar-fill" id="csatPosBar"></div></div>
           </div>
           <div class="bar-row">
-            <div class="bar-header"><span>Experiencia neutral</span><span id="csatNeuLabel"></span></div>
+            <div class="bar-header"><span>Compra aceptable</span><span id="csatNeuLabel"></span></div>
             <div class="bar-track"><div class="bar-fill" id="csatNeuBar"></div></div>
           </div>
           <div class="bar-row">
-            <div class="bar-header"><span>Experiencia negativa</span><span id="csatNegLabel"></span></div>
+            <div class="bar-header"><span>Compra mala o muy mala</span><span id="csatNegLabel"></span></div>
             <div class="bar-track"><div class="bar-fill" id="csatNegBar"></div></div>
           </div>
         </div>
@@ -930,20 +941,20 @@
       <div class="comparison-key" id="decisionComparisonKey" style="display:none;"></div>
       <div class="two-col">
         <div>
-          <h3>¿Por qué comprar una moto?</h3>
+          <h3>¿Qué estabas buscando cuando decidiste comprar una moto? (máximo 2)</h3>
           
           <div id="motivesChart"></div>
           <!-- MODIFICADO: muestra motivos textuales reales asociados con la respuesta “Otro”. -->
           <div id="otherMotiveComments"></div>
         </div>
         <div>
-          <h3>¿Cuál fue el factor más importante para decidirte por VENTO?</h3>
+          <h3>¿Cuál fue el factor MÁS importante para decidirte por Vento? (máximo 3)</h3>
           
           <div id="factorsChart"></div>
         </div>
       </div>
       <div class="section-title" style="margin-top:24px;">
-        <h2>Competencia considerada</h2>
+        <h2>¿Qué otras marcas o modelos consideraste antes de elegir Vento?</h2>
       </div>
       
       <div id="competitionChart"></div>
@@ -966,36 +977,36 @@
         </div>
 
         <div>
-          <h3>Motivo de compra de clientes con experiencia vulnerable
+          <h3>¿Por qué compraron los clientes por revisar?
 <span class="info"
-data-tip="La tabla cruza el motivo de compra con los clientes que reportaron una experiencia negativa en CSAT o una baja probabilidad de recomendación en NPS. Permite entender qué necesidad llevó a la compra dentro del universo insatisfecho.">
+data-tip="Muestra para qué compraron su moto quienes dieron una baja recomendación o calificaron mal la compra.">
 ?
 </span>
 </h3>
           <div class="insight">
-            <div class="label">Experiencia vulnerable</div>
+            <div class="label">Clientes por revisar</div>
             <div class="big" id="riskBig">—</div>
             <div class="note" id="riskNote">Clientes únicos que presentan al menos una señal de alerta: baja probabilidad de recomendación o experiencia negativa. Este indicador no es la suma de ambos grupos, ya que un mismo cliente puede aparecer en una o ambas condiciones.</div>
             <div class="risk-formula" id="riskFormula"></div>
 
             <div style="margin-top:14px; line-height:1.8; font-size:13px;">
-             <strong>Riesgo de no recomendación:</strong>
+             <strong>Baja disposición a recomendar:</strong>
 <span id="riskDetractors">—</span>
 
 <br><br>
 
-<strong>Experiencia negativa:</strong>
+<strong>Compra mala o muy mala:</strong>
 <span id="riskCsatNeg">—</span>
             </div>
 
             <div style="margin-top:16px;">
-              <strong>Motivos de compra dentro del universo insatisfecho</strong>
+              <strong>¿Para qué compraron su moto?</strong>
               <table class="risk-table">
                 <thead>
                   <tr>
                     <th>Motivo de compra</th>
                     <th>Clientes con mala experiencia</th>
-                    <th>Clientes que no recomendarían VENTO</th>
+                    <th>Clientes poco dispuestos a recomendar</th>
                   </tr>
                 </thead>
                 <tbody id="riskDriversTable"></tbody>
@@ -1007,19 +1018,19 @@ data-tip="La tabla cruza el motivo de compra con los clientes que reportaron una
 
 <section class="panel">
   <div class="section-title">
-    <h2>6. Comparativo por canal</h2>
-    <span>Canales con n ≥ <span id="minSampleLabel">30</span> registros. Los minoritarios se agrupan al final.</span>
+    <h2>5. Cómo nos califican en cada canal</h2>
+    <span>Canales con al menos <span id="minSampleLabel">30</span> registros. Los canales con pocas respuestas se agrupan al final.</span>
   </div>
 
   <!-- MODIFICADO: ranking desplegable con un diseño distinto a las barras del resto del dashboard. -->
   <details class="channel-ranking" id="channelRankingPanel">
-    <summary><span>Movimiento mensual del ranking por canal</span><small id="rankingPeriodLabel">Junio → Julio</small></summary>
+    <summary><span>Qué lugar ocupa cada canal y cómo cambió</span><small id="rankingPeriodLabel">Junio → Julio</small></summary>
     <div class="ranking-body">
       <div class="ranking-controls" id="rankingControls">
-        <button class="ranking-control active" type="button" data-rank-metric="csat_pos">CSAT positivo</button>
-        <button class="ranking-control" type="button" data-rank-metric="nps">NPS</button>
-        <button class="ranking-control" type="button" data-rank-metric="risk_pct">Menor vulnerabilidad</button>
-        <button class="ranking-control" type="button" data-rank-metric="valid">Volumen válido</button>
+        <button class="ranking-control active" type="button" data-rank-metric="csat_pos">Clientes satisfechos</button>
+        <button class="ranking-control" type="button" data-rank-metric="nps">Índice de recomendación</button>
+        <button class="ranking-control" type="button" data-rank-metric="risk_pct">Menos clientes por revisar</button>
+        <button class="ranking-control" type="button" data-rank-metric="valid">Cantidad de encuestas</button>
       </div>
       <div class="ranking-explanation" id="channelRankingExplanation"></div>
       <div class="ranking-list" id="channelRankingList"></div>
@@ -1031,37 +1042,37 @@ data-tip="La tabla cruza el motivo de compra con los clientes que reportaron una
       <tr>
         <th>Canal</th>
         <th>Respuestas</th>
-        <th>NPS <span class="info" data-tip="Net Promoter Score del canal. El dashboard usa estos rangos interpretativos: Excelente ≥70; Muy bueno 50–69.9; Atención 30–49.9; Riesgo <30.">?</span></th>
-        <th>CSAT +</th>
-        <th>Riesgo %</th>
-        <th class="hide-sm">Oportunidad</th>
+        <th>Índice de recomendación <span class="info" data-tip="Restamos el porcentaje que dio de 0 a 6 al porcentaje que dio 9 o 10 a recomendar VENTO. El resultado va de menos 100 a 100 puntos; no es un porcentaje de clientes. Los colores siguen los rangos internos del tablero.">?</span></th>
+        <th>Clientes satisfechos</th>
+        <th>Clientes por revisar</th>
+        <th class="hide-sm">Qué piden mejorar</th>
       </tr>
     </thead>
     <tbody id="channelTable"></tbody>
   </table>
 
   <div class="nota filtered-method-note">
-    Los <span class="excludedCount">—</span> registros excluidos corresponden a respuestas incompletas o no válidas y se reportan en Calidad de datos. Canales minoritarios (n &lt; <span class="minSampleDynamic">30</span>) se agrupan por baja representatividad estadística.
+    Los <span class="excludedCount">—</span> registros excluidos corresponden a respuestas incompletas o no válidas y se reportan en Calidad de datos. Canales con menos de <span class="minSampleDynamic">30</span> respuestas se agrupan para evitar comparaciones con muy pocos datos.
   </div>
 <div id="minorChannelDetail" class="minor-detail-box"></div>
 </section>
 
     <section class="panel">
       <div class="section-title">
-        <h2>6. Voz del cliente</h2>
-        <span>Insight consolidado a partir de los comentarios útiles de la vista seleccionada.</span>
+        <h2>6. Lo que nos cuentan los clientes</h2>
+        <span>Resumen de los comentarios con información para revisar.</span>
       </div>
       <div class="comments" id="commentsBox"></div>
     </section>
 
     <section class="panel">
       <div class="section-title">
-        <h2>7. Calidad de datos y metodología</h2>
+        <h2>7. Qué respuestas usamos y cómo calculamos</h2>
         </div>
       <div class="method">
         <div class="mini"><div class="label">Registros recibidos</div><div class="value" id="qualityTotal">—</div></div>
         <div class="mini"><div class="label">Registros válidos</div><div class="value" id="qualityValid">—</div></div>
-        <div class="mini"><div class="label">% Completitud</div><div class="value" id="qualityCompleteness">—</div></div>
+        <div class="mini"><div class="label">Porcentaje de encuestas utilizadas</div><div class="value" id="qualityCompleteness">—</div></div>
         <div class="mini"><div class="label">Comentarios útiles</div><div class="value" id="qualityComments">—</div></div>
       </div>
       <div class="nota" id="qualityMethodNote">
@@ -1070,7 +1081,7 @@ data-tip="La tabla cruza el motivo de compra con los clientes que reportaron una
     </section>
 
     <div class="footer">
-      Reporte elaborado para lectura ejecutiva · CX / Experiencia del Cliente · VENTO Motorcycles
+      Resultados de la encuesta a clientes · VENTO Motorcycles
     </div>
   </main>
 
@@ -1146,7 +1157,7 @@ function getChannelLogo(key) {
     }
 
     function displayChannelName(key) {
-      if (key === 'GLOBAL') return 'Global';
+      if (key === 'GLOBAL') return 'Todos los canales';
       if (key === 'SIN CANAL') return 'Sin canal';
       return key.toLowerCase().replace(/\b\w/g, m => m.toUpperCase()).replace("Sam'S", "Sam's");
     }
@@ -1488,6 +1499,7 @@ function renderRiskDrivers(key = 'GLOBAL') {
 }
 
     function renderView(key) {
+      window.dispatchEvent(new Event('cx:view'));
       closeMinorChannelDetail(true);
       const d = getView(key);
       if (!d) return;
@@ -1511,8 +1523,8 @@ function renderRiskDrivers(key = 'GLOBAL') {
       document.getElementById('kpiRiskCount').textContent = `${fmt.format(d.risk)} casos`;
 
       const sampleText = d.valid < 50 && key !== 'GLOBAL'
-        ? 'Muestra baja: leer como señal exploratoria'
-        : 'Base válida para análisis';
+        ? 'Pocas respuestas: revisar con cuidado'
+        : 'Resultados de las encuestas que cumplen los criterios de revisión';
       document.getElementById('sampleNote').textContent = sampleText;
 
       // MODIFICADO: las lecturas amarillas/naranjas declaran el periodo y la vista que las sustentan.
@@ -1544,8 +1556,8 @@ function renderRiskDrivers(key = 'GLOBAL') {
 
       barRows('motivesChart', d.top_motive, 6, comparisonMap('top_motive',key));
       renderOtherMotiveComments(key);
-      barRows('factorsChart', d.top_factor, 6, comparisonMap('top_factor',key));
-      barRows('competitionChart', d.top_competition, 8, comparisonMap('top_competition',key));
+      barRows('factorsChart', d.top_factor, 10, comparisonMap('top_factor',key));
+      barRows('competitionChart', d.top_competition, 9, comparisonMap('top_competition',key));
       const comparisonKey = document.getElementById('decisionComparisonKey');
       comparisonKey.innerHTML = '';
       renderTableRows('areasTable', d.top_area);
@@ -1554,12 +1566,12 @@ function renderRiskDrivers(key = 'GLOBAL') {
   `${fmt.format(d.risk)} clientes identificados · ${pct(d.risk_pct)}`;
 
 document.getElementById('riskNote').textContent =
-  `En ${currentPeriodName().toLowerCase()}, ${fmt.format(d.risk)} clientes de la vista ${viewLabel} presentan al menos una señal cuantitativa de alerta: NPS detractor o CSAT negativo. Este dato se obtiene de las respuestas cerradas de la encuesta y no de la cantidad de comentarios del VOC.`;
+  `Hay ${fmt.format(d.risk)} registros con baja recomendación, mala experiencia o ambas. Este número sale de las calificaciones de la encuesta; no es el número de quejas escritas ni confirma que todos los problemas sigan pendientes.`;
 
 const negativeCsatClients = csatNegCount(d);
 const clientsInBothGroups = Math.max(0, Number(d.detractors || 0) + negativeCsatClients - Number(d.risk || 0));
 document.getElementById('riskFormula').innerHTML =
-  `<strong>¿Cómo se obtiene?</strong> ${fmt.format(d.detractors)} con NPS detractor + ${fmt.format(negativeCsatClients)} con CSAT negativo − ${fmt.format(clientsInBothGroups)} presentes en ambos grupos = <strong>${fmt.format(d.risk)} clientes únicos</strong>. El VOC utiliza otro universo: únicamente los comentarios abiertos considerados útiles.`;
+  `<strong>Sin contar dos veces el mismo registro:</strong> ${fmt.format(d.detractors)} con baja recomendación + ${fmt.format(negativeCsatClients)} con mala experiencia − ${fmt.format(clientsInBothGroups)} que tienen ambas = <strong>${fmt.format(d.risk)} registros por revisar</strong>.`;
 
 document.getElementById('riskDetractors').textContent =
   `${fmt.format(d.detractors)} clientes (${pct(d.detractors_pct)}) con baja probabilidad de recomendar VENTO.`;
@@ -1572,7 +1584,7 @@ renderRiskDrivers(key);
       document.getElementById('commentsBox').innerHTML = `
   <div class="voice-insight">
     ${filterContext}
-    <strong>Voz del cliente (VOC):</strong><br>
+    <strong>Comentarios de los clientes:</strong><br>
     ${generateVoiceInsight(d, viewLabel, key)}
   </div>
 `;
@@ -1586,9 +1598,9 @@ renderRiskDrivers(key);
       document.getElementById('qualityComments').textContent = fmt.format(d.comments);
       document.querySelectorAll('.excludedCount').forEach(el => el.textContent = fmt.format(d.incomplete));
       document.querySelectorAll('.filtered-method-note').forEach(el => {
-        el.innerHTML = `${filterContext}Los <strong>${fmt.format(d.incomplete)}</strong> registros excluidos de esta vista corresponden a respuestas incompletas o no válidas y se reportan en Calidad de datos. Los canales con menos de 30 registros se leen como señal exploratoria por su baja representatividad.`;
+        el.innerHTML = `${filterContext}No usamos <strong>${fmt.format(d.incomplete)} encuestas</strong> porque faltan datos o no cumplen los criterios de revisión. Los canales con menos de 30 respuestas deben revisarse con cuidado: pocos clientes pueden cambiar mucho el resultado.`;
       });
-      document.getElementById('qualityMethodNote').innerHTML = `${filterContext}Los resultados se calculan sobre <strong>${fmt.format(d.valid)} registros válidos</strong> de ${fmt.format(d.total)} recibidos. Motivo, factores, competencia y mejoras son preguntas de opción múltiple; por ello, sus porcentajes representan menciones sobre la base válida y pueden sumar más de 100%. Los comentarios útiles excluyen “Sin comentarios”, “N/A”, “Ninguno” y respuestas sin contenido analítico.`;
+      document.getElementById('qualityMethodNote').innerHTML = `${filterContext}Usamos <strong>${fmt.format(d.valid)} de las ${fmt.format(d.total)} encuestas recibidas</strong>. En las preguntas de motivos, elección, otras marcas y mejoras, el cliente puede elegir varias opciones; por eso los porcentajes pueden sumar más de 100%. Para revisar comentarios, apartamos las respuestas vacías o sin información, como “Sin comentarios” o “Ninguno”.`;
       document.querySelectorAll('.minSampleDynamic').forEach(el => el.textContent = '30');
       renderComparison(key);
       renderTrend(key);
@@ -1690,82 +1702,33 @@ function listText(items) {
 }
 
 function generateMonthlyInsight(d,viewLabel,key) {
-  const period = currentPeriodName();
-  if (period === 'Acumulado 2026') return 'El acumulado reúne los periodos disponibles. Selecciona un mes para comparar sus resultados con el periodo anterior.';
-  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-  const periods = Object.keys(PERIOD_DATA).filter(p => p !== 'Acumulado 2026').sort((a,b) => Number(a.split(' ')[1])-Number(b.split(' ')[1]) || months.indexOf(a.split(' ')[0])-months.indexOf(b.split(' ')[0]));
-  const index = periods.indexOf(period);
-  const prior = index > 0 ? periods[index-1] : null;
-  const base = prior ? historicalView(prior,key) : null;
-  if (!base) return `${escapeHtml(period)} es el primer periodo disponible para esta vista; no hay un periodo anterior con datos comparables.`;
-  const volume = d.valid-base.valid;
-  const cutoff = period === 'Septiembre 2026' ? ' Para este reporte, septiembre incluye los registros nuevos de la descarga al 12 de octubre de 2026. Al no existir fechas de respuesta, puede incluir respuestas de octubre; el volumen no corresponde a un mes calendario exacto.' : '';
-  return `En ${escapeHtml(period.toLowerCase())} se analizaron <strong>${fmt.format(d.valid)} respuestas válidas</strong> de <strong>${escapeHtml(viewLabel)}</strong>, ${fmt.format(Math.abs(volume))} ${volume>=0?'más':'menos'} que en ${escapeHtml(prior.toLowerCase())}. Más respuestas no implican una mejor calificación: NPS, CSAT y experiencia vulnerable dependen de las proporciones de respuesta. Las variaciones de NPS se expresan en puntos y las de CSAT y experiencia vulnerable en puntos porcentuales; una reducción de experiencia vulnerable es favorable.${cutoff}`;
+ const period=currentPeriodName();
+ if(period==='Acumulado 2026') return 'Aquí se reúnen las respuestas de todos los meses disponibles. Elige un mes para ver qué cambió frente al anterior.';
+ const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+ const periods=Object.keys(PERIOD_DATA).filter(p=>p!=='Acumulado 2026').sort((a,b)=>Number(a.split(' ')[1])-Number(b.split(' ')[1])||months.indexOf(a.split(' ')[0])-months.indexOf(b.split(' ')[0]));
+ const i=periods.indexOf(period),prior=i>0?periods[i-1]:null;
+ const base=prior?historicalView(prior,key):null;
+ if(!base) return 'Este es el primer mes con respuestas para esta selección. Todavía no hay un mes anterior para comparar.';
+ const change=d.valid-base.valid;
+ const cutoff=period==='Septiembre 2026'?' Este corte incluye las respuestas nuevas descargadas al 12 de octubre. Como no tenemos la fecha de cada respuesta, puede incluir parte de octubre.':'';
+ return `Tenemos <strong>${fmt.format(d.valid)} encuestas para calcular los resultados</strong>: ${fmt.format(Math.abs(change))} ${change>=0?'más':'menos'} que en ${escapeHtml(prior.toLowerCase())}. Más respuestas no garantizan mejores calificaciones: depende de cómo nos evaluaron los clientes. En recomendación y satisfacción, subir es favorable; en clientes por revisar, bajar es favorable.${cutoff}`;
 }
 
 function generateExecutiveReading(d,viewLabel,key) {
-  const period = currentPeriodName();
-  const june = historicalView('Junio 2026',key);
-  const july = historicalView('Julio 2026',key);
-  if (period === 'Acumulado 2026') {
-    return `En el acumulado, <strong>${viewLabel}</strong> registra <strong>${fmt.format(d.valid)} respuestas válidas</strong>. El NPS es <strong>${d.nps}</strong>, lo que significa que el porcentaje de promotores supera al de detractores por ${Math.abs(Number(d.nps)).toFixed(1)} puntos. La satisfacción positiva alcanza <strong>${pct(d.csat_pos)}</strong>, mientras <strong>${pct(d.risk_pct)}</strong> presenta al menos una señal de experiencia vulnerable. En conjunto, la recomendación es favorable, aunque el grupo vulnerable debe revisarse para identificar problemas que puedan afectar recompra o recomendación.`;
-  }
-  if (period === 'Julio 2026' && june && july) {
-    const npsDelta = Number((july.nps-june.nps).toFixed(1));
-    const csatDelta = Number((july.csat_pos-june.csat_pos).toFixed(1));
-    const riskDelta = Number((july.risk_pct-june.risk_pct).toFixed(1));
-    const direction = npsDelta > .5 ? 'presenta una mejora moderada' : npsDelta < -.5 ? 'presenta una disminución' : 'se mantiene prácticamente estable';
-    return `En julio, <strong>${viewLabel}</strong> ${direction} frente a junio. El NPS pasa de <strong>${june.nps}</strong> a <strong>${july.nps}</strong> (${npsDelta>=0?'+':''}${npsDelta.toFixed(1)} pts), porque cambia la diferencia entre promotores y detractores. La satisfacción positiva pasa de <strong>${pct(june.csat_pos)}</strong> a <strong>${pct(july.csat_pos)}</strong> (${csatDelta>=0?'+':''}${csatDelta.toFixed(1)} pts), es decir, cambia la proporción que calificó su experiencia como Buena o Muy buena. La experiencia vulnerable queda en <strong>${pct(july.risk_pct)}</strong> (${riskDelta>=0?'+':''}${riskDelta.toFixed(1)} pts); ${riskDelta<=0?'su reducción es favorable porque disminuye la proporción con señales de alerta.':'su aumento indica que una mayor proporción reportó baja recomendación o una experiencia negativa.'}`;
-  }
-  return `En ${period.toLowerCase()}, <strong>${viewLabel}</strong> registra un NPS de <strong>${d.nps}</strong>, resultado de restar <strong>${pct(d.detractors_pct)}</strong> de detractores a <strong>${pct(d.promoters_pct)}</strong> de promotores. La satisfacción positiva alcanza <strong>${pct(d.csat_pos)}</strong>. Además, <strong>${fmt.format(d.risk)} clientes (${pct(d.risk_pct)})</strong> presentan baja recomendación o una experiencia negativa; este grupo permite identificar dónde la experiencia puede afectar la percepción de VENTO.`;
+ return `De cada 100 clientes que respondieron, alrededor de <strong>${Math.round(d.csat_pos)} calificaron su compra como buena o muy buena</strong>. El <strong>${pct(d.promoters_pct)}</strong> dio 9 o 10 a la posibilidad de recomendar VENTO; el <strong>${pct(d.detractors_pct)}</strong> dio de 0 a 6. El índice de recomendación es <strong>${Number(d.nps).toFixed(1)} puntos</strong>: restamos el segundo porcentaje al primero. Además, <strong>${fmt.format(d.risk)} registros</strong> tienen baja recomendación, una mala experiencia o ambas. Debemos revisar qué ocurrió en esos casos.`;
 }
 
 function generateDecisionInsight(d,viewLabel,key) {
-  const period=currentPeriodName();
-  const topM=d.top_motive?.[0]; const topF=d.top_factor?.[0]; const topC=d.top_competition?.[0];
-  const june=historicalView('Junio 2026',key); const july=historicalView('Julio 2026',key);
-  let change='';
-  if(period==='Julio 2026'&&june&&july){
-    const before=june.top_motive?.[0]?.name; const now=july.top_motive?.[0]?.name;
-    change=before&&now&&before!==now
-      ? ` A diferencia de junio, cuando predominaba <strong>${before}</strong>, en julio el primer lugar corresponde a <strong>${now}</strong>.`
-      : ' El principal motivo conserva la misma posición respecto a junio.';
-    if(key==='GLOBAL') change += ' Italika continúa como la marca más considerada, aunque su participación baja de <strong>68.3%</strong> a <strong>63.5%</strong>; por ello, conserva el primer lugar, pero pierde 4.8 puntos de presencia relativa.';
-  }
-  return `En <strong>${viewLabel}</strong>, la compra se relaciona principalmente con <strong>${topM?.name||'la necesidad de movilidad'}</strong>, mientras <strong>${topF?.name||'la propuesta de valor'}</strong> se mantiene como el factor de decisión más mencionado. La competencia con mayor presencia es <strong>${topC?.name||'sin dato suficiente'}</strong>.${change}`;
+ const motive=d.top_motive?.[0],factor=d.top_factor?.[0],competitor=d.top_competition?.[0];
+ return `El motivo de compra más mencionado es <strong>${escapeHtml(motive?.name||'sin respuestas disponibles')}</strong>. Lo que más influyó para elegir VENTO fue <strong>${escapeHtml(factor?.name||'sin respuestas disponibles')}</strong>. La otra marca más considerada fue <strong>${escapeHtml(competitor?.name||'sin respuestas disponibles')}</strong>. Estas respuestas nos ayudan a entender qué busca el cliente; no explican por sí solas por qué subieron o bajaron las ventas.`;
 }
 
-function generateVoiceInsight(d, viewLabel, key='GLOBAL') {
-  const comments = Number(d.comments || 0);
-  if (!comments) {
-    return `No se identifican comentarios abiertos suficientes para generar una lectura consolidada de la voz del cliente en la vista <strong>${viewLabel}</strong>.`;
-  }
-
-  const period = currentPeriodName();
-  const manual = VOC_ANALYSIS[`${period}|${key}`];
-  if (manual) {
-    const mixed = period === 'Julio 2026'
-      ? ' También se identifican respuestas mixtas: algunos clientes reportan una mala experiencia, pero mantienen intención de recomendar, mientras otros califican positivamente la experiencia y aun así presentan una baja recomendación. Por esta razón, CSAT y NPS deben leerse de manera complementaria.'
-      : '';
-    return `${manual.text}${mixed}`;
-  }
-
-  const areas = (d.top_area || [])
-    .filter(r => Number(r.value || 0) > 0)
-    .slice(0, 3)
-    .map(r => r.name.toLowerCase());
-
-  const mainAreas = areas.length
-    ? areas.join(', ').replace(/, ([^,]*)$/, ' y $1')
-    : 'la experiencia de compra y postventa';
-
-  const topFactor = d.top_factor?.[0]?.name || 'la propuesta de valor';
-  const topMotive = d.top_motive?.[0]?.name || 'la necesidad de movilidad';
-  const riskText = Number(d.risk || 0) > 0
-    ? ` Adicionalmente, se identifican <strong>${fmt.format(d.risk)} clientes</strong> con al menos una señal de alerta, lo que refuerza la necesidad de priorizar acciones sobre los puntos que más deterioran la percepción de servicio.`
-    : ' No se identifican señales críticas relevantes en esta vista, aunque conviene mantener seguimiento preventivo para sostener la experiencia.';
-
-    return `A partir de <strong>${fmt.format(comments)} comentarios útiles</strong> en la vista <strong>${viewLabel}</strong>, la voz del cliente muestra que la decisión de compra se sostiene principalmente en <strong>${topFactor}</strong> y responde sobre todo a necesidades relacionadas con <strong>${topMotive}</strong>. Sin embargo, las respuestas concentran oportunidades en <strong>${mainAreas}</strong>, lo que indica que la percepción de la marca no depende únicamente del producto o del precio, sino de la consistencia en la atención, la claridad de la información, la entrega y el acompañamiento posterior a la compra.${riskText}`;
+function generateVoiceInsight(d,viewLabel,key='GLOBAL') {
+ const comments=Number(d.comments||0);
+ if(!comments) return 'No hay comentarios con suficiente información para esta selección.';
+ const manual=VOC_ANALYSIS[`${currentPeriodName()}|${key}`];
+ if(manual) return manual.text;
+ return `Tenemos <strong>${fmt.format(comments)} comentarios con información para revisar</strong>. Nos sirven para entender lo que hay detrás de la calificación. Un cliente puede evaluar bien la compra y aun así mencionar un problema. Las opciones que eligió en “¿Qué mejorarían?” tampoco significan, por sí solas, que haya recibido mal servicio. Para saber qué ocurrió debemos leer su comentario y, cuando haga falta, contactarlo.`;
 }
 
 const MOTIVE_FIELDS = [
@@ -2062,7 +2025,7 @@ async function cargarDatosAutomaticos() {
       const separator = APPS_SCRIPT_URL.includes('?') ? '&' : '?';
       const response = await fetch(`${APPS_SCRIPT_URL}${separator}${cacheBust}`, {cache:'no-store'});
       if (!response.ok) throw new Error(`Apps Script respondió ${response.status}`);
-      return {rows:parseAppsScript(await response.json()), source:'Apps Script'};
+      const payload=await response.json(); window.cxExtended=payload; return {rows:parseAppsScript(payload), source:'Apps Script'};
     }
     const response = await fetch(`${SHEET_URL}&${cacheBust}`, {cache:'no-store'});
     if (!response.ok) throw new Error('No fue posible consultar DATA_WEB_AUTO');
@@ -2097,6 +2060,7 @@ async function cargarDatosAutomaticos() {
       row.MES === period && row.ALCANCE === scope
     ) || {};
     const group = fields => fields
+      .filter(([name,key]) => selected[`${key}_N`] !== undefined && selected[`${key}_N`] !== '')
       .map(([name,key]) => ({
         name,
         value:Number(selected[`${key}_N`] || 0),
@@ -2105,27 +2069,27 @@ async function cargarDatosAutomaticos() {
       .sort((a,b) => b.value - a.value);
 
     const top_motive = group([
-      ['Transporte','MOTIVO_TRANSPORTE'],['Trabajo','MOTIVO_TRABAJO'],
-      ['Ahorro','MOTIVO_AHORRO'],['Recreación','MOTIVO_RECREACION'],
-      ['Cambio de auto','MOTIVO_CAMBIO_AUTO'],['Otro','MOTIVO_OTRO']
+      ['Cambiar de transporte público por una moto','MOTIVO_TRANSPORTE'],['La moto como medio de trabajo','MOTIVO_TRABAJO'],
+      ['Ahorro en transporte público o gasolina','MOTIVO_AHORRO'],['Diversión para manejarla los fines de semana','MOTIVO_RECREACION'],
+      ['Cambiar de automóvil por una moto','MOTIVO_CAMBIO_AUTO'],['Otro','MOTIVO_OTRO']
     ]);
     const top_competition = group([
       ['Italika','COMPETENCIA_ITALIKA'],['Honda','COMPETENCIA_HONDA'],
       ['Bajaj','COMPETENCIA_BAJAJ'],['Veloci','COMPETENCIA_VELOCI'],
       ['Yamaha','COMPETENCIA_YAMAHA'],['CF Moto','COMPETENCIA_CF_MOTO'],
-      ['Carabela','COMPETENCIA_CARABELA'],['Suzuki','COMPETENCIA_SUZUKI']
+      ['Carabela','COMPETENCIA_CARABELA'],['Suzuki','COMPETENCIA_SUZUKI'],['KTM','COMPETENCIA_KTM']
     ]);
     const top_factor = group([
       ['Precio','FACTOR_PRECIO'],['Diseño','FACTOR_DISENO'],
-      ['Confianza','FACTOR_CONFIANZA'],['Financiamiento','FACTOR_FINANCIAMIENTO'],
-      ['Equipamiento','FACTOR_EQUIPAMIENTO'],['Recomendación','FACTOR_RECOMENDACION'],
-      ['Asesoría','FACTOR_ASESORIA'],['Disponibilidad','FACTOR_DISPONIBILIDAD'],
-      ['Cercanía','FACTOR_CERCANIA']
+      ['Confianza en la marca','FACTOR_CONFIANZA'],['Financiamiento','FACTOR_FINANCIAMIENTO'],
+      ['Equipamiento, accesorios y tecnología','FACTOR_EQUIPAMIENTO'],['Recomendación','FACTOR_RECOMENDACION'],
+      ['Atención/asesoría de vendedor','FACTOR_ASESORIA'],['Disponibilidad','FACTOR_DISPONIBILIDAD'],
+      ['Cercanía a una agencia','FACTOR_CERCANIA'],['Otro','FACTOR_OTRO']
     ]);
     const top_area = group([
-      ['Colores','MEJORA_COLORES'],['Producto','MEJORA_PRODUCTO'],
-      ['Accesorios','MEJORA_ACCESORIOS'],['Atención al cliente','MEJORA_ATENCION_CLIENTE'],
-      ['Opciones de pago','MEJORA_OPCIONES_PAGO']
+      ['Mayor variedad en colores de motos','MEJORA_COLORES'],['Mayor variedad de producto en piso de venta','MEJORA_PRODUCTO'],
+      ['Disponibilidad de accesorios','MEJORA_ACCESORIOS'],['Mejor atención a cliente','MEJORA_ATENCION_CLIENTE'],
+      ['Mayor variedad en métodos de pago','MEJORA_OPCIONES_PAGO']
     ]);
     return {
       top_motive,
@@ -2173,7 +2137,7 @@ async function cargarDatosAutomaticos() {
       const channels = {};
       periodRows.filter(row => row.ALCANCE !== 'GLOBAL').forEach(row => {
         const liveQualitative = buildQualitative(rows, period, row.ALCANCE);
-        const fallbackQualitative = period === 'Junio 2026'
+        const fallbackQualitative = period === 'Junio 2026' && !window.cxModelsSelected
           ? JUNE_FALLBACK.channels[row.ALCANCE] || {}
           : {};
         channels[row.ALCANCE] = asView(row, {
@@ -2182,10 +2146,10 @@ async function cargarDatosAutomaticos() {
           comments_sample:fallbackQualitative.comments_sample || []
         });
       });
-      if (period === 'Junio 2026' && !Object.keys(channels).length) Object.assign(channels,JUNE_FALLBACK.channels);
+      if (period === 'Junio 2026' && !window.cxModelsSelected && !Object.keys(channels).length) Object.assign(channels,JUNE_FALLBACK.channels);
       const channelOrder = Object.keys(channels).sort((a,b) => channels[b].valid - channels[a].valid);
       const globalQualitative = buildQualitative(rows, period, 'GLOBAL');
-      const globalFallback = period === 'Junio 2026' ? JUNE_FALLBACK.overall : {};
+      const globalFallback = period === 'Junio 2026' && !window.cxModelsSelected ? JUNE_FALLBACK.overall : {};
       const scopes = ['GLOBAL', ...channelOrder];
       PERIOD_DATA[period] = {
         overall:asView(globalRow,{
@@ -2305,10 +2269,10 @@ async function cargarDatosAutomaticos() {
     const points = (value,previous,invert=false) => {
       if (previous == null) return 'Sin periodo comparable';
       const delta = value-previous;
-      return `${delta >= 0 ? '+' : ''}${delta.toFixed(1)} pts vs. ${prior.split(' ')[0].toLowerCase()}`;
+      return `${delta >= 0 ? '+' : ''}${delta.toFixed(1)} puntos frente a ${prior.split(' ')[0].toLowerCase()}`;
     };
     document.getElementById('cmpValid').textContent = fmt.format(d.valid);
-    document.getElementById('cmpValidDelta').textContent = countDelta == null ? 'Sin periodo comparable' : `${countDelta >= 0 ? '+' : ''}${fmt.format(countDelta)} vs. ${prior.split(' ')[0].toLowerCase()}`;
+    document.getElementById('cmpValidDelta').textContent = countDelta == null ? 'Sin periodo comparable' : `${countDelta >= 0 ? '+' : ''}${fmt.format(countDelta)} frente a ${prior.split(' ')[0].toLowerCase()}`;
     document.getElementById('cmpNps').textContent = d.nps.toFixed(1);
     document.getElementById('cmpNpsDelta').textContent = points(d.nps,base?.nps);
     document.getElementById('cmpCsat').textContent = pct(d.csat_pos);
@@ -2418,13 +2382,16 @@ async function cargarDatosAutomaticos() {
 
   try {
     const live = await fetchLiveRows();
+    window.cxRawRows=live.rows;
     buildPeriods(live.rows);
+    window.cxRebuildModels=(rows)=>{buildPeriods(rows);refreshPeriodSelect();};
+    window.dispatchEvent(new Event('cx:loaded'));
     if (!Object.keys(PERIOD_DATA).length) throw new Error('No se encontraron periodos válidos');
     refreshPeriodSelect();
     const periods = orderedPeriods();
     applyPeriod(periods[periods.length - 1]);
-    document.getElementById('uploadStatus').textContent = `Dashboard actualizado desde ${live.source}`;
-    document.getElementById('syncDetail').textContent = 'Indicadores recalculados con la información vigente de DATA_WEB_AUTO.';
+    document.getElementById('uploadStatus').textContent = `Resultados actualizados automáticamente`;
+    document.getElementById('syncDetail').textContent = 'Resultados actualizados con la base de encuestas.';
     document.getElementById('syncDot').classList.add('live');
   } catch (error) {
     console.warn(error);
@@ -2479,5 +2446,165 @@ cargarDatosAutomaticos();
 })();
 </script>
 
+<script id="cx-consolidated-layout">
+// One overview; breakdown and history remain available without repeating cards.
+(() => {
+ const overview=document.getElementById('monthlyComparisonSection');
+ const legacy=document.getElementById('healthSection');
+ const trend=document.getElementById('trendSection');
+ const breakdown=document.getElementById('npsTable')?.closest('section');
+ if(!overview||!legacy||!trend||!breakdown)return;
+ overview.querySelector('h2').textContent='1. Cómo nos fue este mes';
+ const help=document.createElement('p');help.className='cx-overview-help';
+ help.textContent='Cada tarjeta muestra el resultado del mes elegido y cuánto cambió frente al anterior.';
+ overview.querySelector('.section-title').after(help);
+ const details=document.createElement('div');details.className='cx-overview-details';details.id='cxScoreBreakdown';
+ const summary=document.createElement('h3');summary.textContent='Cómo se reparten las respuestas';details.append(summary);
+ const inner=document.createElement('div');inner.className='cx-overview-detail-body';details.append(inner);
+ breakdown.querySelector('.section-title')?.remove();
+ breakdown.classList.remove('panel');breakdown.classList.add('cx-inline-panel');
+ inner.append(breakdown);
+ const reading=document.getElementById('executiveReading');if(reading){inner.append(reading);reading.hidden=true;}
+ const monthly=document.getElementById('monthlyInsight');if(monthly)inner.append(monthly);
+ const history=document.createElement('div');history.className='cx-overview-details';history.id='cxMonthlyHistory';
+ const historySummary=document.createElement('h3');historySummary.textContent='Cómo vienen cambiando las calificaciones';history.append(historySummary);
+ trend.querySelector('.section-title h2')?.remove();
+ trend.classList.remove('panel');trend.classList.add('cx-inline-panel');history.append(trend);
+ overview.append(details,history);
+ // Keep rendering targets for existing calculations, without duplicate cards.
+ legacy.hidden=true;legacy.style.display='none';
+ const headings=[
+  ['Qué impulsa la decisión de compra','2. Por qué nos compran'],
+  ['¿Qué mejorarías de la experiencia de compra o de la moto Vento?','3. Qué nos piden mejorar'],
+  ['Cómo nos califican en cada canal','4. Cómo nos va en cada canal'],
+  ['Lo que nos cuentan los clientes','5. Lo que nos cuentan los clientes'],
+  ['Qué respuestas usamos y cómo calculamos','6. Qué respuestas usamos y cómo calculamos']
+ ];
+ document.querySelectorAll('main h2').forEach(h=>{for(const [text,replacement] of headings)if(h.textContent.includes(text)){h.textContent=replacement;break;}});
+})();
+</script>
+
+<script>
+// Copy-only changes: source fields, numbers, comments and filter values are preserved.
+const CX_PLAIN_LANGUAGE_RULES=[["\\bCSAT positivo\\b", "Clientes satisfechos"], ["\\bCSAT negativo\\b", "compra mala o muy mala"], ["\\bCSAT\\b", "satisfacción con la compra"], ["\\bNPS\\b", "índice de recomendación"], ["\\bVOC\\b", "comentarios de los clientes"], ["\\bCX\\b", "experiencia del cliente"], ["\\bexperiencia vulnerable\\b", "clientes por revisar"], ["\\bvulnerabilidad\\b", "casos por revisar"], ["\\bpromotores\\b", "clientes que calificaron con 9 o 10"], ["\\bdetractores\\b", "clientes que calificaron de 0 a 6"], ["\\bpasivos\\b", "clientes que calificaron con 7 u 8"], ["\\bpts\\.?\\b", "puntos"], ["\\bpp\\b", "puntos porcentuales"], ["\\bvs\\.?", "frente a"], ["\\branking\\b", "orden de los canales"], ["\\binsight\\b", "resumen"], ["\\bregistros válidos\\b", "encuestas usadas en el cálculo"], ["\\bcomentarios útiles\\b", "comentarios con información para revisar"], ["\\buniverso insatisfecho\\b", "grupo de clientes por revisar"], ["\\bseñal exploratoria\\b", "referencia que debemos revisar con cuidado"], ["\\bbaja representatividad\\b", "pocas respuestas"], ["\\bcontenido analítico\\b", "información para entender lo ocurrido"], ["\\bRango interpretativo interno\\b", "Escala interna del tablero"], ["\\bbase válida\\b", "encuestas usadas en el cálculo"], ["\\bDashboard\\b", "Tablero"], ["\\bGlobal\\b", "Todos los canales"], ["\\brespuestas válidas\\b", "Encuestas usadas en el cálculo"], ["\\bvolumen de respuestas válidas\\b", "Cantidad de encuestas usadas"], ["\\bVolumen de Encuestas usadas en el cálculo\\b", "Cantidad de encuestas usadas"], ["\\bBase analizada en cada periodo\\b", "Encuestas que usamos cada mes"], ["\\bResumen ejecutivo y comportamiento mes con mes\\b", "Lo que nos dicen los clientes y cómo cambia cada mes"], ["\\bComportamiento histórico\\b", "Resultados de los meses anteriores"], ["\\bEvolución de la experiencia\\b", "Cómo cambian las calificaciones"], ["\\bNo representativo\\b", "Pocas respuestas"], ["\\bMuestra baja\\b", "Pocas respuestas"], ["\\bCanales minoritarios\\b", "Canales con pocas respuestas"], ["\\bn\\s*<\\s*30\\b", "menos de 30 respuestas"], ["\\bperiodos\\b", "meses"], ["\\bvariación de indicadores\\b", "cambio en las calificaciones"], ["\\bseñal cuantitativa de alerta\\b", "calificación que debemos revisar"], ["Resultados globales y comparativo mensual", "Resultados por canal y comparación entre meses"], ["Ver análisis detallado", "Ver resultados completos"]].map(([pattern,replacement])=>[new RegExp(pattern,'gi'),replacement]);
+function cxPlainText(text){
+ const months={Jun:'Junio',Jul:'Julio',Ago:'Agosto',Sep:'Septiembre',Oct:'Octubre',Nov:'Noviembre',Dic:'Diciembre',Ene:'Enero',Feb:'Febrero',Mar:'Marzo',Abr:'Abril',May:'Mayo'};
+ if(months[text.trim()])return text.replace(text.trim(),months[text.trim()]);
+ const result=CX_PLAIN_LANGUAGE_RULES.reduce((value,[pattern,replacement])=>value.replace(pattern,replacement),text);
+ return /^\s*[A-ZÁÉÍÓÚÑ]/.test(text)?result.replace(/^(\s*)([a-záéíóúñ])/,(_,spaces,letter)=>spaces+letter.toUpperCase()):result;
+}
+function cxSimplifyVisibleCopy(){
+ const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
+ while(node=walker.nextNode()){
+  const parent=node.parentElement;
+  if(!parent||parent.closest('script,style,textarea,#otherMotiveComments'))continue;
+  const next=cxPlainText(node.nodeValue);
+  if(next!==node.nodeValue){const option=parent.closest('option');const value=option?.value;node.nodeValue=next;if(option)option.value=value;}
+ }
+ document.querySelectorAll('[data-tip],[title],[aria-label]').forEach(el=>{
+  for(const attr of ['data-tip','title','aria-label']){const text=el.getAttribute(attr);if(text){const next=cxPlainText(text);if(text!==next)el.setAttribute(attr,next);}}
+ });
+}
+let cxCopyScheduled=false;
+const cxCopyObserver=new MutationObserver(()=>{if(cxCopyScheduled)return;cxCopyScheduled=true;requestAnimationFrame(()=>{cxCopyScheduled=false;cxCopyObserver.disconnect();try{cxSimplifyVisibleCopy();}finally{cxCopyObserver.observe(document.body,{childList:true,subtree:true,characterData:true});}});});
+cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,subtree:true,characterData:true});
+</script>
+<script id="cx-extended-ui">(()=>{
+ const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const controls=document.createElement('div');controls.id='cxModelTools';
+ controls.innerHTML='<details class="model-picker" id="cxModelPicker"><summary><span class="model-caption">Modelos</span><strong id="cxModelLabel">Todos los modelos</strong><span class="model-chevron" aria-hidden="true">⌄</span></summary><div class="model-menu"><label class="model-caption" for="cxModelSearch">Buscar modelo</label><input id="cxModelSearch" type="search" placeholder="Escribe el nombre del modelo" disabled><fieldset class="model-options" id="cxModels" aria-label="Modelos disponibles"></fieldset><div class="model-actions"><button id="cxAllModels" type="button" disabled>Quitar selección</button><button id="cxDoneModels" type="button">Listo</button></div></div></details><p id="cxModelHelp" class="cx-extra-note" aria-live="polite">Consultando los modelos disponibles…</p>';
+ $('channelSelect').parentElement.append(controls);const corte=document.createElement('p');corte.className='cx-extra-note';corte.id='cxCorteOctubre';controls.append(corte);
+ const detail=document.createElement('details');detail.className='cx-overview-details';detail.id='cxExactAnswers';
+ $('cxScoreBreakdown').before(detail);
+ const rec=document.createElement('section');rec.className='panel';rec.id='cxRecovery';
+ rec.innerHTML='<h2>Qué estamos haciendo para recuperar a nuestros clientes</h2><p class="cx-extra-note" id="cxRecoveryScope"></p><div id="cxRecoveryBody"></div>';
+ $('monthlyComparisonSection').after(rec);
+ const models=document.createElement('section');models.className='panel';models.id='cxModelsTable';
+ models.innerHTML='<h2>Cómo nos va por modelo</h2><p class="cx-extra-note" id="cxModelsContext"></p><div class="cx-table-scroll" id="cxModelComparison"></div>';
+ rec.after(models);
+ function modelSummary(rows,p,selection){
+   const groups=new Map();
+   for(const row of rows){
+     if(row.ALCANCE!==p.channel||(p.month!=='Acumulado 2026'&&row.MES!==p.month)||(selection.length&&!selection.includes(row.MODELO)))continue;
+     const name=row.MODELO||'Sin modelo identificado',g=groups.get(name)||{name,valid:0,bad:0,risk:0,promoters:0,detractors:0};
+     g.valid+=Number(row.VALIDAS||0);g.bad+=Number(row.CSAT_NEGATIVO_N||0);g.risk+=Number(row.RIESGO||0);
+     g.promoters+=Number(row.PROMOTORES||0);g.detractors+=Number(row.DETRACTORES||0);groups.set(name,g);
+   }
+   return [...groups.values()].filter(g=>g.valid>0).sort((a,b)=>b.risk-a.risk||b.valid-a.valid||a.name.localeCompare(b.name,'es'));
+ }
+ function renderModels(p){
+   const data=window.cxExtended?.modelRows;
+   $('cxModelsContext').textContent=[p.month,p.channel==='GLOBAL'?'Todos los canales':p.channel,selected.length?'Modelos seleccionados':'Todos los modelos'].join(' · ');
+   const groups=Array.isArray(data)?modelSummary(data,p,selected):[];
+   const fmt=n=>n.toLocaleString('es-MX'),percent=(n,d)=>(100*n/d).toLocaleString('es-MX',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+   $('cxModelComparison').innerHTML=!groups.length?'<p>'+ (Array.isArray(data)?'No hay encuestas válidas para esta selección.':'El detalle por modelo no está disponible en este momento.') +'</p>':
+    '<p class="cx-extra-note">Ordenado por cantidad de casos por revisar. Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+groups.map(g=>'<tr><td>'+esc(g.name)+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>';
+ }
+
+ let selected=[],filteredRows=null,busy=false;
+ const scope=()=>({month:$('periodSelect')?.value,channel:$('channelSelect')?.value||'GLOBAL'});
+ function sumRows(rows){
+   const groups=new Map();
+   rows.forEach(r=>{const key=JSON.stringify([r.MES,r.ALCANCE]);if(!groups.has(key))groups.set(key,{MES:r.MES,ALCANCE:r.ALCANCE});const a=groups.get(key);
+     Object.keys(r).filter(k=>k.endsWith('_N')||['TOTAL_RECIBIDAS','VALIDAS','EXCLUIDAS','PROMOTORES','PASIVOS','DETRACTORES','RIESGO','COMENTARIOS_UTILES'].includes(k)).forEach(k=>a[k]=(a[k]||0)+Number(r[k]||0));});
+   return [...groups.values()].map(a=>{const p=n=>a.VALIDAS?Math.round(n/a.VALIDAS*1000)/10:0;
+     Object.keys(a).filter(k=>k.endsWith('_N')).forEach(k=>a[k.slice(0,-2)+'_PCT']=p(a[k]));
+     a.NPS=p(a.PROMOTORES-a.DETRACTORES);a.PROMOTORES_PCT=p(a.PROMOTORES);a.PASIVOS_PCT=p(a.PASIVOS);a.DETRACTORES_PCT=p(a.DETRACTORES);a.RIESGO_PCT=p(a.RIESGO);a.RESPUESTAS_DETALLE_BASE=a.VALIDAS;return a;});
+ }
+ function apply(){
+   const p=scope(),rows=window.cxExtended?.modelRows;if(!Array.isArray(rows)||!window.cxRebuildModels)return;
+   busy=true;window.cxModelsSelected=selected.length>0;filteredRows=selected.length?sumRows(rows.filter(r=>selected.includes(r.MODELO))):null;
+   window.cxRebuildModels(filteredRows||window.cxRawRows);
+   if([...$('periodSelect').options].some(o=>o.value===p.month)){$('periodSelect').value=p.month;$('periodSelect').dispatchEvent(new Event('change'));}
+   if([...$('channelSelect').options].some(o=>o.value===p.channel)){$('channelSelect').value=p.channel;$('channelSelect').dispatchEvent(new Event('change'));}
+   $('cxModelHelp').textContent=selected.length?'Modelos seleccionados: '+selected.join(' · ')+'. Los resultados y comparaciones corresponden a esta selección.':'Todos los modelos. Los registros sin coincidencia aparecen como “Sin modelo identificado”.';
+   busy=false;renderExtra();
+ }
+ let modelNames=[];
+ const foldModel=v=>v.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('es');
+ function refreshModelLabel(){
+   $('cxModelLabel').textContent=selected.length===1?selected[0]:selected.length?selected.length+' modelos seleccionados':'Todos los modelos';
+   $('cxAllModels').disabled=!selected.length;
+ }
+ function listModels(){
+   const q=foldModel($('cxModelSearch').value.trim());
+   const visible=modelNames.filter(m=>foldModel(m).includes(q));
+   $('cxModels').innerHTML=visible.length?visible.map(m=>'<label><input type="checkbox" value="'+esc(m)+'" '+(selected.includes(m)?'checked':'')+'><span>'+esc(m)+'</span></label>').join(''):'<p class="cx-extra-note">No hay modelos que coincidan.</p>';
+ }
+ $('cxModelSearch').addEventListener('input',listModels);
+ $('cxModels').addEventListener('change',e=>{if(e.target.type!=='checkbox')return;const m=e.target.value;selected=e.target.checked?[...selected,m]:selected.filter(v=>v!==m);refreshModelLabel();apply();});
+ $('cxAllModels').addEventListener('click',()=>{selected=[];refreshModelLabel();listModels();apply();});
+ const closeModels=()=>{$('cxModelPicker').open=false;$('cxModelPicker').querySelector('summary').focus();};
+ $('cxDoneModels').addEventListener('click',closeModels);
+ controls.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('cxModelPicker').open){e.preventDefault();closeModels();}});
+ document.addEventListener('click',e=>{if(!controls.contains(e.target))$('cxModelPicker').open=false;});
+ window.addEventListener('cx:loaded',()=>{
+   const rows=window.cxExtended?.modelRows;
+   if(Array.isArray(rows)&&rows.length){modelNames=[...new Set(rows.map(r=>r.MODELO).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));$('cxModelSearch').disabled=false;selected=[];window.cxModelsSelected=false;filteredRows=null;listModels();refreshModelLabel();$('cxModelHelp').textContent='Todos los modelos. Abre el filtro para elegir uno o varios.';}
+   else {$('cxModelHelp').textContent='El filtro por modelo no está disponible en este momento.';}
+   renderExtra();
+ });
+ function renderExtra(){
+   const p=scope(),rows=filteredRows||window.cxRawRows||[];renderModels(p);$('cxCorteOctubre').textContent=p.month==='Octubre 2026'?'Corte de octubre: registros nuevos de la descarga del 3 de noviembre. La fuente indica la fecha de venta, pero no la fecha de respuesta.':'';
+   const relevant=rows.filter(r=>r.ALCANCE===p.channel&&(p.month==='Acumulado 2026'||r.MES===p.month));
+   const oldBreakdown=$('cxScoreBreakdown')?.querySelector('.cx-inline-panel');
+   const base=relevant.reduce((n,r)=>n+Number(r.RESPUESTAS_DETALLE_BASE||0),0);
+   $('cxScoreBreakdown').hidden=base>0;if(oldBreakdown)oldBreakdown.hidden=base>0;const oldTitle=$('cxScoreBreakdown')?.querySelector('h3');if(oldTitle)oldTitle.hidden=base>0;
+   const count=k=>relevant.reduce((n,r)=>n+Number(r[k]||0),0);
+   const table=(title,items)=>'<h3>'+title+'</h3><table class="cx-extra-table"><thead><tr><th>Respuesta</th><th>Clientes</th><th>Porcentaje</th></tr></thead><tbody>'+items.map(([label,key])=>'<tr><td>'+esc(label)+'</td><td>'+count(key).toLocaleString('es-MX')+'</td><td>'+(base?(count(key)/base*100).toFixed(1)+'%':'—')+'</td></tr>').join('')+'</tbody></table>';
+   detail.innerHTML=base?'<summary>Ver las opciones de compra y recomendación</summary><p class="cx-extra-note">Detalle de '+base.toLocaleString('es-MX')+' encuestas válidas. '+(base!==relevant.reduce((n,r)=>n+Number(r.VALIDAS||0),0)?'La cobertura del detalle difiere del total histórico publicado; no sustituye ese total.':'')+'</p>'+table('¿Cómo clasificarías tu experiencia general de compra (desde atención a entrega)?',['Muy Buena','Buena','Aceptable','Mala','Muy Mala'].map(x=>[x,'RESPUESTA_COMPRA_'+x.toUpperCase().replace(/ /g,'_')+'_N']))+table('¿Qué tan probable es que recomendarías una Vento?',Array.from({length:11},(_,i)=>[String(i),'RESPUESTA_RECOMENDACION_'+i+'_N']))+'<p class="cx-extra-note">El cuestionario indica una escala del 1 al 10. Se muestra el 0 por separado porque también aparece en la base.</p>':'<summary>Opciones de compra y recomendación</summary><p class="cx-extra-note">El detalle no está disponible en este momento.</p>';
+   $('cxRecoveryScope').textContent='VPS Conecta · Solo encuesta de Canales · Mes de la encuesta: '+(p.month||'—')+' · '+(p.channel==='GLOBAL'?'Todos los canales':p.channel)+(selected.length?' · Modelos: '+selected.join(', '):' · Todos los modelos')+'. Atención operativa desde octubre de 2026; fecha de gestión independiente del mes de encuesta.';
+   const recovery=window.cxExtended?.recovery;
+   if(!recovery?.ok){$('cxRecoveryBody').innerHTML='<p class="cx-extra-note">Seguimiento no disponible. No fue posible consultar VPS Conecta; esto no significa que haya cero casos.</p>';return;}
+   const rr=recovery.rows.filter(r=>(p.month==='Acumulado 2026'||r.MES_ENCUESTA===p.month)&&(p.channel==='GLOBAL'||r.CANAL===p.channel)&&(!selected.length||selected.includes(r.MODELO)));
+   const total=k=>rr.reduce((n,r)=>n+Number(r[k]||0),0);
+   $('cxRecoveryBody').innerHTML='<div class="cx-extra-grid">'+[['ASIGNADOS','Casos asignados'],['CONTACTADOS','Clientes con contacto efectivo'],['SOLUCIONES_CONFIRMADAS','Soluciones confirmadas'],['ACTIVOS','Casos en atención'],['CASOS_CON_VENCIMIENTO','Casos con seguimiento vencido']].map(([k,t])=>'<div class="cx-extra-card">'+t+'<strong>'+total(k)+'</strong></div>').join('')+'</div><p class="cx-extra-note">'+total('GESTIONES')+' gestiones · '+total('OTROS_CIERRES')+' cierres sin gestión adicional. Contacto y solución son medidas distintas; no demuestran un cambio en la recomendación.</p><p class="cx-extra-note">Última consulta: '+esc(recovery.updatedAt)+'. Los clientes sin expediente todavía no se cuentan como asignados.</p>';
+ }
+ let scheduled=false;const schedule=()=>{if(scheduled||busy)return;scheduled=true;setTimeout(()=>{scheduled=false;renderExtra();},0);};
+ window.addEventListener('cx:view',schedule);
+ $('periodSelect').addEventListener('change',schedule);$('channelSelect').addEventListener('change',schedule);
+ renderExtra();
+})();
+</script>
 </body>
 </html>
