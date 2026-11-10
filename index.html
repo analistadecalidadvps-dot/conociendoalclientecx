@@ -782,6 +782,41 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #monthlyComparisonSection{background:transparent;box-shadow:none;border:0;padding:0;margin-top:18px} #monthlyComparisonSection>.section-title{margin:0 0 9px;border:0} #monthlyComparisonSection .cx-overview-help{display:none} #monthlyComparisonSection .comparison-grid{gap:12px} #monthlyComparisonSection .comparison-card{background:#fff} #monthlyComparisonSection .comparison-card:last-child{background:#e5edff} .cx-month-chart{background:#fff;border:0;border-radius:14px;margin:15px 0 0;padding:17px 20px}.cx-chart-heading .cx-choice-group{margin:0}.cx-chart-bars{margin-bottom:5px}#cxReviewSection,#cxQuestionsSection,#cxVpsStatus{padding:17px 20px}
 @media(max-width:650px){.brand-logo{width:105px}.cx-filter-row{grid-template-columns:60px minmax(0,1fr)}#cxModelTools .model-menu{grid-template-columns:60px minmax(0,1fr)}.model-actions{grid-column:2;grid-row:3}#cxModelHelp,#cxCorteOctubre{margin-left:0}#monthlyComparisonSection .comparison-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cx-month-chart{padding:14px}.cx-open-detail.model-picker .model-options{grid-template-columns:1fr}}
 @media(max-width:900px){.ranking-list{grid-template-columns:1fr}.rank-item{min-width:0;grid-template-columns:36px minmax(90px,1fr) auto}.rank-move{white-space:normal}}#cxResultsPage table{display:block;max-width:100%;overflow-x:auto} .channel-ranking>.cx-open-heading{display:flex;gap:12px;flex-wrap:wrap} #cxApprovedFilters,#cxResultsPage,.comparison-card,.cx-final-group{min-width:0}</style>
+
+<style id="cx-claro">
+.topbar{background:#101113!important}
+.topbar-inner{position:relative;isolation:isolate;overflow:hidden;min-height:148px}
+.cx-bike-photo{display:none;position:absolute;z-index:-1;right:0;top:0;width:min(63%,650px);height:100%;object-fit:cover;object-position:center 47%;opacity:.58;mask-image:linear-gradient(90deg,transparent,#000 65%);pointer-events:none}
+.cx-bike-photo.ready{display:block}.cx-bike-photo.ready+.cx-bike-outline{display:none}
+.cx-bike-outline{position:absolute;width:min(55%,450px);right:1%;bottom:-10%;color:#a4a9b1;opacity:.2;z-index:-2;pointer-events:none}
+#monthlyComparisonSection .comparison-card.explainable{padding-bottom:36px}
+#monthlyComparisonSection .cx-metric-note{margin:6px 0 0;color:#475569;font-size:13px;line-height:1.35}
+#monthlyComparisonSection [data-signal]{display:inline-block;width:fit-content;padding:3px 7px;border-radius:5px;color:#475569;background:#edf1f6}
+#monthlyComparisonSection [data-signal=good]{color:#18563a;background:#def6e8}
+#monthlyComparisonSection [data-signal=attention]{color:#8b2f31;background:#ffe5e3}
+#monthlyComparisonSection .comparison-card>strong{display:block}
+.cx-reading,.cx-actions-model{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,245px),1fr));margin:16px 0}
+.cx-reading article,.cx-actions-model article{background:#fff;border:1px solid #e0e6ef;border-radius:14px;padding:16px;color:#172334}
+.cx-reading h3,.cx-actions-model h4,.cx-actions-model p{margin:0}
+.cx-reading p,.cx-actions-model p,.cx-actions-model small{color:#475569}
+.cx-actions-model h4,.cx-actions-model p{grid-column:1/-1}
+.cx-actions-model small{display:block;margin-top:6px}
+.cx-distribution{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:10px}
+.cx-reading ul{list-style:none;padding:0;margin:5px 0}
+.cx-ring{display:grid;place-items:center;width:102px;height:102px;border-radius:50%;background:conic-gradient(#86d4a6 var(--positive),#bac3d0 var(--positive) var(--neutral),#f4a39d var(--neutral))}
+.cx-ring strong{display:grid;place-items:center;background:#fff;width:75px;height:75px;border-radius:50%}
+.cx-stack,.cx-action-track{display:flex;height:10px;border-radius:9px;overflow:hidden;margin:9px 0;background:#eef0f4}
+.cx-stack span:nth-child(1){background:#86d4a6}.cx-stack span:nth-child(2){background:#bac3d0}.cx-stack span:nth-child(3),.cx-action-track span{background:#f4a39d}
+.cx-trend{display:block;width:100%;height:82px}.cx-trend-labels{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;list-style:none;padding:0;margin:0}.cx-trend-labels li{font-size:12px;color:#475569;text-align:center}.cx-trend-labels strong{display:block;color:#17365d}
+@media(max-width:650px){.topbar-inner{min-height:125px}.cx-bike-photo{opacity:.35}.cx-bike-outline{width:66%}}
+</style>
+<style>
+#cxApprovedFilters .cx-picklists{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:16px;align-items:end}
+#cxApprovedFilters .cx-picklists label{display:grid;gap:5px;font-weight:700;color:#17365d}
+#cxApprovedFilters .cx-picklists select{display:block;width:100%;min-width:0;max-width:none;margin:0;padding:9px 12px;border:1px solid #cbd5e1;border-radius:8px;background:white;color:#14284c;font:inherit;font-weight:500}
+#cxClearFilters{min-height:39px;white-space:nowrap}
+@media(max-width:650px){#cxApprovedFilters .cx-picklists{grid-template-columns:repeat(2,minmax(0,1fr))}#cxClearFilters{grid-column:1/-1;justify-self:start}}@media(max-width:400px){#cxApprovedFilters .cx-picklists{grid-template-columns:minmax(0,1fr)}}
+</style>
 </head>
 <body>
 <div id="cxHomeOverlay">
@@ -791,14 +826,14 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
       <div class="cx-home-toolbar"><strong>Resumen:</strong><select id="cxHomePeriod"></select><select id="cxHomeChannel"></select><button id="cxHomeRefresh">↻ Actualizar datos</button><button class="primary" id="cxEnterAnalysis">Ver análisis detallado →</button></div>
       <div class="cx-home-kpis">
         <div class="cx-home-kpi"><span>RESPUESTAS VÁLIDAS</span><strong id="cxKpiValid">—</strong><small id="cxKpiValidDelta">—</small></div>
-        <div class="cx-home-kpi"><span>Índice de recomendación</span><strong id="cxKpiNps">—</strong><small id="cxKpiNpsDelta">—</small></div>
+        <div class="cx-home-kpi"><span>Recomendación</span><strong id="cxKpiNps">—</strong><small id="cxKpiNpsDelta">—</small></div>
         <div class="cx-home-kpi"><span>CSAT POSITIVO</span><strong id="cxKpiCsat">—</strong><small id="cxKpiCsatDelta">—</small></div>
         <div class="cx-home-kpi"><span>EXPERIENCIA VULNERABLE</span><strong id="cxKpiRisk">—</strong><small id="cxKpiRiskDelta">—</small></div>
       </div><div class="cx-home-status" id="cxHomeStatus">Preparando resumen con los datos del dashboard original…</div>
     </section>
     <section class="cx-home-card"><div class="cx-home-section-title"><h2>Comportamiento histórico</h2><span id="cxHomeRange">Periodos disponibles</span></div>
       <div class="cx-home-charts">
-        <div class="cx-home-chart"><h3>Evolución de la experiencia</h3><p>Índice de recomendación y Clientes satisfechos durante todos los periodos cargados.</p><div id="cxChartExperience"></div><div class="cx-home-legend"><span><i class="cx-dot nps"></i>Índice de recomendación</span><span><i class="cx-dot csat"></i>Clientes satisfechos</span></div></div>
+        <div class="cx-home-chart"><h3>Evolución de la experiencia</h3><p>Índice de recomendación y Clientes satisfechos durante todos los periodos cargados.</p><div id="cxChartExperience"></div><div class="cx-home-legend"><span><i class="cx-dot nps"></i>Índice de recomendación</span><span><i class="cx-dot csat"></i>Satisfacción con la compra</span></div></div>
         <div class="cx-home-chart risk-focus"><h3>Clientes por revisar</h3><p>Porcentaje de clientes con al menos una señal de alerta.</p><div id="cxChartRisk"></div></div>
         <div class="cx-home-chart volume"><h3>Volumen de respuestas válidas</h3><p>Base analizada en cada periodo.</p><div id="cxChartVolume"></div></div>
       </div>
@@ -808,7 +843,7 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 <button id="cxBackHome" hidden>← Inicio</button>
 
   <div class="topbar">
-    <div class="topbar-inner">
+    <div class="topbar-inner"><img class="cx-bike-photo" src="https://www.vento.com/wp-content/uploads/HYPER-5.webp" alt="" onload="this.classList.add('ready')" /><svg class="cx-bike-outline" aria-hidden="true" viewBox="0 0 410 160"><g fill="none" stroke="currentColor" stroke-width="5"><circle cx="82" cy="109" r="41"/><circle cx="82" cy="109" r="30"/><circle cx="330" cy="109" r="41"/><circle cx="330" cy="109" r="30"/><path d="m82 109 75-34 52 41 51-50 70 43m-93-25-34 28-70-13 23-32m174 42-59-89 21-8m-11 22 25 13"/></g><path fill="currentColor" d="m39 54 102 9 46-13 51-20 33 9 27 32-55 16-32 27-54-30-67-7z"/></svg>
       <div class="brand">
     <!-- MODIFICADO: logo VENTO incrustado para que funcione sin carpetas externas. -->
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAA8CAYAAADc3IdaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkNCNEQzRkREOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkNCNEQzRkRFOTdFRTExRUI5MTU1RDc1QkZCQzQ4REJCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6Q0I0RDNGREI5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6Q0I0RDNGREM5N0VFMTFFQjkxNTVENzVCRkJDNDhEQkIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7kx7wmAAAU70lEQVR42uxdCbhX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"
@@ -836,9 +871,9 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
           <strong>Selección:</strong>
           <span id="currentViewLabel">Global</span>
         </div>
-        <select id="periodSelect" class="period-select" aria-label="Seleccionar mes"></select>
-        <div class="filter-group" id="quickButtons"></div>
-        <select id="channelSelect" aria-label="Seleccionar canal"></select>
+        <div class="filter-group" id="quickButtons"></div><div class="cx-picklists"><label>Periodo<select id="periodSelect" class="period-select"></select></label>
+
+        <label>Canal<select id="channelSelect"></select></label><button class="btn" id="cxClearFilters" type="button">Limpiar filtros</button></div>
         <button class="btn" id="refreshDataBtn" type="button">↻ Actualizar datos</button>
       </div>
     </section>
@@ -857,10 +892,10 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
       </div>
       <div class="comparison-grid">
         <!-- MODIFICADO: los recuadros ahora explican la variación al pasar el cursor o dar clic. -->
-        <div class="comparison-card explainable" tabindex="0"><span>Encuestas usadas en el cálculo</span><strong id="cmpValid">—</strong><small id="cmpValidDelta">—</small><div class="comparison-explanation" id="cmpValidExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Encuestas válidas</span><strong id="cmpValid">—</strong><small id="cmpValidDelta">—</small><div class="comparison-explanation" id="cmpValidExplain"></div></div>
         <div class="comparison-card explainable" tabindex="0"><span>Índice de recomendación</span><strong id="cmpNps">—</strong><small id="cmpNpsDelta">—</small><div class="comparison-explanation" id="cmpNpsExplain"></div></div>
         <div class="comparison-card explainable" tabindex="0"><span>Clientes satisfechos</span><strong id="cmpCsat">—</strong><small id="cmpCsatDelta">—</small><div class="comparison-explanation" id="cmpCsatExplain"></div></div>
-        <div class="comparison-card explainable" tabindex="0"><span>Clientes por revisar</span><strong id="cmpRisk">—</strong><small id="cmpRiskDelta">—</small><div class="comparison-explanation" id="cmpRiskExplain"></div></div>
+        <div class="comparison-card explainable" tabindex="0"><span>Casos por revisar</span><strong id="cmpRisk">—</strong><small id="cmpRiskDelta">—</small><div class="comparison-explanation" id="cmpRiskExplain"></div></div>
       </div>
       <div class="nota" id="monthlyInsight" style="margin-top:14px;"></div>
     </section>
@@ -2297,7 +2332,7 @@ async function cargarDatosAutomaticos() {
     };
     document.getElementById('cmpValid').textContent = fmt.format(d.valid);
     document.getElementById('cmpValidDelta').textContent = countDelta == null ? 'Sin periodo comparable' : `${countDelta >= 0 ? '+' : ''}${fmt.format(countDelta)} frente a ${prior.split(' ')[0].toLowerCase()}`;
-    document.getElementById('cmpNps').textContent = d.nps.toFixed(1);
+    document.getElementById('cmpNps').textContent = d.nps.toFixed(1)+' puntos';
     document.getElementById('cmpNpsDelta').textContent = points(d.nps,base?.nps);
     document.getElementById('cmpCsat').textContent = pct(d.csat_pos);
     document.getElementById('cmpCsatDelta').textContent = points(d.csat_pos,base?.csat_pos);
@@ -2537,7 +2572,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const controls=document.createElement('div');controls.id='cxModelTools';
  controls.innerHTML='<details class="model-picker" id="cxModelPicker"><summary><span class="model-caption">Modelos</span><strong id="cxModelLabel">Todos los modelos</strong><span class="model-chevron" aria-hidden="true">⌄</span></summary><div class="model-menu"><label class="model-caption" for="cxModelSearch">Buscar modelo</label><input id="cxModelSearch" type="search" placeholder="Escribe el nombre del modelo" disabled><fieldset class="model-options" id="cxModels" aria-label="Modelos disponibles"></fieldset><div class="model-actions"><button id="cxAllModels" type="button" disabled>Seleccionar todos</button><button id="cxDoneModels" type="button">Listo</button></div></div></details><p id="cxModelHelp" class="cx-extra-note" aria-live="polite">Consultando los modelos disponibles…</p>';
- $('channelSelect').parentElement.append(controls);const corte=document.createElement('p');corte.className='cx-extra-note';corte.id='cxCorteOctubre';controls.append(corte);
+ document.querySelector('#cxApprovedFilters .toolbar').append(controls);const corte=document.createElement('p');corte.className='cx-extra-note';corte.id='cxCorteOctubre';controls.append(corte);
  const detail=document.createElement('div');detail.className='cx-overview-details';detail.id='cxExactAnswers';
  $('cxScoreBreakdown').before(detail);
  const rec=document.createElement('section');rec.className='cx-overview-details';rec.id='cxRecovery';
@@ -2569,8 +2604,11 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const visibleGroups=showAllModelRows?groups:groups.slice(0,10);
 
    const fmt=n=>n.toLocaleString('es-MX'),percent=(n,d)=>(100*n/d).toLocaleString('es-MX',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+   const leaders=groups.filter(g=>g.risk>0).slice(0,3);
+   const max=byRate?100:Math.max(1,...leaders.map(g=>g.risk));
+   const action=leaders.length?'<div class="cx-actions-model"><h4>'+ (byRate?'Dónde es más frecuente entre quienes respondieron':'Dónde se concentran más casos')+'</h4><p>'+ (byRate?'Compara la proporción y revisa cuántas encuestas la respaldan.':'Si vas a revisar por volumen, empieza por los primeros modelos y busca si hay concentración por canal.')+'</p>'+leaders.map(g=>'<article><strong>'+esc(g.name)+'</strong><div class="cx-action-track" aria-hidden="true"><span style="width:'+((byRate?100*g.risk/g.valid:g.risk)/max*100)+'%"></span></div><span>'+fmt(g.risk)+' de '+fmt(g.valid)+' respuestas · '+percent(g.risk,g.valid)+'</span><small>Comentarios revisados pendientes de conexión.</small></article>').join('')+'</div>':'';
    $('cxModelComparison').innerHTML=!groups.length?'<p>'+ (Array.isArray(data)?'No hay encuestas válidas para esta selección.':'El detalle por modelo no está disponible en este momento.') +'</p>':
-    '<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td>'+esc(g.name)+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
+    action+'<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td>'+esc(g.name)+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
    const toggle=$('cxToggleModelTable');
    if(toggle)toggle.addEventListener('click',()=>{showAllModelRows=!showAllModelRows;renderModels(p);$('cxToggleModelTable')?.focus();});
  }
@@ -2609,6 +2647,21 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  $('cxModelSearch').addEventListener('input',listModels);
  $('cxModels').addEventListener('change',e=>{if(e.target.type!=='checkbox')return;const m=e.target.value;selected=e.target.checked?[...selected,m]:selected.filter(v=>v!==m);refreshModelLabel();apply();});
  $('cxAllModels').addEventListener('click',()=>{selected=selected.length===modelNames.length?[]:[...modelNames];refreshModelLabel();listModels();apply();});
+ $('cxClearFilters').addEventListener('click',()=>{
+   const period=$('periodSelect'), channel=$('channelSelect');
+   const rebuild=window.cxModelsSelected;
+   selected=[];
+   $('cxModelSearch').value='';
+   refreshModelLabel();
+   if(modelNames.length)listModels();
+   if(rebuild)apply();
+   const latest=[...period.options].find(option=>!option.value.startsWith('Acumulado'));
+   if(latest)period.value=latest.value;
+   channel.value='GLOBAL';
+   period.dispatchEvent(new Event('change',{bubbles:true}));
+   channel.value='GLOBAL';
+   channel.dispatchEvent(new Event('change',{bubbles:true}));
+ });
  const closeModels=()=>{$('cxModelPicker').open=false;$('cxModelSearch').focus();};
  $('cxDoneModels').addEventListener('click',closeModels);
  controls.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('cxModelPicker').open){e.preventDefault();closeModels();}});
@@ -2675,7 +2728,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const body=document.createElement('div');detail.append(header,body);resultsPage.append(detail);return body;
  };
  const prior=[...resultsPage.children].filter(el=>el!==overview&&!el.hidden);
- const investigate=group('Dónde conviene revisar','Comparación por canal y Top 10 por modelo');
+ const investigate=group('Dónde conviene actuar','Localiza los casos por modelo y canal');
  const questions=group('Qué preguntamos y qué respondieron','Opciones con cantidad y porcentaje');
  const vps=document.createElement('aside');vps.className='panel cx-final-group';vps.id='cxVpsStatus';
  vps.innerHTML='<h2>Recuperación · VPS Conecta</h2><small>Estado al 8 de noviembre de 2026</small><div><p>El equipo de atención acaba de incorporarse y aún no ha iniciado el contacto con clientes. Los casos por revisar que muestra este tablero son alertas de la encuesta; el seguimiento se registrará en VPS Conecta.</p></div>';
@@ -2694,14 +2747,58 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    (element.id==='cxModelsTable'||/cada canal/i.test(title)?investigate:questions).append(element);
    if(element.tagName==='DETAILS'){element.open=true;const label=element.querySelector('summary');if(label){const heading=document.createElement('h3');heading.textContent=label.textContent;label.hidden=true;label.after(heading);}}
  }
+ const reading=document.createElement('section');
+ reading.className='cx-reading';
+ chart.before(reading);
+ function paintCxReading(period,channel){
+   const data=channel==='GLOBAL'?PERIOD_DATA[period]?.overall:PERIOD_DATA[period]?.channels?.[channel];
+   reading.replaceChildren();
+   const definitions=[
+     ['cmpValid','Respuestas que cumplen los criterios del análisis.',0],
+     ['cmpNps',data?.nps>0?'Las notas de 9 y 10 superan a las de 0 a 6.':data?.nps<0?'Las notas de 0 a 6 superan a las de 9 y 10.':'Diferencia entre las notas altas y bajas de recomendación.',1],
+     ['cmpCsat','Respuestas que calificaron la compra como buena o muy buena.',1],
+     ['cmpRisk','Compra mala o muy mala, recomendación de 0 a 6, o ambas. Cada respuesta cuenta una vez.',-1]
+   ];
+   for(const [id,description,direction] of definitions){
+     const delta=document.getElementById(id+'Delta');
+     if(!delta)continue;
+     let note=delta.parentElement.querySelector('.cx-metric-note');
+     if(!note){note=document.createElement('p');note.className='cx-metric-note';delta.after(note);}
+     note.textContent=description;
+     const change=delta.textContent.match(/^([+-])([\d.]+) puntos/);
+     const amount=change?Number(change[2]):0;
+     const sign=change?.[1]==='-'?-1:1;
+     if(change||!delta.dataset.signal||delta.textContent.startsWith('Sin'))delta.dataset.signal=direction&&amount?sign*direction>0?'good':'attention':'neutral';
+     if(direction&&change)delta.textContent=(amount?(sign>0?'Subió ':'Bajó '):'Se mantuvo · ')+delta.textContent.replace(/^[+-]/,'').replace(' puntos',id==='cmpNps'?' puntos':' puntos porcentuales');
+   }
+   if(!data?.valid)return;
+   const groups=[['Buena o muy buena',data.csat_pos],['Neutral',data.csat_neu],['Mala o muy mala',data.csat_neg]];
+   if(groups.every(([,value])=>Number.isFinite(value))&&Math.abs(groups.reduce((sum,[,value])=>sum+value,0)-100)<1){
+     const positive=groups[0][1],neutral=groups[1][1],negative=groups[2][1];
+     reading.insertAdjacentHTML('beforeend','<article><h3>Cómo calificaron la compra</h3><div class="cx-distribution"><div class="cx-ring" aria-hidden="true" style="--positive:'+positive+'%;--neutral:'+Math.min(100,positive+neutral)+'%"><strong>'+positive.toFixed(1)+'%</strong></div><ul>'+groups.map(([label,value])=>'<li>'+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></div></article>');
+   }
+   const split=[['9 o 10',data.promoters_pct],['7 u 8',data.passives_pct],['0 a 6',data.detractors_pct]];
+   if(split.every(([,value])=>Number.isFinite(value))&&Math.abs(split.reduce((sum,[,value])=>sum+value,0)-100)<1){
+     reading.insertAdjacentHTML('beforeend','<article><h3>Qué tan dispuestos están a recomendar</h3><p>El índice se obtiene al restar el porcentaje de notas de 0 a 6 al de notas de 9 y 10.</p><div class="cx-stack" aria-hidden="true">'+split.map(([,value])=>'<span style="flex:'+value+'"></span>').join('')+'</div><ul>'+split.map(([label,value])=>'<li>'+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></article>');
+   }
+ }
  const metric=chart.querySelector('select'),bars=chart.querySelector('.cx-chart-bars');
  const paint=()=>{
    const period=document.getElementById('periodSelect')?.value,channel=document.getElementById('channelSelect')?.value||'GLOBAL',key=metric.value;
    if(typeof PERIOD_DATA==='undefined')return;
    const months=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
    const order=m=>{const [month,year]=m.split(' ');return Number(year)*12+months.indexOf(month);};
-   const rows=Object.keys(PERIOD_DATA).filter(m=>months.includes(m.split(' ')[0])&&(!months.includes((period||'').split(' ')[0])||order(m)<=order(period))).sort((a,b)=>order(a)-order(b)).map(m=>({m,d:channel==='GLOBAL'?PERIOD_DATA[m].overall:PERIOD_DATA[m].channels?.[channel]})).filter(x=>x.d?.valid>0&&Number.isFinite(Number(x.d[key]))).slice(-2);
+   const rows=Object.keys(PERIOD_DATA).filter(m=>months.includes(m.split(' ')[0])&&(!months.includes((period||'').split(' ')[0])||order(m)<=order(period))).sort((a,b)=>order(a)-order(b)).map(m=>({m,d:channel==='GLOBAL'?PERIOD_DATA[m].overall:PERIOD_DATA[m].channels?.[channel]})).filter(x=>x.d?.valid>0&&Number.isFinite(Number(x.d[key]))).slice(-6);
+   paintCxReading(period,channel);
    bars.replaceChildren();if(!rows.length){bars.textContent='No hay datos para esta selección.';return;}
+   if(rows.length>1){
+     const values=rows.map(row=>Number(row.d[key]));
+     const high=Math.max(...values),low=Math.min(...values),spread=Math.max(high-low,key==='valid'?1:0.5);
+     const points=values.map((value,index)=>[15+370*index/(values.length-1),60-48*(value-low)/spread]);
+     const labels=rows.map((row,index)=>'<li>'+row.m.split(' ')[0]+' <strong>'+values[index].toLocaleString('es-MX',{maximumFractionDigits:key==='valid'?0:1})+(['risk_pct','csat_pos'].includes(key)?'%':'')+'</strong></li>');
+     bars.innerHTML='<svg class="cx-trend" viewBox="0 0 400 72" preserveAspectRatio="none" aria-hidden="true"><path d="M15 60H385M15 36H385M15 12H385" stroke="#e2e8f0" fill="none"/><polyline points="'+points.map(point=>point.join(',')).join(' ')+'" stroke="#234e78" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"/></svg><ol class="cx-trend-labels">'+labels.join('')+'</ol>';
+     return;
+   }
    const max=key==='valid'?Math.max(1,...rows.map(x=>Number(x.d[key]))):key==='risk_pct'?Math.max(10,...rows.map(x=>Number(x.d[key]))):100;
    const min=key==='nps'?-100:0;
    for(const row of rows){
@@ -2733,8 +2830,9 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    detail.replaceWith(section);
   }
   for(const select of main.querySelectorAll('select')){
+   if(select.id==='periodSelect'||select.id==='channelSelect')continue;
    let group=controls.get(select);
-   if(!group){group=document.createElement('div');group.className='cx-choice-group';if(select.id==='periodSelect'||select.id==='channelSelect'){const row=document.createElement('div');row.className='cx-filter-row';const title=document.createElement('strong');title.textContent=select.id==='periodSelect'?'Periodo':'Canal';select.before(row);row.append(title,select);}group.setAttribute('role','group');group.setAttribute('aria-label',select.getAttribute('aria-label')||select.labels?.[0]?.textContent.trim()||'Opciones');select.classList.add('cx-choice-source');select.after(group);controls.set(select,group);}
+   if(!group){group=document.createElement('div');group.className='cx-choice-group';group.setAttribute('role','group');group.setAttribute('aria-label',select.getAttribute('aria-label')||select.labels?.[0]?.textContent.trim()||'Opciones');select.classList.add('cx-choice-source');select.after(group);controls.set(select,group);}
    const options=Array.from(select.options).filter(o=>!o.disabled&&!(select.classList.contains('minor-select')&&!o.value));
    const signature=JSON.stringify(options.map(o=>[o.value,o.textContent,o.selected,select.disabled]));
    if(group.dataset.signature===signature)continue;
