@@ -925,6 +925,12 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxCompactModelFilter{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#17365d;font-weight:700;font-size:14px}
 #cxCompactModelSelect{min-width:180px;max-width:100%;width:300px;padding:9px 12px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:#14284c;font:inherit}
 @media(max-width:650px){#cxApprovedScreenNav .cx-page-nav button{flex:1 1 100%;text-align:left}#cxCompactModelSelect{width:100%}}
+</style><style id="cx-model-picklist-fix">
+/* La estructura anterior se convierte de details a section durante la carga. Ocultar por ID, no por clase. */
+#cxModelPicker{display:none!important}
+#cxModelTools .model-options,#cxModelTools .model-menu{display:none!important}
+#cxModelTools #cxCompactModelFilter{display:flex!important}
+#cxModelTools #cxCompactModelSelect{display:block!important}
 </style></head>
 <body>
 <div id="cxHomeOverlay">
@@ -3093,6 +3099,33 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
   }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
+})();
+</script><script id="cx-model-picklist-independent">
+(function(){
+ function init(){
+  const tools=document.getElementById('cxModelTools'),list=document.getElementById('cxModels');
+  if(!tools||!list)return;
+  let select=document.getElementById('cxCompactModelSelect');
+  if(!select){const label=document.createElement('label');label.id='cxCompactModelFilter';label.textContent='Modelo';select=document.createElement('select');select.id='cxCompactModelSelect';label.append(select);tools.prepend(label);}
+  const all=()=>Array.from(list.querySelectorAll('input[type="checkbox"]'));
+  function sync(){
+   const boxes=all(),selected=boxes.filter(x=>x.checked).map(x=>x.value);
+   if(!boxes.length)return;
+   const prior=select.value;select.replaceChildren(new Option('Todos los modelos',''),...boxes.map(x=>new Option(x.value,x.value)));
+   select.value=selected.length===1?selected[0]:'';
+   if(prior&&selected.includes(prior))select.value=prior;
+  }
+  select.onchange=function(){
+   const value=select.value,boxes=all();
+   const removals=boxes.filter(x=>x.checked&&x.value!==value);
+   const additions=boxes.filter(x=>!x.checked&&x.value===value);
+   removals.concat(additions).forEach(x=>{x.checked=!x.checked;x.dispatchEvent(new Event('change',{bubbles:true}));});
+   sync();
+  };
+  new MutationObserver(sync).observe(list,{childList:true});
+  sync();
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script></body>
 </html>
