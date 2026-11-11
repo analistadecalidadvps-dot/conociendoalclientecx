@@ -910,6 +910,16 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxResultsPage .rank-move.up{background:#e8f5ed;color:#356448}
 @media(max-width:650px){#cxResultsPage .grid-2{grid-template-columns:minmax(0,1fr)}}
 </style>
+
+<style id="cx-three-screen-navigation-style">
+/* Solo navegación: se conservan los estilos y componentes originales. */
+.cx-screen-hidden{display:none!important}
+#cxThreeScreenNav{margin:18px 0 22px}
+#cxThreeScreenNav .cx-page-nav{margin-bottom:0}
+#cxThreeScreenNav .cx-screen-context{font-size:13px;color:#526071;margin:10px 0 0}
+#cxThreeScreenNav button[aria-current="page"]{background:#0a1e73;color:#fff;border-color:#0a1e73}
+@media(max-width:650px){#cxThreeScreenNav .cx-page-nav button{flex:1 1 100%;text-align:left}}
+</style>
 </head>
 <body>
 <div id="cxHomeOverlay">
@@ -3061,6 +3071,47 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
   download.target='_blank';download.rel='noopener noreferrer';
   const note=document.createElement('small');note.textContent='La descarga incluye la base completa de consulta.';
   actions.append(download,note);filters.append(actions);
+})();
+</script>
+
+<script id="cx-three-screen-navigation-script">
+(function(){
+  function init(){
+    var main=document.querySelector('main.container');
+    var filters=document.getElementById('cxApprovedFilters');
+    if(!main||!filters||document.getElementById('cxThreeScreenNav'))return;
+    var sections=Array.from(main.children).filter(function(el){return el.tagName==='SECTION'&&el.classList.contains('panel');});
+    var monthly=document.getElementById('monthlyComparisonSection');
+    var trend=document.getElementById('trendSection');
+    var health=document.getElementById('healthSection');
+    var groups={resumen:[],encuesta:[],canales:[]};
+    sections.forEach(function(el){
+      if(el===filters)return;
+      if(el===monthly||el===trend||el===health){groups.resumen.push(el);return;}
+      var heading=(el.querySelector('.section-title h2')||el.querySelector('h2'));
+      var name=(heading?heading.textContent:'').toLowerCase();
+      if(name.indexOf('cada canal')!==-1||name.indexOf('por canal')!==-1||el.querySelector('#channelTable'))groups.canales.push(el);
+      else groups.encuesta.push(el);
+    });
+    var nav=document.createElement('nav');nav.id='cxThreeScreenNav';nav.setAttribute('aria-label','Secciones del dashboard');
+    nav.innerHTML='<div class="cx-page-nav" role="group" aria-label="Pantallas del dashboard">'+
+      '<button type="button" data-cx-screen="resumen">Resumen ejecutivo</button>'+
+      '<button type="button" data-cx-screen="encuesta">Resultados de la encuesta</button>'+
+      '<button type="button" data-cx-screen="canales">Análisis por canal y modelo</button></div>'+
+      '<p class="cx-screen-context" id="cxScreenContext" aria-live="polite"></p>';
+    filters.insertAdjacentElement('afterend',nav);
+    var descriptions={resumen:'Indicadores y evolución de la experiencia del cliente.',encuesta:'Resultados, motivos de compra, áreas de mejora, comentarios y calidad de los datos.',canales:'Comparación de resultados entre canales de venta.'};
+    function show(key,scroll){
+      if(!groups[key])key='resumen';
+      Object.keys(groups).forEach(function(group){groups[group].forEach(function(el){el.classList.toggle('cx-screen-hidden',group!==key);});});
+      nav.querySelectorAll('[data-cx-screen]').forEach(function(b){if(b.dataset.cxScreen===key)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+      document.getElementById('cxScreenContext').textContent=descriptions[key];
+      if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    nav.addEventListener('click',function(e){var b=e.target.closest('[data-cx-screen]');if(b)show(b.dataset.cxScreen,true);});
+    show('resumen',false);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 </body>
