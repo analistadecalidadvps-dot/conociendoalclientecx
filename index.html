@@ -931,6 +931,12 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxModelTools .model-options,#cxModelTools .model-menu{display:none!important}
 #cxModelTools #cxCompactModelFilter{display:flex!important}
 #cxModelTools #cxCompactModelSelect{display:block!important}
+</style><style id="cx-dashboard-v3-visibility">
+#cxModelPicker,#cxModelTools .model-menu,#cxModelTools .model-options{display:none!important}
+#cxCompactModelFilter{display:flex!important}
+#cxCompactModelSelect{display:block!important}
+#cxExecutivePage[hidden],#cxQuestionsSection[hidden],#cxReviewSection[hidden]{display:none!important}
+#cxExecutiveAutoReading{margin:12px 0 22px}
 </style></head>
 <body>
 <div id="cxHomeOverlay">
@@ -2770,6 +2776,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const visible=modelNames.filter(m=>foldModel(m).includes(q));
    $('cxModels').innerHTML=visible.length?visible.map(m=>'<label><input type="checkbox" value="'+esc(m)+'" '+(selected.includes(m)?'checked':'')+'><span>'+esc(m)+'</span></label>').join(''):'<p class="cx-extra-note">No hay modelos que coincidan.</p>';
  }
+ window.cxSetSingleModel=function(name){selected=name?[name]:[];$('cxModelSearch').value='';listModels();refreshModelLabel();apply();};
  $('cxModelSearch').addEventListener('input',listModels);
  $('cxModels').addEventListener('change',e=>{if(e.target.type!=='checkbox')return;const m=e.target.value;selected=e.target.checked?[...selected,m]:selected.filter(v=>v!==m);refreshModelLabel();apply();});
  $('cxAllModels').addEventListener('click',()=>{selected=selected.length===modelNames.length?[]:[...modelNames];refreshModelLabel();listModels();apply();});
@@ -3034,96 +3041,76 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
 
 
 
-<script id="cx-approved-three-screens-js">
-(function(){
- function setup(){
-  const $=id=>document.getElementById(id);
-  const main=document.querySelector('main.container'),filters=$('cxApprovedFilters'),results=$('cxResultsPage'),survey=$('cxQuestionsSection'),analysis=$('cxReviewSection');
-  const health=$('healthSection'),monthly=$('monthlyComparisonSection');
-  if(!main||!filters||!results||!survey||!analysis||!health||!monthly)return;
-  /* Se utilizan las secciones reales, ya reagrupadas por el código original. */
-  const executive=document.createElement('div');executive.id='cxExecutivePage';executive.className='cx-page-panel';
-  results.prepend(executive);
-  executive.append(health);
-  const monthChart=document.querySelector('.cx-month-chart');
-  if(monthChart)executive.append(monthChart);
-  const npsTable=$('npsTable');
-  const purchase=npsTable&&npsTable.closest('details.cx-extra-panel,section.panel');
-  if(purchase)executive.append(purchase);
-  executive.append(monthly);
-  const trend=$('trendSection');if(trend)executive.append(trend);
-  const models=$('cxModelsTable');if(models)analysis.querySelector('div')?.append(models);
-  /* Evita mostrar simultáneamente las vistas antiguas. */
-  results.hidden=false;const recovery=$('cxRecoveryPage');if(recovery)recovery.hidden=true;
+<script id="cx-dashboard-three-screens-v3">
+(()=>{
+ const $=id=>document.getElementById(id);
+ function init(){
+  const main=document.querySelector('main.container'),filters=$('cxApprovedFilters'),results=$('cxResultsPage');
+  const questions=$('cxQuestionsSection'),review=$('cxReviewSection'),overview=$('monthlyComparisonSection'),health=$('healthSection');
+  if(!main||!filters||!results||!questions||!review||!overview||!health)return;
+  const exec=document.createElement('div');exec.id='cxExecutivePage';exec.className='cx-page-panel';
+  results.prepend(exec);
+  /* El dashboard original distribuye secciones entre contenedores; no buscamos solo hijos de main. */
+  const monthlyChart=document.querySelector('.cx-month-chart');
+  const purchaseTable=$('npsTable');
+  const purchase=purchaseTable&&purchaseTable.closest('.cx-extra-panel');
+  const trend=$('trendSection');
+  exec.append(health);
+  if(monthlyChart)exec.append(monthlyChart);
+  if(purchase)exec.append(purchase);
+  if(trend)exec.append(trend);
+  exec.append(overview);
+  /* Conserva los resultados por modelo en la pantalla de análisis. */
+  const models=$('cxModelsTable');
+  if(models)review.querySelector('div')?.append(models);
   const nav=document.createElement('nav');nav.id='cxApprovedScreenNav';nav.setAttribute('aria-label','Pantallas del Dashboard CX');
   nav.innerHTML='<div class="cx-page-nav"><button type="button" data-cx-view="resumen">Resumen ejecutivo</button><button type="button" data-cx-view="encuesta">Resultados de la encuesta</button><button type="button" data-cx-view="canales">Análisis por canal y modelo</button></div><p class="cx-screen-description" id="cxApprovedScreenDescription" aria-live="polite"></p>';
   filters.after(nav);
-  const panels={resumen:executive,encuesta:survey,canales:analysis};
-  const descriptions={resumen:'Indicadores principales, evolución mensual, compra y recomendación.',encuesta:'Motivos de compra, factores de decisión, áreas de mejora y comentarios.',canales:'Comparativos por canal y modelo, con el mismo periodo y filtros.'};
+  const panels={resumen:exec,encuesta:questions,canales:review};
+  const captions={resumen:'Indicadores, evolución mensual y evaluación de compra y recomendación.',encuesta:'Motivos, factores de compra, áreas de mejora y comentarios.',canales:'Comparaciones entre canales y modelos.'};
   function show(view,scroll){
    Object.keys(panels).forEach(k=>{panels[k].hidden=k!==view;});
-   nav.querySelectorAll('[data-cx-view]').forEach(b=>{const active=b.dataset.cxView===view;b.setAttribute('aria-pressed',String(active));if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-   $('cxApprovedScreenDescription').textContent=descriptions[view];
+   nav.querySelectorAll('button').forEach(b=>{const active=b.dataset.cxView===view;b.setAttribute('aria-pressed',String(active));if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+   $('cxApprovedScreenDescription').textContent=captions[view];
    if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});
   }
-  nav.addEventListener('click',event=>{const button=event.target.closest('[data-cx-view]');if(button)show(button.dataset.cxView,true);});
+  nav.addEventListener('click',e=>{const b=e.target.closest('button[data-cx-view]');if(b)show(b.dataset.cxView,true);});
+  results.hidden=false;const recovery=$('cxRecoveryPage');if(recovery)recovery.hidden=true;
   show('resumen',false);
-  /* Picklist de selección única: reutiliza el motor existente de selección por modelo. */
-  const tools=$('cxModelTools'),list=$('cxModels'),picker=$('cxModelPicker');
-  if(tools&&list&&picker){
-   picker.classList.add('cx-model-picker-replaced');
+  /* Selector compacto único; no muestra la cuadrícula original. */
+  const tools=$('cxModelTools'),options=$('cxModels'),picker=$('cxModelPicker');
+  if(tools&&options){
+   if(picker)picker.style.setProperty('display','none','important');
    const label=document.createElement('label');label.id='cxCompactModelFilter';label.textContent='Modelo';
-   const select=document.createElement('select');select.id='cxCompactModelSelect';select.setAttribute('aria-label','Filtrar por modelo');
+   const select=document.createElement('select');select.id='cxCompactModelSelect';select.setAttribute('aria-label','Seleccionar modelo');
    label.append(select);tools.prepend(label);
-   let updating=false;
-   function checkboxes(){return Array.from(list.querySelectorAll('input[type="checkbox"]'));}
-   function updateOptions(){
-    if(updating)return;
-    const boxes=checkboxes();if(!boxes.length)return;
-    const selected=boxes.filter(box=>box.checked).map(box=>box.value);
-    const options=[new Option('Todos los modelos','')].concat(boxes.map(box=>new Option(box.value,box.value)));
-    select.replaceChildren(...options);
+   function sync(){
+    const values=Array.from(options.querySelectorAll('input[type="checkbox"]')).map(x=>x.value);
+    if(!values.length)return;
+    const selected=Array.from(options.querySelectorAll('input[type="checkbox"]:checked')).map(x=>x.value);
+    select.replaceChildren(new Option('Todos los modelos',''),...values.map(v=>new Option(v,v)));
     select.value=selected.length===1?selected[0]:'';
    }
-   select.addEventListener('change',()=>{
-    const chosen=select.value,boxes=checkboxes();updating=true;
-    /* Un solo cambio final: cada evento conserva el cálculo y la actualización existentes. */
-    const toUncheck=boxes.filter(box=>box.checked&&box.value!==chosen);
-    const toCheck=boxes.filter(box=>!box.checked&&box.value===chosen);
-    [...toUncheck,...toCheck].forEach(box=>{box.checked=!box.checked;box.dispatchEvent(new Event('change',{bubbles:true}));});
-    updating=false;updateOptions();
-   });
-   new MutationObserver(updateOptions).observe(list,{childList:true,subtree:true});
-   $('cxClearFilters')?.addEventListener('click',()=>setTimeout(updateOptions,0));
-   updateOptions();
-  }
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
-})();
-</script><script id="cx-model-picklist-independent">
-(function(){
- function init(){
-  const tools=document.getElementById('cxModelTools'),list=document.getElementById('cxModels');
-  if(!tools||!list)return;
-  let select=document.getElementById('cxCompactModelSelect');
-  if(!select){const label=document.createElement('label');label.id='cxCompactModelFilter';label.textContent='Modelo';select=document.createElement('select');select.id='cxCompactModelSelect';label.append(select);tools.prepend(label);}
-  const all=()=>Array.from(list.querySelectorAll('input[type="checkbox"]'));
-  function sync(){
-   const boxes=all(),selected=boxes.filter(x=>x.checked).map(x=>x.value);
-   if(!boxes.length)return;
-   const prior=select.value;select.replaceChildren(new Option('Todos los modelos',''),...boxes.map(x=>new Option(x.value,x.value)));
-   select.value=selected.length===1?selected[0]:'';
-   if(prior&&selected.includes(prior))select.value=prior;
-  }
-  select.onchange=function(){
-   const value=select.value,boxes=all();
-   const removals=boxes.filter(x=>x.checked&&x.value!==value);
-   const additions=boxes.filter(x=>!x.checked&&x.value===value);
-   removals.concat(additions).forEach(x=>{x.checked=!x.checked;x.dispatchEvent(new Event('change',{bubbles:true}));});
+   select.addEventListener('change',()=>{if(typeof window.cxSetSingleModel==='function')window.cxSetSingleModel(select.value);});
+   new MutationObserver(sync).observe(options,{childList:true});
+   $('cxClearFilters')?.addEventListener('click',()=>setTimeout(sync,0));
    sync();
-  };
-  new MutationObserver(sync).observe(list,{childList:true});
-  sync();
+  }
+  /* Lectura ejecutiva estrictamente vinculada a los resultados existentes. */
+  const insight=document.createElement('div');insight.id='cxExecutiveAutoReading';insight.className='nota';insight.setAttribute('aria-live','polite');
+  overview.after(insight);
+  function explain(){
+   const read=id=>($(id)?.textContent||'').trim();
+   const nps=read('kpiNps'),risk=read('kpiRisk'),delta=read('cmpNpsDelta'),csat=read('cmpCsatDelta');
+   if(!nps||nps==='0'&&read('kpiTotal')==='0'){insight.textContent='La lectura ejecutiva estará disponible cuando se carguen las respuestas válidas.';return;}
+   const parts=['Índice de recomendación: '+nps+'.','Clientes por revisar: '+(risk||'sin dato')+'.'];
+   if(delta&&delta!=='—')parts.push('Variación de recomendación: '+delta+'.');
+   if(csat&&csat!=='—')parts.push('Variación de satisfacción: '+csat+'.');
+   insight.textContent=parts.join(' ')+' Los resultados describen respuestas de encuesta; no equivalen a casos recuperados.';
+  }
+  let pending=false;const observer=new MutationObserver(()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;explain();});});
+  ['kpiNps','kpiRisk','cmpNpsDelta','cmpCsatDelta'].forEach(id=>{if($(id))observer.observe($(id),{childList:true,characterData:true,subtree:true});});
+  explain();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
