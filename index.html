@@ -910,7 +910,186 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxResultsPage .rank-move.up{background:#e8f5ed;color:#356448}
 @media(max-width:650px){#cxResultsPage .grid-2{grid-template-columns:minmax(0,1fr)}}
 </style>
-</head>
+<style id="cx-executive-style">
+:root{--blue:#0a1e73;--ink:#17243b}
+body{background:#f3f5f8;color:#17243b;font-family:Arial,Helvetica,sans-serif}
+.topbar{background:#000!important}
+#cxApprovedFilters{padding:22px 24px}
+#cxApprovedFilters .toolbar:empty{display:none}
+.cx-executive-block{margin:22px 0 30px;min-width:0;scroll-margin-top:18px}
+.cx-executive-block>h2{font-size:23px;color:#0a1e73;margin:0 0 6px;line-height:1.25}
+.cx-section-subtitle{font-size:14px;line-height:1.5;color:#526071;margin:0 0 18px;max-width:880px}
+#cxExecutiveContext{margin:0}
+#cxExecutiveContext h2{font-size:18px;margin-bottom:12px}
+.cx-context-period{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap}
+.cx-context-period label,.cx-context-filter{display:grid;gap:6px;font-size:14px;font-weight:700;color:#263e5a}
+.cx-context-period label{width:min(100%,330px)}
+.cx-context-period select,.cx-context-filter select{width:100%;min-width:0;max-width:none;padding:10px 12px;background:#fff;border:1px solid #cbd5e1;border-radius:8px;font:inherit;font-weight:400;color:#17243b}
+.cx-context-filter{max-width:440px;margin:16px 0}
+#cxContextStatus{font-size:13px;line-height:1.5;color:#526071;margin:14px 0 8px}
+#cxContextStatus[data-state=backup]{color:#785124;background:#fff4e5;padding:10px;border-radius:7px}
+.cx-context-counts{display:flex;flex-wrap:wrap;gap:10px 24px;border-top:1px solid #e0e5ed;padding-top:12px;font-size:14px;color:#526071}
+.cx-context-counts strong{color:#17243b;margin-left:4px;font-variant-numeric:tabular-nums}
+.cx-cutoff-note{font-size:13px;color:#526071;line-height:1.5;margin:10px 0 0}
+.cx-active-selection{display:flex;gap:12px;justify-content:space-between;align-items:center;border-top:1px solid #e0e5ed;margin-top:16px;padding-top:14px}
+.cx-active-selection>div{display:grid;gap:4px;min-width:0}
+.cx-active-selection strong{font-size:13px;color:#526071}
+.cx-active-selection span{font-size:14px;color:#17243b;overflow-wrap:anywhere}
+.cx-active-selection small{font-size:12px;color:#64748b}
+.cx-response-actions{margin-top:14px;padding-top:14px}
+.cx-page-tabs{gap:8px;margin-top:24px;border:0;padding-bottom:0}
+.cx-page-tabs button{background:#fff;color:#0a1e73;border-color:#d5dce8}
+.cx-page-tabs button[aria-selected=true]{background:#0a1e73;border-color:#0a1e73}
+#uploadStatus,#syncDetail,.sync-indicator{display:none!important}
+#monthlyComparisonSection .comparison-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+#monthlyComparisonSection .comparison-card[hidden]{display:none!important}
+#monthlyComparisonSection .comparison-card:not([hidden]){border:1px solid #dfe5ed;background:#fff!important;padding:20px 20px 42px!important;box-shadow:none}
+#monthlyComparisonSection .comparison-card>span{font-size:15px;line-height:1.4;min-height:48px;color:#17243b}
+.cx-abbreviation{display:block;font-size:12px;font-weight:400;color:#64748b;margin-top:3px}
+#monthlyComparisonSection .comparison-card>strong{font-size:32px;color:#0a1e73;margin:6px 0 12px}
+#monthlyComparisonSection .cx-metric-note{font-size:14px;line-height:1.5}
+.cx-observed-reading{font-size:14px;line-height:1.6;background:#edf2f8;color:#304b68;border-radius:9px;padding:13px 16px}
+.cx-executive-block .panel{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+#cxPreferenceSection>.panel>.section-title,#cxImprovementSection>.panel>.section-title{display:none}
+.cx-executive-block .two-col{gap:24px;align-items:start}
+.cx-executive-block h3{font-size:17px;line-height:1.4;color:#263e5a}
+#cxImprovementSection .two-col{grid-template-columns:minmax(0,1fr)}
+#cxImprovementSection table{width:100%}
+#cxResponseDetail .cx-reading{margin:14px 0 20px}
+#cxResponseDetail #cxExactAnswers{border-top:1px solid #e0e5ed;padding-top:20px}
+#cxResponseDetail #cxExactAnswers>h3{display:none}
+.cx-executive-trend{display:block;width:100%;height:190px;overflow:visible}
+.cx-trend-reading{font-size:14px;line-height:1.5;color:#526071;margin:14px 0 0}
+.cx-trend-labels{gap:12px;flex-wrap:wrap;margin-top:0}
+.cx-trend-labels li{font-size:12px;text-align:left}
+.cx-trend-labels strong{color:#0a1e73;font-size:14px}
+#cxEvolution .cx-month-chart{padding:20px;border:1px solid #dfe5ed;border-radius:12px}
+#cxEvolution .cx-chart-heading{margin-bottom:14px}
+#cxSurveyConclusion,#cxAnalysisConclusion{background:#edf2f8;border-radius:12px;padding:20px 24px}
+#cxSurveyConclusion h2,#cxAnalysisConclusion h2{font-size:20px}
+#cxSurveyConclusion ul,#cxAnalysisConclusion ul{margin:12px 0 0;padding-left:20px;color:#304b68;font-size:14px;line-height:1.65}
+#cxSurveyConclusion li+li,#cxAnalysisConclusion li+li{margin-top:9px}
+#cxModelSection #cxModelTools{margin:16px 0 20px;padding:16px;background:#fff;border:1px solid #dfe5ed;border-radius:10px}
+#cxModelSection #cxModelTools .model-menu{grid-template-columns:minmax(0,1fr) auto}
+#cxModelSection .model-caption{display:none}
+#cxModelSection .model-search{grid-column:1;grid-row:1}
+#cxModelSection .model-actions{grid-column:2;grid-row:1}
+#cxModelSection #cxModelHelp{margin-left:0}
+#cxModelSection #cxModels{grid-column:1/-1}
+#cxModelSection .cx-actions-model article{padding:15px;border-radius:10px;box-shadow:none}
+#cxRiskDetail .insight{background:#fff;border:1px solid #dfe5ed;padding:20px;border-radius:10px}
+#cxMethodology{border-top:1px solid #dfe5ed;padding-top:20px}
+#cxMethodology .mini{background:transparent;border:0;padding:0}
+#cxMethodology .value{font-size:20px}
+#cxMethodology .section-title{margin:16px 0 10px}
+#cxMethodology .section-title h3{font-size:16px}
+#cxMethodology .section-title>span{font-size:13px}
+.cx-color-key.cx-color-0,.cx-answer-track [data-tone=good]{background:#8bc9a4}
+.cx-color-key.cx-color-2,.cx-answer-track [data-tone=attention]{background:#e9a5a1}
+@media(max-width:850px){#monthlyComparisonSection .comparison-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.cx-executive-block .two-col{grid-template-columns:minmax(0,1fr)}.cx-abbreviation{display:inline;margin-left:4px}#monthlyComparisonSection .comparison-card>span{min-height:0}}
+@media(max-width:550px){#cxApprovedFilters{padding:16px}.cx-context-period{align-items:stretch}.cx-context-period label{width:100%}.cx-active-selection{align-items:start;flex-direction:column}.cx-context-counts{gap:10px 16px}#monthlyComparisonSection .comparison-grid{grid-template-columns:minmax(0,1fr)}.cx-executive-block>h2{font-size:21px}#cxModelSection #cxModelTools .model-menu{grid-template-columns:minmax(0,1fr)}#cxModelSection .model-actions{grid-column:1;grid-row:2}#cxModelSection #cxModels{grid-row:3}}
+
+</style><script>
+function cxRenderExecutiveTrend(rows, key, title, containerWidth) {
+  const escape = value => String(value).replace(/[&<>"']/g, char =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const count = key === 'valid';
+  const percent = ['csat_pos', 'risk_pct'].includes(key);
+  const format = value => Number(value).toLocaleString('es-MX', {maximumFractionDigits:count ? 0 : 1}) + (percent ? '%' : '');
+  const values = rows.map(row => Number(row.d[key]));
+  const min = key === 'nps' ? -100 : 0;
+  const maximum = Math.max(1, ...values);
+  const magnitude = Math.pow(10, Math.floor(Math.log10(maximum)));
+  const max = count ? Math.ceil(maximum / magnitude) * magnitude : 100;
+  const width = Math.max(280, Math.round(containerWidth || 650));
+  const height = 190, left = count ? 62 : 45, right = 14, top = 15, bottom = 162;
+  const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const order = label => Number(label.split(' ')[1]) * 12 + months.indexOf(label.split(' ')[0]);
+  const first = order(rows[0].m), span = Math.max(1, order(rows.at(-1).m) - first);
+  const x = row => left + (order(row.m) - first) / span * (width - left - right);
+  const y = value => bottom - (value - min) / (max - min) * (bottom - top);
+  const ticks = key === 'nps' ? [-100,-50,0,50,100] : [0,.25,.5,.75,1].map(value => value * max);
+  const grid = ticks.map(value => '<line x1="'+left+'" y1="'+y(value)+'" x2="'+(width-right)+'" y2="'+y(value)+'" stroke="#e0e5ed"/><text x="'+(left-8)+'" y="'+(y(value)+4)+'" text-anchor="end" font-size="12" fill="#526071">'+escape(format(value))+'</text>').join('');
+  const points = rows.map((row,index) => x(row)+','+y(values[index])).join(' ');
+  const marks = rows.map((row,index) => '<circle cx="'+x(row)+'" cy="'+y(values[index])+'" r="4" fill="#0a1e73"><title>'+escape(row.m+' · '+format(values[index]))+'</title></circle>').join('');
+  const labels = rows.map((row,index) => '<li><span>'+escape(row.m)+'</span><strong>'+escape(format(values[index]))+'</strong></li>').join('');
+  const difference = Number((values.at(-1) - values.at(-2)).toFixed(1));
+  const unit = count ? 'encuestas' : key === 'nps' ? 'puntos' : 'puntos porcentuales';
+  const change = difference === 0 ? 'Sin cambio a la precisión mostrada.' :
+    (difference > 0 ? 'Aumentó ' : 'Disminuyó ') + Math.abs(difference).toLocaleString('es-MX')+' '+unit+'.';
+  return '<svg class="cx-executive-trend" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="'+escape(title)+'"><title>'+escape(title)+'</title>'+grid+'<polyline points="'+points+'" stroke="#0a1e73" stroke-width="2.5" fill="none"/>'+marks+'</svg><ol class="cx-trend-labels">'+labels+'</ol><p class="cx-trend-reading">'+escape(change+' Comparación de '+rows.at(-1).m.toLowerCase()+' frente a '+rows.at(-2).m.toLowerCase()+'.')+'</p>';
+}
+
+</script><style id="cx-feedback-style">
+#cxApprovedFilters{padding:14px 18px;margin-bottom:8px}
+#cxApprovedFilters [hidden],#cxModelTools[hidden],#cxChannelTableDetail[hidden],#cxImprovementSection table[hidden],#cxMethodology [hidden]{display:none!important}
+#cxExecutiveContext h2{margin:0 0 8px;font-size:16px}
+.cx-context-period{gap:8px;align-items:end}
+.cx-context-period label{width:min(100%,230px)}
+.cx-context-tools{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.cx-context-tools a{font-size:13px;color:#0a1e73;padding:7px 9px;text-decoration:underline}
+#cxContextStatus{margin:8px 0 5px}
+.cx-context-counts{border:0;padding-top:3px}
+.cx-active-selection{border:0;padding-top:0;margin-top:6px;justify-content:start}
+.cx-active-selection>div{display:flex;gap:7px;flex-wrap:wrap;align-items:baseline}
+.cx-cutoff-note{margin-top:5px}
+.sync-note{display:none!important}
+.cx-page-tabs{margin-top:13px}
+.cx-area-chart,.cx-risk-chart{padding:16px 20px;background:#fff;border:1px solid #dfe5ed;border-radius:10px}
+.cx-area-chart p,.cx-risk-chart p{color:#526071;font-size:14px;margin:0 0 10px}
+.cx-area-chart ul,.cx-risk-chart ul{list-style:none;padding:0;margin:12px 0 0}
+.cx-area-chart li{margin-bottom:12px}
+.cx-area-chart li:last-child{margin-bottom:0}
+.cx-area-chart li>div:first-child{display:flex;justify-content:space-between;gap:6px 12px;flex-wrap:wrap;font-size:14px}
+.cx-area-chart small{color:#526071;font-size:12px;font-weight:400}
+.cx-topic-track{height:8px;margin-top:5px;background:#e9edf3;border-radius:8px;overflow:hidden}
+.cx-topic-track span{display:block;height:100%;background:#5279a2}
+#cxChannelSection .ranking-list{grid-template-columns:1fr;gap:5px}
+#cxChannelSection .rank-item{grid-template-columns:30px minmax(0,1fr) auto}
+#cxChannelSection .ranking-body{padding:12px}
+#cxChannelSection .ranking-explanation{margin:8px 0}
+.cx-detail-toggle{margin:8px 0 12px}
+#cxModelSection #cxModelTools .model-menu{grid-template-columns:minmax(0,1fr) auto}
+#cxModelSection #cxModels{grid-column:1/-1;grid-row:auto}
+.cx-risk-chart{margin:12px 0}
+.cx-risk-total{margin-bottom:8px;color:#526071;font-size:14px}
+.cx-risk-total strong{font-size:25px;color:#0a1e73}
+.cx-risk-stack{height:12px;display:flex;overflow:hidden;border-radius:8px;background:#e9edf3}
+.cx-risk-part-0{background:#6b8eae}.cx-risk-part-1{background:#b46f78}.cx-risk-part-2{background:#a491ba}
+.cx-risk-chart ul{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:12px}
+.cx-risk-chart li{display:flex;align-items:center;gap:6px;font-size:13px}
+.cx-risk-chart i{width:10px;height:10px;border-radius:2px}
+.cx-risk-has-chart .insight>div:nth-child(-n+5){display:none}
+@media(max-width:550px){.cx-context-period label{width:100%}.cx-context-tools{gap:4px}.cx-area-chart,.cx-risk-chart{padding:13px}}
+</style><style id="cx-final-repair">
+.cx-context-tools a{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 12px;border:1px solid #d6dfed;border-radius:8px;text-decoration:none!important;font-weight:600;background:white}
+.cx-context-tools #cxDownloadExcel{background:#0a1e73;color:white;border-color:#0a1e73}
+#cxModelPicker{max-width:540px;width:100%;position:relative}
+#cxModelPicker>summary{display:flex!important;align-items:center;justify-content:space-between;padding:11px 14px;cursor:pointer;border:1px solid #d3deec;border-radius:8px;background:white}
+#cxModelPicker:not([open])>.model-menu{display:none!important}
+#cxModelPicker[open]>.model-menu{display:grid!important;grid-template-columns:minmax(0,1fr) auto;padding:12px;border:1px solid #d3deec;border-radius:8px}
+#cxModelSection #cxModelTools{display:block}
+</style><style>
+#qualityTotal,#qualityValid{font-size:inherit}
+#cxMethodology .mini:has(#qualityTotal),#cxMethodology .mini:has(#qualityValid){display:none}
+#cxMethodology>.cx-section-subtitle+section+p{display:none}
+#cxModelPicker>summary .model-caption{display:none}
+</style><style id="cx-agreed-executive-reading">
+#monthlyComparisonSection .comparison-card>p{font-size:14px!important;line-height:1.55;color:#46576c;font-weight:400;margin:12px 0 16px}
+#monthlyComparisonSection .comparison-card>strong{font-size:30px;line-height:1.2;letter-spacing:-.5px}
+#monthlyComparisonSection .comparison-card>span{font-size:16px;min-height:44px;line-height:1.4}
+#monthlyComparisonSection .comparison-card{padding:20px;display:flex;flex-direction:column}
+#monthlyComparisonSection .comparison-card>small{font-size:13px;line-height:1.4;align-self:flex-start}
+#cxExecutiveReading{background:white;border:1px solid #dfe5ed;border-radius:14px;padding:22px;margin:20px 0 28px}
+#cxExecutiveReading h2{font-size:21px;margin:0 0 18px}
+.cx-executive-reading-body{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+.cx-executive-reading-body article{margin:0}
+.cx-executive-reading-body h3{font-size:16px;margin:0 0 7px;color:#173659}
+.cx-executive-reading-body p{font-size:14px;line-height:1.65;color:#46576c;margin:0 0 8px}
+.cx-executive-reading-body strong{font-size:inherit!important;font-weight:650;color:inherit}
+.cx-reading-action{grid-column:1/-1;border-top:1px solid #e5eaf0;padding-top:18px}
+@media(max-width:650px){.cx-executive-reading-body{grid-template-columns:1fr}.cx-reading-action{grid-column:auto}#cxExecutiveReading{padding:18px}}
+</style></head>
 <body>
 <div id="cxHomeOverlay">
   <div class="cx-home-head"><div class="cx-home-head-inner"><div><h1>Conociendo al cliente</h1><p>Resumen ejecutivo y comportamiento mes con mes · VENTO Motorcycles</p></div><div class="cx-home-source">Fuente: histórico de la encuesta por canal de venta</div></div></div>
@@ -2137,6 +2316,8 @@ window.RISK_DRIVERS = null;
     }
 
 async function cargarDatosAutomaticos() {
+  window.cxExecutiveSync={...(window.cxExecutiveSync||{}),phase:'loading'};
+  window.dispatchEvent(new Event('cx:sync'));
   /* MODIFICADO: endpoint estable de Apps Script. Pegue aquí la URL /exec del
      despliegue. El dashboard conserva Google Visualization como segunda ruta
      para no alterar la arquitectura ni dejar la vista sin contingencia. */
@@ -2444,7 +2625,7 @@ async function cargarDatosAutomaticos() {
     const npsDelta = d.nps-base.nps;
     const csatDelta = d.csat_pos-base.csat_pos;
     const riskDelta = d.risk_pct-base.risk_pct;
-    explain('cmpValidExplain',`Son las encuestas completas que cumplen los criterios de análisis. La base ${validDirection} en <strong>${Math.abs(countDelta)}</strong> respuestas frente a ${prior.toLowerCase()}; los registros incompletos o no válidos quedan fuera del cálculo.`);
+    explain('cmpValidExplain',`Son las encuestas completas que cumplen los criterios de análisis. La base ${validDirection} en <strong>${fmt.format(Math.abs(countDelta))}</strong> respuestas frente a ${prior.toLowerCase()}; los registros incompletos o no válidos quedan fuera del cálculo.`);
     explain('cmpNpsExplain',`El NPS se calcula restando el porcentaje de detractores (0–6) al de promotores (9–10). ${Math.abs(npsDelta)<0.05?'Se mantuvo estable':npsDelta>0?'Aumentó':'Disminuyó'} <strong>${Math.abs(npsDelta).toFixed(1)} puntos</strong>; ${npsDelta>=0?'los promotores ganaron peso frente a los detractores.':'se redujo la diferencia favorable entre promotores y detractores.'}`);
     explain('cmpCsatExplain',`El CSAT positivo es la proporción que calificó la experiencia como Buena o Muy buena. ${Math.abs(csatDelta)<0.05?'Se mantuvo estable':csatDelta>0?'Aumentó':'Disminuyó'} <strong>${Math.abs(csatDelta).toFixed(1)} puntos porcentuales</strong> frente a ${prior.toLowerCase()}.`);
     explain('cmpRiskExplain',`Agrupa clientes únicos con NPS de 0 a 6 o CSAT negativo. ${Math.abs(riskDelta)<0.05?'Se mantuvo estable':riskDelta>0?'Aumentó':'Disminuyó'} <strong>${Math.abs(riskDelta).toFixed(1)} puntos</strong>; ${riskDelta<=0?'la reducción es favorable porque disminuyen las señales de alerta.':'el aumento indica mayor proporción de clientes que requiere atención.'}`);
@@ -2542,7 +2723,9 @@ async function cargarDatosAutomaticos() {
     refreshPeriodSelect();
     const periods = orderedPeriods();
     applyPeriod(periods[periods.length - 1]);
-    document.getElementById('uploadStatus').textContent = `Resultados actualizados automáticamente`;
+    window.cxExecutiveSync={phase:'live',at:new Date().toISOString(),source:live.source};
+    window.dispatchEvent(new Event('cx:sync'));
+    document.getElementById('uploadStatus').textContent = 'Resultados actualizados automáticamente';
     document.getElementById('syncDetail').textContent = 'Resultados actualizados con la base de encuestas.';
     document.getElementById('syncDot').classList.add('live');
   } catch (error) {
@@ -2649,7 +2832,7 @@ function cxSimplifyVisibleCopy(){
  const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let node;
  while(node=walker.nextNode()){
   const parent=node.parentElement;
-  if(!parent||parent.closest('script,style,textarea,#otherMotiveComments'))continue;
+  if(!parent||parent.closest('script,style,textarea,#otherMotiveComments,[data-cx-literal]'))continue;
   const next=cxPlainText(node.nodeValue);
   if(next!==node.nodeValue){const option=parent.closest('option');const value=option?.value;node.nodeValue=next;if(option)option.value=value;}
  }
@@ -2678,8 +2861,8 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const groups=new Map();
    for(const row of rows){
      if(row.ALCANCE!==p.channel||(p.month!=='Acumulado 2026'&&row.MES!==p.month)||(selection.length&&!selection.includes(row.MODELO)))continue;
-     const name=row.MODELO||'Sin modelo identificado',g=groups.get(name)||{name,valid:0,bad:0,risk:0,promoters:0,detractors:0};
-     g.valid+=Number(row.VALIDAS||0);g.bad+=Number(row.CSAT_NEGATIVO_N||0);g.risk+=Number(row.RIESGO||0);
+     const name=row.MODELO||'Sin modelo identificado',g=groups.get(name)||{name,valid:0,good:0,bad:0,risk:0,promoters:0,detractors:0};
+     g.valid+=Number(row.VALIDAS||0);g.good+=Number(row.CSAT_POSITIVO_N||0);g.bad+=Number(row.CSAT_NEGATIVO_N||0);g.risk+=Number(row.RIESGO||0);
      g.promoters+=Number(row.PROMOTORES||0);g.detractors+=Number(row.DETRACTORES||0);groups.set(name,g);
    }
    return [...groups.values()].filter(g=>g.valid>0).sort((a,b)=>b.risk-a.risk||b.valid-a.valid||a.name.localeCompare(b.name,'es'));
@@ -2701,7 +2884,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const max=byRate?100:Math.max(1,...leaders.map(g=>g.risk));
    const action=leaders.length?'<div class="cx-actions-model"><h4>'+ (byRate?'Dónde es más frecuente entre quienes respondieron':'Dónde se concentran más casos')+'</h4><p>'+ (byRate?'Compara la proporción y revisa cuántas encuestas la respaldan.':'Si vas a revisar por volumen, empieza por los primeros modelos y busca si hay concentración por canal.')+'</p>'+leaders.map(g=>'<article><button class="cx-model-open" type="button" data-model="'+esc(g.name)+'">'+esc(g.name)+' · Ver comentarios</button><div class="cx-action-track" aria-hidden="true"><span style="width:'+((byRate?100*g.risk/g.valid:g.risk)/max*100)+'%"></span></div><span>'+fmt(g.risk)+' de '+fmt(g.valid)+' respuestas · '+percent(g.risk,g.valid)+'</span></article>').join('')+'</div>':'';
    $('cxModelComparison').innerHTML=!groups.length?'<p>'+ (Array.isArray(data)?'No hay encuestas válidas para esta selección.':'El detalle por modelo no está disponible en este momento.') +'</p>':
-    action+'<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td><button class="cx-model-open" type="button" data-model="'+esc(g.name)+'">'+esc(g.name)+'</button>'+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
+    action+'<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Satisfacción con la compra</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td><button class="cx-model-open" type="button" data-model="'+esc(g.name)+'">'+esc(g.name)+'</button>'+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+percent(g.good,g.valid)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
 
    $('cxModelComparison').querySelectorAll('[data-model]').forEach(button=>{
      button.addEventListener('click',()=>{
@@ -2719,6 +2902,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  }
 
  let selected=[],filteredRows=null,busy=false;
+ window.cxGetSelectedModels=()=>window.cxModelsSelected?[...selected]:[];
  const scope=()=>({month:$('periodSelect')?.value,channel:$('channelSelect')?.value||'GLOBAL'});
  function sumRows(rows){
    const groups=new Map();
@@ -2932,11 +3116,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    paintCxReading(period,channel);
    bars.replaceChildren();if(!rows.length){bars.textContent='No hay datos para esta selección.';return;}
    if(rows.length>1){
-     const values=rows.map(row=>Number(row.d[key]));
-     const high=Math.max(...values),low=Math.min(...values),spread=Math.max(high-low,key==='valid'?1:0.5);
-     const points=values.map((value,index)=>[15+370*index/(values.length-1),60-48*(value-low)/spread]);
-     const labels=rows.map((row,index)=>'<li>'+row.m.split(' ')[0]+' <strong>'+values[index].toLocaleString('es-MX',{maximumFractionDigits:key==='valid'?0:1})+(['risk_pct','csat_pos'].includes(key)?'%':'')+'</strong></li>');
-     bars.innerHTML='<svg class="cx-trend" viewBox="0 0 400 72" preserveAspectRatio="none" aria-hidden="true"><path d="M15 60H385M15 36H385M15 12H385" stroke="#e2e8f0" fill="none"/><polyline points="'+points.map(point=>point.join(',')).join(' ')+'" stroke="#234e78" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"/></svg><ol class="cx-trend-labels">'+labels.join('')+'</ol>';
+     bars.innerHTML=cxRenderExecutiveTrend(rows,key,metric.options[metric.selectedIndex].textContent,bars.clientWidth);
      return;
    }
    const max=key==='valid'?Math.max(1,...rows.map(x=>Number(x.d[key]))):key==='risk_pct'?Math.max(10,...rows.map(x=>Number(x.d[key]))):100;
@@ -2949,7 +3129,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    }
  };
  const schedule=()=>setTimeout(paint,0);
- metric.addEventListener('change',paint);window.addEventListener('cx:loaded',schedule);window.addEventListener('cx:view',schedule);document.getElementById('periodSelect').addEventListener('change',schedule);document.getElementById('channelSelect').addEventListener('change',schedule);paint();
+ window.addEventListener('resize',schedule);metric.addEventListener('change',paint);window.addEventListener('cx:loaded',schedule);window.addEventListener('cx:view',schedule);document.getElementById('periodSelect').addEventListener('change',schedule);document.getElementById('channelSelect').addEventListener('change',schedule);paint();
 })();
 </script>
 
@@ -2961,6 +3141,7 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  if(filters){const top=document.createElement('div');top.className='cx-filter-actions';const link=document.getElementById('cxResponsesLink'),stamp=link?.nextElementSibling;if(link){if(stamp?.classList.contains('cx-extra-note'))top.append(stamp);top.append(link);}top.append(document.getElementById('refreshDataBtn'));filters.append(top);}
  const plain=()=>{
   for(const detail of main.querySelectorAll('details')){
+   if(detail.id==='cxModelPicker')continue;
    const section=document.createElement('section');
    for(const a of detail.attributes)if(a.name!=='open')section.setAttribute(a.name,a.value);
    section.classList.add('cx-open-detail');
@@ -3063,5 +3244,244 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
   actions.append(download,note);filters.append(actions);
 })();
 </script>
-</body>
+<script id="cx-executive-layout">
+
+(() => {
+  const $ = id => document.getElementById(id);
+  const survey = $('cxSurveyPage'), analysis = $('cxAnalysisPage');
+  if (!survey || !analysis) return;
+  const escape = value => String(value == null ? '' : value).replace(/[&<>"']/g, char =>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const format = value => Number(value).toLocaleString('es-MX');
+  const percent = value => Number(value).toFixed(1) + '%';
+  const section = (id, title, subtitle) => {
+    const node = document.createElement('section');node.id=id;node.className='cx-executive-block';
+    const heading=document.createElement('h2');heading.textContent=title;node.append(heading);
+    if(subtitle){const text=document.createElement('p');text.className='cx-section-subtitle';text.textContent=subtitle;node.append(text);}
+    return node;
+  };
+  const filters=$('cxApprovedFilters');
+  const context=section('cxExecutiveContext','Periodo y cobertura','');
+  context.setAttribute('data-cx-literal','');
+  const periodLabel=$('periodSelect').closest('label');
+  const periodRow=document.createElement('div');periodRow.className='cx-context-period';
+  periodRow.append(periodLabel);context.append(periodRow);
+  const status=document.createElement('div');status.id='cxContextStatus';status.setAttribute('aria-live','polite');context.append(status);
+  const counts=document.createElement('div');counts.id='cxContextCounts';counts.className='cx-context-counts';context.append(counts);
+  filters.prepend(context);
+  const selection=document.createElement('div');selection.className='cx-active-selection';
+  selection.innerHTML='<div><strong>Selección activa</strong><span id="cxActiveFilterText"></span><small>Canal y modelo se aplican a las dos secciones.</small></div>';
+  selection.append($('cxClearFilters'));context.after(selection);
+  const channelControl=$('channelSelect');channelControl.remove();
+  filters.querySelector('.cx-picklists')?.remove();
+  const sourceActions=filters.querySelector('.cx-filter-actions');
+  const refresh=$('refreshDataBtn');periodRow.append(refresh);
+  const monthNotice=$('cxCorteOctubre');if(monthNotice)monthNotice.hidden=true;
+
+  if(sourceActions)sourceActions.hidden=true;
+  const sourceLinks=filters.querySelector('.cx-response-actions');
+  const tools=document.createElement('div');tools.className='cx-context-tools';
+  if(sourceLinks)tools.append(...sourceLinks.querySelectorAll('a'));
+  tools.append(refresh,$('cxClearFilters'));periodRow.append(tools);
+  sourceLinks?.remove();
+  const scopeText=selection.querySelector('small');if(scopeText)scopeText.remove();
+  counts.after(selection);
+  const contextHelp=document.createElement('p');contextHelp.id='cxContextCutoff';contextHelp.className='cx-cutoff-note';context.append(contextHelp);
+  const overview=$('monthlyComparisonSection');
+  overview.querySelector('h2').textContent='Cómo fue la experiencia';
+  $('cmpValid').parentElement.hidden=true;
+  const metricLabels=[['cmpNps','Índice de recomendación','NPS'],['cmpCsat','Satisfacción del cliente','CSAT'],['cmpRisk','Experiencias que requieren atención','Riesgo CX']];
+  metricLabels.forEach(([id,title,abbr])=>{
+    const label=$(id).parentElement.querySelector(':scope > span');label.setAttribute('data-cx-literal','');
+    label.innerHTML=escape(title)+' <small class="cx-abbreviation">'+escape(abbr)+'</small>';
+  });
+  const reading=overview.querySelector('.cx-reading');
+  const history=overview.querySelector('.cx-month-chart');
+  const evolution=section('cxEvolution','¿Estamos mejorando?','Observa el cambio entre periodos comparables. Elige el indicador que quieres seguir.');
+  if(history){history.querySelector('h3').textContent='Evolución mensual';evolution.append(history);}
+  const breakdown=section('cxResponseDetail','Cómo respondieron sobre la compra y la recomendación','El detalle de las preguntas permite entender de dónde salen los indicadores.');
+  if(reading)breakdown.append(reading);
+  breakdown.append($('cxExactAnswers'),$('cxScoreBreakdown'));
+  const values=section('cxPreferenceSection','Qué valoran de VENTO','Motivos de compra, factores de decisión y otras marcas consideradas.');
+  const improvements=section('cxImprovementSection','Qué consideran que debemos mejorar','La frecuencia de una mención permite priorizar su revisión.');
+  const motivePanel=$('motivesChart')?.closest('.panel');
+  if(motivePanel)values.append(motivePanel);
+  const improvementPanel=$('areasTable')?.closest('.panel');
+
+  if(improvementPanel)improvements.append(improvementPanel);
+  const areaTable=improvementPanel?.querySelector('#areasTable')?.closest('table');
+  const areaChart=document.createElement('div');areaChart.className='cx-area-chart';areaChart.setAttribute('data-cx-literal','');
+  areaTable.before(areaChart);areaTable.hidden=true;
+  const surveyConclusion=section('cxSurveyConclusion','Qué aprendimos del periodo','');
+  surveyConclusion.innerHTML+='<ul id="cxSurveyConclusionList"></ul>';
+  surveyConclusion.setAttribute('data-cx-literal','');
+  const methodology=section('cxMethodology','Cómo leer y comprobar estos resultados','Criterios, cobertura y consulta de la base.');
+  const qualityPanel=$('qualityTotal')?.closest('.panel');
+
+  if(qualityPanel){
+    methodology.append(qualityPanel);
+    qualityPanel.hidden=false;
+    const methods=document.createElement('p');methods.className='cx-section-subtitle';
+    methods.textContent='Los indicadores se calculan sobre encuestas válidas. Se excluyen respuestas incompletas o que incumplen los criterios de revisión. En preguntas de respuesta múltiple, los porcentajes pueden sumar más de 100%.';
+    methodology.append(methods);
+  }
+  const commentSummary=$('commentsBox')?.closest('.panel');
+  if(commentSummary)methodology.append(commentSummary);
+  // Preserve the risk detail in the analysis page, including its existing IDs.
+  const riskColumn=$('riskBig')?.closest('.insight')?.parentElement;
+  const riskDetail=section('cxRiskDetail','Qué respuestas requieren una revisión más profunda','Baja recomendación, compra mal calificada o ambas, contando cada respuesta una sola vez.');
+
+  if(riskColumn){riskColumn.querySelector('h3')?.remove();riskDetail.append(riskColumn);}
+  const riskChart=document.createElement('div');riskChart.className='cx-risk-chart';riskChart.setAttribute('data-cx-literal','');
+  riskDetail.insertBefore(riskChart,riskDetail.children[2]||null);
+  const questions=$('cxQuestionsSection');
+  survey.append(evolution,breakdown,values,improvements,surveyConclusion,methodology);
+  // Elements remaining in the previous group retain their content and handlers.
+  if(questions){[...questions.children].filter(node=>!/^H[1-6]$/.test(node.tagName)).forEach(node=>methodology.append(node));questions.hidden=true;}
+  const review=$('cxReviewSection');
+  review.querySelector(':scope > h2')?.remove();
+  const modelPanel=$('cxModelsTable');
+  const channelPanel=$('channelRankingPanel')?.closest('.panel');
+  const channels=section('cxChannelSection','¿Cómo cambia la experiencia según el canal de compra?','Compara cantidad de respuestas, proporciones y cambios frente al periodo anterior.');
+  const channelFilter=document.createElement('label');channelFilter.className='cx-context-filter';channelFilter.textContent='Canal de compra';channelFilter.append(channelControl);channels.append(channelFilter);
+  const channelInsight=document.createElement('p');channelInsight.id='cxChannelReading';channelInsight.className='cx-observed-reading';channelInsight.setAttribute('data-cx-literal','');channels.append(channelInsight);
+
+  if(channelPanel)channels.append(channelPanel);
+  const channelTable=channelPanel?.querySelector('#channelTable')?.closest('table');
+  if(channelTable){
+    const toggle=document.createElement('button');toggle.type='button';toggle.className='btn cx-detail-toggle';
+    channelTable.id='cxChannelTableDetail';
+    toggle.setAttribute('aria-controls',channelTable.id);
+    const setOpen=open=>{channelTable.hidden=!open;toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'Ocultar detalle por canal':'Ver detalle y canales con pocas respuestas';};
+    toggle.addEventListener('click',()=>setOpen(channelTable.hidden));
+    channelTable.before(toggle);setOpen(false);
+  }
+  const models=section('cxModelSection','¿En qué modelos conviene profundizar?','Cantidad y proporción de experiencias por revisar, con el tamaño de la base que respalda cada resultado.');
+
+  const modelTools=$('cxModelTools');
+  models.append(modelTools);modelTools.hidden=false;
+  if(modelPanel)models.append(modelPanel);
+  const priorities=section('cxAnalysisConclusion','Dónde concentrar la revisión','Hallazgos observados y oportunidades para investigar.');
+  priorities.setAttribute('data-cx-literal','');priorities.innerHTML+='<ul id="cxPriorityList"></ul>';
+  analysis.append(channels,models,riskDetail,priorities);
+  if(review)review.hidden=true;
+  const footer=document.querySelector('.footer');if(footer)document.querySelector('main').append(footer);
+
+  const executiveReading=section('cxExecutiveReading','Qué nos dicen estos resultados','');
+  executiveReading.setAttribute('data-cx-literal','');
+  executiveReading.innerHTML+='<div id="cxExecutiveReadingBody" class="cx-executive-reading-body"></div>';
+  overview.after(executiveReading);
+  function renderExecutiveCards(data,period,channel){
+    const body=$('cxExecutiveReadingBody');
+    if(!data||!Number(data.valid)){body.textContent='No hay encuestas válidas suficientes para interpretar esta selección.';return;}
+    const titles=[['cmpNps','Índice de recomendación'],['cmpCsat','Satisfacción con la compra'],['cmpRisk','Respuestas por revisar']];
+    titles.forEach(([id,title])=>{const card=$(id).parentElement;const label=card.querySelector(':scope > span');if(label)label.textContent=title;});
+    const paragraphs=[
+      ['cmpNps','Al porcentaje que calificó con 9 o 10 le restamos el que calificó de 0 a 6. Cuanto más alto, más favorable es el balance de recomendación. Son puntos, no un porcentaje de clientes.'],
+      ['cmpCsat','Aproximadamente '+Math.round(Number(data.csat_pos))+' de cada 100 calificaron su compra como buena o muy buena.'],
+      ['cmpRisk','Aproximadamente '+Math.round(Number(data.risk_pct))+' de cada 100 presentan una compra mal calificada, baja recomendación o ambas.']
+    ];
+    paragraphs.forEach(([id,text])=>{const card=$(id).parentElement;let paragraph=card.querySelector(':scope > p');if(!paragraph){paragraph=document.createElement('p');card.append(paragraph);}paragraph.setAttribute('data-cx-literal','');paragraph.textContent=text;});
+    $('cmpRisk').textContent=format(data.risk)+' · '+percent(data.risk_pct);
+    const promoters=Number(data.promoters),detractors=Number(data.detractors),valid=Number(data.valid);
+    const hasCounts=Number.isFinite(promoters)&&Number.isFinite(detractors)&&promoters>=0&&detractors>=0&&promoters+detractors<=valid;
+    const calculation=hasCounts?'El '+percent(promoters/valid*100)+' calificó con 9 o 10 y el '+percent(detractors/valid*100)+' calificó de 0 a 6. Restamos los porcentajes sin redondear y obtenemos '+Number(data.nps).toFixed(1)+' puntos.':'El índice se obtiene restando el porcentaje de calificaciones de 0 a 6 al de calificaciones de 9 o 10.';
+    const chronological=Object.keys(PERIOD_DATA).filter(key=>key!=='Acumulado 2026');
+    const at=chronological.indexOf(period),previousPeriod=at>0?chronological[at-1]:null;
+    const previous=previousPeriod?(channel==='GLOBAL'?PERIOD_DATA[previousPeriod]?.overall:PERIOD_DATA[previousPeriod]?.channels?.[channel]):null;
+    const deltaNps=previous?Number(data.nps)-Number(previous.nps):null;
+    const deltaCsat=previous?Number(data.csat_pos)-Number(previous.csat_pos):null;
+    const movement=value=>value>0.049?'mejoró':value<-.049?'bajó':'se mantuvo a la precisión mostrada';
+    const comparison=previous?'Frente a '+previousPeriod.toLowerCase()+', la satisfacción con la compra '+movement(deltaCsat)+' y el índice de recomendación '+movement(deltaNps)+'.':'Esta selección muestra '+percent(data.csat_pos)+' de compras calificadas como buenas o muy buenas y un índice de recomendación de '+Number(data.nps).toFixed(1)+' puntos.';
+    body.innerHTML='<article><h3>Cómo interpretar la recomendación</h3><p>'+escape(calculation)+' El índice va de −100 a 100. Las calificaciones de 7 y 8 forman parte del total, pero no se suman ni se restan. <strong>'+Number(data.nps).toFixed(1)+' puntos no significa que el '+Number(data.nps).toFixed(1)+'% recomendaría VENTO.</strong></p></article>'+
+    '<article><h3>Qué cambió en la experiencia</h3><p>'+escape(comparison)+' Son preguntas distintas: una evalúa la compra y la otra la disposición a recomendar. Las calificaciones por sí solas no explican los motivos.</p></article>'+
+    '<article class="cx-reading-action"><h3>Por qué revisar '+format(data.risk)+' respuestas</h3><p>Presentan una compra mala o muy mala, una recomendación de 0 a 6, o ambas. <strong>Cada respuesta cuenta una sola vez.</strong> Revisar los comentarios y, cuando corresponda, contactar al cliente permite entender qué ocurrió, detectar problemas que se repiten y determinar qué atención necesita.</p><p>No representan necesariamente '+format(data.risk)+' quejas confirmadas ni problemas pendientes. El análisis por canal y modelo ayuda a localizar dónde profundizar.</p></article>';
+  }
+  function currentView(){
+    const period=$('periodSelect').value,channel=$('channelSelect').value||'GLOBAL';
+    const data=channel==='GLOBAL'?PERIOD_DATA[period]?.overall:PERIOD_DATA[period]?.channels?.[channel];
+    return {period,channel,data};
+  }
+  function selectedModelGroups(period,channel){
+    const selected=window.cxGetSelectedModels?.()||[];
+    const groups=new Map();
+    for(const row of window.cxExtended?.modelRows||[]){
+      if(row.ALCANCE!==channel||(period!=='Acumulado 2026'&&row.MES!==period)||(selected.length&&!selected.includes(row.MODELO)))continue;
+      const group=groups.get(row.MODELO)||{name:row.MODELO,valid:0,risk:0};
+      group.valid+=Number(row.VALIDAS||0);group.risk+=Number(row.RIESGO||0);groups.set(row.MODELO,group);
+    }
+    return [...groups.values()].filter(group=>group.valid>0);
+  }
+  function update(){
+    const activeRisk=$('riskBig')?.closest('.insight');
+    if(activeRisk&&!riskDetail.contains(activeRisk)){
+      const column=activeRisk.parentElement;
+      if(column){column.querySelector('h3')?.remove();riskDetail.append(column);}
+    }
+
+    const {period,channel,data}=currentView();
+    renderExecutiveCards(data,period,channel);
+    const areas=(data?.top_area||[]).filter(item=>Number(item.pct)>=0).sort((a,b)=>Number(b.pct)-Number(a.pct));
+    areaChart.innerHTML=areas.length?'<p>Porcentaje de encuestas válidas que mencionó cada tema. Una persona podía elegir varias opciones.</p><ul>'+areas.map(item=>'<li><div><span>'+escape(item.name)+'</span><strong>'+percent(item.pct)+' <small>· '+format(item.value)+' menciones</small></strong></div><div class="cx-topic-track" aria-hidden="true"><span style="width:'+Math.min(100,Number(item.pct))+'%"></span></div></li>').join('')+'</ul>':'<p>Sin menciones disponibles para esta selección.</p>';
+    const risk=Number(data?.risk),valid=Number(data?.valid),riskRate=valid>0?risk/valid*100:0;
+    const canBreakdown=valid>0&&Number.isFinite(risk)&&risk>=0&&risk<=valid;
+    riskChart.innerHTML=canBreakdown?'<div class="cx-risk-total"><strong>'+format(risk)+'</strong> de '+format(valid)+' encuestas válidas · '+percent(riskRate)+'</div><p>Marcamos para revisar las respuestas con recomendación de 0 a 6, compra mala o muy mala, o ambas. Cada respuesta se cuenta una sola vez.</p><div class="cx-risk-stack" aria-hidden="true"><span class="cx-risk-part-1" style="width:'+riskRate+'%"></span><span class="cx-risk-part-0" style="width:'+(100-riskRate)+'%"></span></div><ul><li><i class="cx-risk-part-1" aria-hidden="true"></i>Con señales para revisar <strong>'+percent(riskRate)+'</strong></li><li><i class="cx-risk-part-0" aria-hidden="true"></i>Sin estas señales en la calificación <strong>'+percent(100-riskRate)+'</strong></li></ul><p>Sirve para localizar dónde profundizar y entender lo ocurrido. La calificación no confirma por sí sola una queja ni que el problema siga pendiente. El comentario y, cuando corresponda, el contacto con el cliente permiten validarlo.</p>':'<p>Sin encuestas válidas para esta selección.</p>';
+    riskDetail.classList.toggle('cx-risk-has-chart',Boolean(canBreakdown));
+    const selected=window.cxGetSelectedModels?.()||[];
+    const modelText=!selected.length?'Todos los modelos':selected.length===1?selected[0]:selected.length+' modelos seleccionados';
+    $('cxActiveFilterText').textContent=period+' · '+displayChannelName(channel)+' · '+modelText;
+    const sync=window.cxExecutiveSync||{phase:'loading'};
+    const success=sync.at?new Date(sync.at):null;
+    const timestamp=success&&!Number.isNaN(success.getTime())?success.toLocaleString('es-MX',{dateStyle:'medium',timeStyle:'short',timeZone:'America/Mexico_City'}):null;
+    const stateText=sync.phase==='live'?'Conexión actualizada con Google Sheets':sync.phase==='backup'?'Actualización no disponible · se muestra el respaldo del periodo seleccionado':'Consultando Google Sheets · las cifras visibles son del respaldo';
+    $('cxContextStatus').textContent=stateText+(timestamp?' · Última consulta exitosa '+timestamp:'');
+    $('cxContextStatus').dataset.state=sync.phase;
+    const cutoff=period==='Septiembre 2026'?'Corte extraordinario al 12 de octubre de 2026. Incluye registros nuevos de la descarga acumulativa por las incidencias de VENTONET. La fuente no permite identificar la fecha de cada respuesta.':period==='Octubre 2026'?'Corte de octubre con registros nuevos de la descarga del 3 de noviembre de 2026. La fuente contiene fecha de venta, pero no fecha individual de respuesta.':period==='Acumulado 2026'?'Acumulado de los periodos disponibles. Conserva los cortes asignados en el histórico.':'Periodo asignado en el histórico. El dato disponible no permite confirmar la fecha individual de cada respuesta.';
+    $('cxContextCutoff').textContent=cutoff;
+    if(!data||!data.valid){
+      $('cxContextCounts').textContent='Sin encuestas válidas para esta selección.';
+      $('cxSurveyConclusionList').innerHTML='<li>No hay información suficiente para interpretar esta selección.</li>';
+      $('cxPriorityList').innerHTML='<li>No hay información suficiente para priorizar esta selección.</li>';
+      $('cxChannelReading').textContent='Sin encuestas válidas para este canal y modelo.';
+      return;
+    }
+    $('cxContextCounts').innerHTML=[['Recibidas',data.total],['Válidas',data.valid],['Excluidas',data.incomplete]].map(([label,value])=>'<span>'+label+' <strong>'+format(value)+'</strong></span>').join('');
+    const minimum=Number(document.querySelector('.minSampleDynamic')?.textContent)||30;
+    const caveat=data.valid<minimum?' La base tiene menos de '+minimum+' respuestas; sus resultados son una señal para revisar con cautela.':'';
+    const reasons=[];
+    const positive=Number(data.csat_pos);
+    reasons.push('La compra recibió una calificación buena o muy buena en '+percent(positive)+' de las respuestas válidas.'+caveat);
+    const motive=data.top_motive?.[0],factor=data.top_factor?.[0],area=data.top_area?.[0];
+    if(motive?.name&&factor?.name)reasons.push('El motivo de compra más mencionado fue “'+motive.name+'”. Entre los factores para elegir VENTO destacó “'+factor.name+'”.');
+    if(area?.name)reasons.push('“'+area.name+'” concentra más menciones de mejora. Conviene revisar el detalle de las respuestas para entender qué esperan los clientes.');
+    $('cxSurveyConclusionList').innerHTML=reasons.map(text=>'<li>'+escape(text)+'</li>').join('');
+    const candidates=Object.entries(PERIOD_DATA[period]?.channels||{}).filter(([,value])=>value.valid>=minimum);
+    const scoped=candidates.filter(([key])=>channel==='GLOBAL'||channel===key);
+    const byVolume=[...scoped].sort((a,b)=>b[1].valid-a[1].valid);
+    const byRate=[...scoped].sort((a,b)=>b[1].risk_pct-a[1].risk_pct);
+    const bySatisfaction=[...scoped].sort((a,b)=>b[1].csat_pos-a[1].csat_pos);
+    const statements=[];
+    if(byVolume.length){const [name,value]=byVolume[0];statements.push(displayChannelName(name)+' concentra '+format(value.valid)+' encuestas válidas en esta selección.');}
+    if(channel==='GLOBAL'&&bySatisfaction.length){const [name,value]=bySatisfaction[0];statements.push(displayChannelName(name)+' tiene la mayor satisfacción reportada entre los canales con al menos '+minimum+' respuestas ('+percent(value.csat_pos)+').');}
+    $('cxChannelReading').textContent=statements.join(' ')||'La selección tiene pocas respuestas para una comparación entre canales.';
+    const prioritiesText=[];
+    if(byRate.length){const [name,value]=byRate[0];prioritiesText.push('Dato observado · '+displayChannelName(name)+' tiene '+percent(value.risk_pct)+' de experiencias por revisar sobre '+format(value.valid)+' encuestas válidas. Revisa sus calificaciones antes de atribuir un motivo.');}
+    const modelGroups=selectedModelGroups(period,channel);
+    const volume=[...modelGroups].sort((a,b)=>b.risk-a.risk)[0];
+    const rate=modelGroups.filter(group=>group.valid>=minimum).sort((a,b)=>b.risk/b.valid-a.risk/a.valid)[0];
+    if(volume&&volume.risk>0)prioritiesText.push('Por cantidad · '+volume.name+' reúne '+format(volume.risk)+' respuestas por revisar de '+format(volume.valid)+' encuestas. Permite identificar dónde se concentra más trabajo de revisión.');
+    if(rate&&rate.risk>0)prioritiesText.push('Por proporción · '+rate.name+' tiene '+percent(rate.risk/rate.valid*100)+' de respuestas por revisar, sobre '+format(rate.valid)+' encuestas. Conviene investigar si los casos coinciden en canal o situación reportada.');
+    if(!prioritiesText.length)prioritiesText.push('No hay información suficiente para identificar una concentración en esta selección.');
+    $('cxPriorityList').innerHTML=prioritiesText.map(text=>'<li>'+escape(text)+'</li>').join('');
+  }
+  let pending=false;
+  const schedule=()=>{if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;update();});};
+  ['cx:view','cx:loaded','cx:sync'].forEach(event=>window.addEventListener(event,schedule));
+  $('periodSelect').addEventListener('change',schedule);$('channelSelect').addEventListener('change',schedule);
+  $('cxModels').addEventListener('change',schedule);$('cxAllModels').addEventListener('click',schedule);
+  document.querySelectorAll('.cx-page-tabs button').forEach(button=>button.addEventListener('click',()=>{schedule();window.dispatchEvent(new Event('resize'));}));
+  update();
+})();
+
+</script></body>
 </html>
