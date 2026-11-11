@@ -911,22 +911,20 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 @media(max-width:650px){#cxResultsPage .grid-2{grid-template-columns:minmax(0,1fr)}}
 </style>
 
-<style id="cx-three-screen-navigation-style">
-/* Solo navegación: se conservan los estilos y componentes originales. */
-.cx-screen-hidden{display:none!important}
-#cxThreeScreenNav{margin:18px 0 22px}
-#cxThreeScreenNav .cx-page-nav{margin-bottom:0}
-#cxThreeScreenNav .cx-screen-context{font-size:13px;color:#526071;margin:10px 0 0}
-#cxThreeScreenNav button[aria-current="page"]{background:#0a1e73;color:#fff;border-color:#0a1e73}
-@media(max-width:650px){#cxThreeScreenNav .cx-page-nav button{flex:1 1 100%;text-align:left}}
-</style>
-<style id="cx-three-screen-corrections">
-#cxResultsPage>.cx-page-tabs[hidden],#cxResultsPage>.cx-page-tabs{display:none!important}
-#cxExecutivePage[hidden],#cxSurveyPage[hidden],#cxAnalysisPage[hidden]{display:none!important}
-#cxModelPicker.cx-original-model-picker-hidden{display:none!important}
-#cxModelSelectCompactLabel{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:#17365d}
-#cxModelSelectCompact{width:min(100%,360px);min-width:180px;padding:9px 12px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:#14284c;font:inherit}
-#cxExecutivePage>.panel,#cxExecutivePage>.cx-month-chart{margin-bottom:22px}
+
+<style id="cx-approved-three-screens-css">
+/* Navegación independiente del estilo visual original. */
+#cxApprovedScreenNav{margin:12px 0 20px}
+#cxApprovedScreenNav .cx-page-nav{margin:0}
+#cxApprovedScreenNav button[aria-current="page"]{background:#0a1e73;color:#fff;border-color:#0a1e73}
+#cxApprovedScreenNav .cx-screen-description{font-size:13px;color:#526071;margin:9px 0 0}
+#cxResultsPage>.cx-page-tabs,#cxResultsPage>.cx-page-nav,#cxResultsPage>.cx-section-links{display:none!important}
+#cxResultsPage[hidden],#cxExecutivePage[hidden],#cxSurveyPage[hidden],#cxAnalysisPage[hidden]{display:none!important}
+#cxExecutivePage>.panel,#cxExecutivePage>.cx-month-chart{margin-bottom:20px}
+#cxModelPicker.cx-model-picker-replaced{display:none!important}
+#cxCompactModelFilter{display:flex;align-items:center;gap:9px;flex-wrap:wrap;color:#17365d;font-weight:700;font-size:14px}
+#cxCompactModelSelect{min-width:180px;max-width:100%;width:300px;padding:9px 12px;border:1px solid #cbd5e1;border-radius:9px;background:#fff;color:#14284c;font:inherit}
+@media(max-width:650px){#cxApprovedScreenNav .cx-page-nav button{flex:1 1 100%;text-align:left}#cxCompactModelSelect{width:100%}}
 </style></head>
 <body>
 <div id="cxHomeOverlay">
@@ -3027,134 +3025,74 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
 .cx-response-actions small{color:#64748b;font-size:12px}
 @media(max-width:550px){.cx-page-tabs{display:grid;grid-template-columns:1fr}.cx-page-tabs button{width:100%;text-align:left}}
 </style>
-<script id="cx-page-tabs-script">
-(()=>{
-  const results=document.getElementById('cxResultsPage');
-  const overview=document.getElementById('monthlyComparisonSection');
-  const questions=document.getElementById('cxQuestionsSection');
-  const review=document.getElementById('cxReviewSection');
-  const filters=document.getElementById('cxApprovedFilters');
-  if(!results||!overview||!questions||!review||!filters)return;
-  const sections=[
-    {id:'cxSurveyPage',label:'Resultados de la encuesta',nodes:[overview,questions]},
-    {id:'cxAnalysisPage',label:'Análisis por canal y modelo',nodes:[review]}
-  ];
-  const nav=document.createElement('nav');
-  nav.className='cx-page-tabs';nav.setAttribute('role','tablist');
-  nav.setAttribute('aria-label','Secciones del dashboard');
-  const buttons=[];
-  const panels=[];
-  function activate(index){
-    panels.forEach((panel,i)=>{panel.hidden=i!==index;});
-    buttons.forEach((button,i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;});
-  }
-  sections.forEach((section,index)=>{
-    const button=document.createElement('button');button.type='button';
-    button.id=section.id+'Tab';button.textContent=section.label;
-    button.setAttribute('role','tab');button.setAttribute('aria-controls',section.id);
-    const panel=document.createElement('div');panel.id=section.id;panel.className='cx-page-panel';
-    panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);
-    section.nodes.forEach(node=>panel.append(node));
-    button.addEventListener('click',()=>activate(index));
-    button.addEventListener('keydown',event=>{
-      let next=index;
-      if(event.key==='ArrowRight')next=(index+1)%sections.length;
-      else if(event.key==='ArrowLeft')next=(index+sections.length-1)%sections.length;
-      else if(event.key==='Home')next=0;
-      else if(event.key==='End')next=sections.length-1;
-      else return;
-      event.preventDefault();activate(next);buttons[next].focus();
-    });
-    buttons.push(button);panels.push(panel);nav.append(button);results.append(panel);
-  });
-  results.prepend(nav);activate(0);
-  const actions=document.createElement('div');actions.className='cx-response-actions';
-  actions.setAttribute('aria-label','Base de respuestas');
-  const link=document.getElementById('cxResponsesLink');
-  if(link){link.textContent='Consultar base de respuestas';actions.append(link);}
-  const download=document.createElement('a');
-  download.id='cxDownloadExcel';download.textContent='Descargar Excel';
-  download.href='https://docs.google.com/spreadsheets/d/11ePq_ZMks0hVuHKuGiH9Aebyzw1YG1LwDCi3YJAAVpk/export?format=xlsx';
-  download.target='_blank';download.rel='noopener noreferrer';
-  const note=document.createElement('small');note.textContent='La descarga incluye la base completa de consulta.';
-  actions.append(download,note);filters.append(actions);
-})();
-</script>
 
-<script id="cx-three-screen-navigation-script">
+
+
+<script id="cx-approved-three-screens-js">
 (function(){
- function init(){
-  var filters=document.getElementById('cxApprovedFilters');
-  var results=document.getElementById('cxResultsPage');
-  var survey=document.getElementById('cxSurveyPage');
-  var analysis=document.getElementById('cxAnalysisPage');
-  var overview=document.getElementById('monthlyComparisonSection');
-  var health=document.getElementById('healthSection');
-  var trend=document.getElementById('trendSection');
-  if(!filters||!results||!survey||!analysis||!overview||!health)return;
-  var nav=document.getElementById('cxThreeScreenNav');
-  if(!nav){
-   nav=document.createElement('nav');nav.id='cxThreeScreenNav';nav.setAttribute('aria-label','Pantallas del dashboard');
-   nav.innerHTML='<div class="cx-page-nav"><button type="button" data-cx-screen="resumen">Resumen ejecutivo</button><button type="button" data-cx-screen="encuesta">Resultados de la encuesta</button><button type="button" data-cx-screen="canales">Análisis por canal y modelo</button></div><p class="cx-screen-context" id="cxScreenContext" aria-live="polite"></p>';
-   filters.insertAdjacentElement('afterend',nav);
-  }
-  /* Las vistas originales ya fueron reagrupadas por otros scripts. Trabajamos con sus contenedores reales. */
-  var executive=document.getElementById('cxExecutivePage');
-  if(!executive){executive=document.createElement('div');executive.id='cxExecutivePage';executive.className='cx-page-panel';results.insertBefore(executive,survey);}
+ function setup(){
+  const $=id=>document.getElementById(id);
+  const main=document.querySelector('main.container'),filters=$('cxApprovedFilters'),results=$('cxResultsPage'),survey=$('cxQuestionsSection'),analysis=$('cxReviewSection');
+  const health=$('healthSection'),monthly=$('monthlyComparisonSection');
+  if(!main||!filters||!results||!survey||!analysis||!health||!monthly)return;
+  /* Se utilizan las secciones reales, ya reagrupadas por el código original. */
+  const executive=document.createElement('div');executive.id='cxExecutivePage';executive.className='cx-page-panel';
+  results.prepend(executive);
   executive.append(health);
-  var chart=document.querySelector('.cx-month-chart');
-  if(chart)health.after(chart);
-  if(trend)chart?chart.after(trend):health.after(trend);
-  var purchase=document.getElementById('npsTable');
-  var purchaseSection=purchase&&purchase.closest('section.panel,details.panel');
-  if(purchaseSection) (trend||chart||health).after(purchaseSection);
-  /* Los modelos y canales permanecen juntos en la pantalla de análisis. */
-  var models=document.getElementById('cxModelsTable');
-  if(models&&models.parentElement!==analysis)analysis.prepend(models);
-  var channel=document.getElementById('channelTable');
-  var channelSection=channel&&channel.closest('section.panel,details.panel');
-  if(channelSection&&channelSection.parentElement!==analysis)analysis.append(channelSection);
-  /* Se ocultan las pestañas antiguas para evitar navegación contradictoria. */
-  var oldTabs=results.querySelector('.cx-page-tabs');if(oldTabs)oldTabs.hidden=true;
-  var descriptions={resumen:'Indicadores principales, evolución mensual y evaluación de la compra.',encuesta:'Motivos de compra, factores de decisión, áreas de mejora y comentarios.',canales:'Resultados por canal de venta y por modelo.'};
-  function show(key,scroll){
-   executive.hidden=key!=='resumen';survey.hidden=key!=='encuesta';analysis.hidden=key!=='canales';
-   nav.querySelectorAll('[data-cx-screen]').forEach(function(b){var active=b.dataset.cxScreen===key;b.setAttribute('aria-pressed',String(active));if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-   document.getElementById('cxScreenContext').textContent=descriptions[key];
+  const monthChart=document.querySelector('.cx-month-chart');
+  if(monthChart)executive.append(monthChart);
+  const npsTable=$('npsTable');
+  const purchase=npsTable&&npsTable.closest('details.cx-extra-panel,section.panel');
+  if(purchase)executive.append(purchase);
+  executive.append(monthly);
+  const trend=$('trendSection');if(trend)executive.append(trend);
+  const models=$('cxModelsTable');if(models)analysis.querySelector('div')?.append(models);
+  /* Evita mostrar simultáneamente las vistas antiguas. */
+  results.hidden=false;const recovery=$('cxRecoveryPage');if(recovery)recovery.hidden=true;
+  const nav=document.createElement('nav');nav.id='cxApprovedScreenNav';nav.setAttribute('aria-label','Pantallas del Dashboard CX');
+  nav.innerHTML='<div class="cx-page-nav"><button type="button" data-cx-view="resumen">Resumen ejecutivo</button><button type="button" data-cx-view="encuesta">Resultados de la encuesta</button><button type="button" data-cx-view="canales">Análisis por canal y modelo</button></div><p class="cx-screen-description" id="cxApprovedScreenDescription" aria-live="polite"></p>';
+  filters.after(nav);
+  const panels={resumen:executive,encuesta:survey,canales:analysis};
+  const descriptions={resumen:'Indicadores principales, evolución mensual, compra y recomendación.',encuesta:'Motivos de compra, factores de decisión, áreas de mejora y comentarios.',canales:'Comparativos por canal y modelo, con el mismo periodo y filtros.'};
+  function show(view,scroll){
+   Object.keys(panels).forEach(k=>{panels[k].hidden=k!==view;});
+   nav.querySelectorAll('[data-cx-view]').forEach(b=>{const active=b.dataset.cxView===view;b.setAttribute('aria-pressed',String(active));if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+   $('cxApprovedScreenDescription').textContent=descriptions[view];
    if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});
   }
-  nav.addEventListener('click',function(e){var b=e.target.closest('[data-cx-screen]');if(b)show(b.dataset.cxScreen,true);});
+  nav.addEventListener('click',event=>{const button=event.target.closest('[data-cx-view]');if(button)show(button.dataset.cxView,true);});
   show('resumen',false);
-  /* Lista desplegable nativa, conectada a los filtros de modelos existentes. */
-  var modelTools=document.getElementById('cxModelTools'),modelOptions=document.getElementById('cxModels');
-  if(modelTools&&modelOptions&&!document.getElementById('cxModelSelectCompact')){
-   var label=document.createElement('label');label.id='cxModelSelectCompactLabel';label.textContent='Modelo ';
-   var select=document.createElement('select');select.id='cxModelSelectCompact';select.setAttribute('aria-label','Seleccionar modelo');
-   label.append(select);modelTools.prepend(label);
-   var picker=document.getElementById('cxModelPicker');if(picker)picker.classList.add('cx-original-model-picker-hidden');
-   function syncOptions(){
-    var checkboxes=Array.from(modelOptions.querySelectorAll('input[type="checkbox"]'));
-    if(!checkboxes.length)return;
-    var current=select.value,selected=checkboxes.filter(function(c){return c.checked;});
-    select.innerHTML='';
-    var all=document.createElement('option');all.value='';all.textContent='Todos los modelos';select.append(all);
-    checkboxes.forEach(function(c){var opt=document.createElement('option');opt.value=c.value;opt.textContent=c.value;select.append(opt);});
+  /* Picklist de selección única: reutiliza el motor existente de selección por modelo. */
+  const tools=$('cxModelTools'),list=$('cxModels'),picker=$('cxModelPicker');
+  if(tools&&list&&picker){
+   picker.classList.add('cx-model-picker-replaced');
+   const label=document.createElement('label');label.id='cxCompactModelFilter';label.textContent='Modelo';
+   const select=document.createElement('select');select.id='cxCompactModelSelect';select.setAttribute('aria-label','Filtrar por modelo');
+   label.append(select);tools.prepend(label);
+   let updating=false;
+   function checkboxes(){return Array.from(list.querySelectorAll('input[type="checkbox"]'));}
+   function updateOptions(){
+    if(updating)return;
+    const boxes=checkboxes();if(!boxes.length)return;
+    const selected=boxes.filter(box=>box.checked).map(box=>box.value);
+    const options=[new Option('Todos los modelos','')].concat(boxes.map(box=>new Option(box.value,box.value)));
+    select.replaceChildren(...options);
     select.value=selected.length===1?selected[0]:'';
-    if(!select.value&&current&&checkboxes.some(function(c){return c.value===current&&c.checked;}))select.value=current;
    }
-   select.addEventListener('change',function(){
-    Array.from(modelOptions.querySelectorAll('input[type="checkbox"]')).forEach(function(c){
-     var desired=!!select.value&&c.value===select.value;
-     if(c.checked!==desired){c.checked=desired;c.dispatchEvent(new Event('change',{bubbles:true}));}
-    });
-    syncOptions();
+   select.addEventListener('change',()=>{
+    const chosen=select.value,boxes=checkboxes();updating=true;
+    /* Un solo cambio final: cada evento conserva el cálculo y la actualización existentes. */
+    const toUncheck=boxes.filter(box=>box.checked&&box.value!==chosen);
+    const toCheck=boxes.filter(box=>!box.checked&&box.value===chosen);
+    [...toUncheck,...toCheck].forEach(box=>{box.checked=!box.checked;box.dispatchEvent(new Event('change',{bubbles:true}));});
+    updating=false;updateOptions();
    });
-   new MutationObserver(syncOptions).observe(modelOptions,{childList:true,subtree:true});
-   syncOptions();
+   new MutationObserver(updateOptions).observe(list,{childList:true,subtree:true});
+   $('cxClearFilters')?.addEventListener('click',()=>setTimeout(updateOptions,0));
+   updateOptions();
   }
  }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
-</script>
-</body>
+</script></body>
 </html>
