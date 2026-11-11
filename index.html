@@ -817,7 +817,24 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxClearFilters{min-height:39px;white-space:nowrap}
 @media(max-width:650px){#cxApprovedFilters .cx-picklists{grid-template-columns:repeat(2,minmax(0,1fr))}#cxClearFilters{grid-column:1/-1;justify-self:start}}@media(max-width:400px){#cxApprovedFilters .cx-picklists{grid-template-columns:minmax(0,1fr)}}
 </style>
-</head>
+<style id="cx-reading-fixes">
+#monthlyComparisonSection .comparison-card>span,#monthlyComparisonSection .comparison-card>small,#monthlyComparisonSection .cx-metric-note,#monthlyComparisonSection .comparison-explanation{font-size:14px;line-height:1.5}
+#monthlyComparisonSection .comparison-explanation{max-width:100%}
+.comparison-card.explainable::after{font-size:12px!important}.cx-reading li{display:flex;align-items:center;gap:7px;margin:6px 0;flex-wrap:wrap}
+.cx-color-key{display:inline-block;width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.cx-color-0{background:#86d4a6}.cx-color-1{background:#bac3d0}.cx-color-2{background:#f4a39d}
+.cx-question{margin:18px 0;padding:18px;background:#f7f9fc;border-radius:12px}
+.cx-question h3{margin:0 0 8px;color:#17365d}.cx-question p{color:#475569;font-size:14px}
+.cx-answer-row{display:grid;grid-template-columns:minmax(75px,1fr) minmax(60px,2fr) minmax(110px,1fr);align-items:center;gap:12px;margin:12px 0;font-size:14px}
+.cx-answer-track{height:10px;background:#e4e9f1;overflow:hidden;border-radius:9px}
+.cx-answer-track span{display:block;height:100%;background:#658eb8}.cx-answer-track [data-tone=good]{background:#86d4a6}.cx-answer-track [data-tone=attention]{background:#f4a39d}
+.cx-answer-row strong{text-align:right;font-variant-numeric:tabular-nums}
+.cx-model-open{border:0;background:transparent;padding:4px 0;text-align:left;font:inherit;font-weight:700;color:#17365d;text-decoration:underline;cursor:pointer}
+.cx-model-comments{padding:18px;border:1px solid #d9e2ed;border-radius:12px;background:#f7f9fc;margin:14px 0}
+.cx-model-comments blockquote{border-left:3px solid #658eb8;padding-left:12px}
+#cxQuestionsSection>h2 small{font-size:14px;color:#475569}
+@media(max-width:500px){.cx-answer-row{grid-template-columns:minmax(0,1fr) auto;gap:6px}.cx-answer-track{grid-row:2;grid-column:1/-1}}
+</style></head>
 <body>
 <div id="cxHomeOverlay">
   <div class="cx-home-head"><div class="cx-home-head-inner"><div><h1>Conociendo al cliente</h1><p>Resumen ejecutivo y comportamiento mes con mes · VENTO Motorcycles</p></div><div class="cx-home-source">Fuente: histórico de la encuesta por canal de venta</div></div></div>
@@ -2606,9 +2623,21 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const fmt=n=>n.toLocaleString('es-MX'),percent=(n,d)=>(100*n/d).toLocaleString('es-MX',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
    const leaders=groups.filter(g=>g.risk>0).slice(0,3);
    const max=byRate?100:Math.max(1,...leaders.map(g=>g.risk));
-   const action=leaders.length?'<div class="cx-actions-model"><h4>'+ (byRate?'Dónde es más frecuente entre quienes respondieron':'Dónde se concentran más casos')+'</h4><p>'+ (byRate?'Compara la proporción y revisa cuántas encuestas la respaldan.':'Si vas a revisar por volumen, empieza por los primeros modelos y busca si hay concentración por canal.')+'</p>'+leaders.map(g=>'<article><strong>'+esc(g.name)+'</strong><div class="cx-action-track" aria-hidden="true"><span style="width:'+((byRate?100*g.risk/g.valid:g.risk)/max*100)+'%"></span></div><span>'+fmt(g.risk)+' de '+fmt(g.valid)+' respuestas · '+percent(g.risk,g.valid)+'</span><small>Comentarios revisados pendientes de conexión.</small></article>').join('')+'</div>':'';
+   const action=leaders.length?'<div class="cx-actions-model"><h4>'+ (byRate?'Dónde es más frecuente entre quienes respondieron':'Dónde se concentran más casos')+'</h4><p>'+ (byRate?'Compara la proporción y revisa cuántas encuestas la respaldan.':'Si vas a revisar por volumen, empieza por los primeros modelos y busca si hay concentración por canal.')+'</p>'+leaders.map(g=>'<article><button class="cx-model-open" type="button" data-model="'+esc(g.name)+'">'+esc(g.name)+' · Ver comentarios</button><div class="cx-action-track" aria-hidden="true"><span style="width:'+((byRate?100*g.risk/g.valid:g.risk)/max*100)+'%"></span></div><span>'+fmt(g.risk)+' de '+fmt(g.valid)+' respuestas · '+percent(g.risk,g.valid)+'</span></article>').join('')+'</div>':'';
    $('cxModelComparison').innerHTML=!groups.length?'<p>'+ (Array.isArray(data)?'No hay encuestas válidas para esta selección.':'El detalle por modelo no está disponible en este momento.') +'</p>':
-    action+'<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td>'+esc(g.name)+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
+    action+'<p class="cx-extra-note">'+(byRate?'Ordenado por proporción de casos por revisar entre las encuestas válidas de cada modelo.':'Ordenado por cantidad de casos por revisar.')+' Con menos de 30 encuestas, interpreta los porcentajes con cuidado.</p><table class="cx-extra-table"><thead><tr><th>Modelo</th><th>Encuestas válidas</th><th>Índice de recomendación</th><th>Compra mala o muy mala</th><th>Casos por revisar</th></tr></thead><tbody>'+visibleGroups.map(g=>'<tr><td><button class="cx-model-open" type="button" data-model="'+esc(g.name)+'">'+esc(g.name)+'</button>'+(g.valid<30?' <small>· Pocas respuestas</small>':'')+'</td><td>'+fmt(g.valid)+'</td><td>'+ (100*(g.promoters-g.detractors)/g.valid).toFixed(1)+'</td><td>'+fmt(g.bad)+' ('+percent(g.bad,g.valid)+')</td><td>'+fmt(g.risk)+' ('+percent(g.risk,g.valid)+')</td></tr>').join('')+'</tbody></table>'+(groups.length>10?'<button class="btn" id="cxToggleModelTable" type="button" aria-expanded="'+showAllModelRows+'">'+(showAllModelRows?'Volver al Top 10':'Ver los '+groups.length+' modelos')+'</button>':'');
+
+   $('cxModelComparison').querySelectorAll('[data-model]').forEach(button=>{
+     button.addEventListener('click',()=>{
+       let panel=$('cxModelComments');
+       if(!panel){panel=document.createElement('section');panel.id='cxModelComments';panel.className='cx-model-comments';$('cxModelComparison').after(panel);}
+       const name=button.dataset.model;
+       const comments=(window.cxExtended?.commentRows||[]).filter(row=>row.PUBLICABLE===true&&row.MODELO===name&&(p.month==='Acumulado 2026'||row.MES===p.month)&&(p.channel==='GLOBAL'||row.CANAL===p.channel));
+       panel.innerHTML='<h4>Comentarios · '+esc(name)+'</h4><p>'+esc(p.month)+' · '+esc(p.channel==='GLOBAL'?'Todos los canales':p.channel)+'</p>'+ (comments.length?comments.slice(0,2).map(row=>'<article class="cx-public-comment"><blockquote>'+esc(row.COMENTARIO_PUBLICABLE)+'</blockquote><p><strong>Experiencia de compra</strong> · '+esc(row.CSAT)+'<br><strong>Calificación de recomendación</strong> · '+esc(row.NPS)+' de 10</p></article>').join('')+'<small>Ejemplos de respuestas aprobadas para consulta pública. No representan por sí solos a todos los clientes del modelo.</small>':'<p>Los comentarios revisados de este modelo todavía no están disponibles en la fuente del dashboard.</p>');
+       panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+     });
+   });
+   $('cxModelComments')?.remove();
    const toggle=$('cxToggleModelTable');
    if(toggle)toggle.addEventListener('click',()=>{showAllModelRows=!showAllModelRows;renderModels(p);$('cxToggleModelTable')?.focus();});
  }
@@ -2679,8 +2708,16 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
    const base=relevant.reduce((n,r)=>n+Number(r.RESPUESTAS_DETALLE_BASE||0),0);
    $('cxScoreBreakdown').hidden=base>0;if(oldBreakdown)oldBreakdown.hidden=base>0;const oldTitle=$('cxScoreBreakdown')?.querySelector('h3');if(oldTitle)oldTitle.hidden=base>0;
    const count=k=>relevant.reduce((n,r)=>n+Number(r[k]||0),0);
-   const table=(title,items)=>'<h3>'+title+'</h3><table class="cx-extra-table"><thead><tr><th>Respuesta</th><th>Clientes</th><th>Porcentaje</th></tr></thead><tbody>'+items.map(([label,key])=>'<tr><td>'+esc(label)+'</td><td>'+count(key).toLocaleString('es-MX')+'</td><td>'+(base?(count(key)/base*100).toFixed(1)+'%':'—')+'</td></tr>').join('')+'</tbody></table>';
-   detail.innerHTML=base?'<h3>Compra y recomendación</h3><p class="cx-extra-note">Detalle de '+base.toLocaleString('es-MX')+' encuestas válidas. '+(base!==relevant.reduce((n,r)=>n+Number(r.VALIDAS||0),0)?'La cobertura del detalle difiere del total histórico publicado; no sustituye ese total.':'')+'</p>'+table('¿Cómo clasificarías tu experiencia general de compra (desde atención a entrega)?',['Muy Buena','Buena','Aceptable','Mala','Muy Mala'].map(x=>[x,'RESPUESTA_COMPRA_'+x.toUpperCase().replace(/ /g,'_')+'_N']))+table('¿Qué tan probable es que recomendarías una Vento?',Array.from({length:11},(_,i)=>[String(i),'RESPUESTA_RECOMENDACION_'+i+'_N']))+'<p class="cx-extra-note">El cuestionario indica una escala del 1 al 10. Se muestra el 0 por separado porque también aparece en la base.</p>':'<h3>Compra y recomendación</h3><p class="cx-extra-note">El detalle no está disponible en este momento.</p>';
+
+
+   const table=(title,items)=>{
+     return '<section class="cx-question"><h3>'+title+'</h3><p>Distribución de '+base.toLocaleString('es-MX')+' respuestas válidas.</p>'+items.map(([label,key])=>{
+       const n=count(key),percent=base?100*n/base:0;
+       const tone=/MUY_MALA|COMPRA_MALA|RECOMENDACION_[0-6]_/.test(key)?'attention':/MUY_BUENA|COMPRA_BUENA|RECOMENDACION_(9|10)_/.test(key)?'good':'neutral';
+       return '<div class="cx-answer-row"><span>'+esc(label)+'</span><div class="cx-answer-track" aria-hidden="true"><span data-tone="'+tone+'" style="width:'+percent+'%"></span></div><strong>'+n.toLocaleString('es-MX')+' · '+percent.toFixed(1)+'%</strong></div>';
+     }).join('')+'</section>';
+   };
+   detail.innerHTML=base?'<h3>Así respondieron sobre la compra y la recomendación</h3><p class="cx-extra-note">Detalle de '+base.toLocaleString('es-MX')+' encuestas válidas. '+(base!==relevant.reduce((n,r)=>n+Number(r.VALIDAS||0),0)?'La cobertura del detalle difiere del total histórico publicado; no sustituye ese total.':'')+'</p>'+table('¿Cómo clasificarías tu experiencia general de compra (desde atención a entrega)?',['Muy Buena','Buena','Aceptable','Mala','Muy Mala'].map(x=>[x,'RESPUESTA_COMPRA_'+x.toUpperCase().replace(/ /g,'_')+'_N']))+table('¿Qué tan probable es que recomendarías una Vento?',Array.from({length:11},(_,i)=>[String(i),'RESPUESTA_RECOMENDACION_'+i+'_N']))+'<p class="cx-extra-note">El cuestionario indica una escala del 1 al 10. Se muestra el 0 por separado porque también aparece en la base.</p>':'<h3>Compra y recomendación</h3><p class="cx-extra-note">El detalle no está disponible en este momento.</p>';
    $('cxRecoveryScope').textContent='VPS Conecta · Solo encuesta de Canales · Mes de la encuesta: '+(p.month||'—')+' · '+(p.channel==='GLOBAL'?'Todos los canales':p.channel)+(selected.length?' · Modelos: '+selected.join(', '):' · Todos los modelos')+'. Los casos por revisar vienen de la encuesta. Aquí solo se cuentan los casos que entraron a atención en VPS Conecta.';
    const recovery=window.cxExtended?.recovery;
    if(!recovery?.ok){$('cxRecoveryBody').innerHTML='<p class="cx-extra-note">Seguimiento no disponible. No fue posible consultar VPS Conecta; esto no significa que haya cero casos.</p>';return;}
@@ -2732,7 +2769,8 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  const questions=group('Qué preguntamos y qué respondieron','Opciones con cantidad y porcentaje');
  const vps=document.createElement('aside');vps.className='panel cx-final-group';vps.id='cxVpsStatus';
  vps.innerHTML='<h2>Recuperación · VPS Conecta</h2><small>Estado al 8 de noviembre de 2026</small><div><p>El equipo de atención acaba de incorporarse y aún no ha iniciado el contacto con clientes. Los casos por revisar que muestra este tablero son alertas de la encuesta; el seguimiento se registrará en VPS Conecta.</p></div>';
- resultsPage.append(vps);
+ // Recovery status omitted until operational tracking is available.
+ resultsPage.insertBefore(questions.parentElement,investigate.parentElement);
  overview.id='monthlyComparisonSection';
  investigate.parentElement.id='cxReviewSection';questions.parentElement.id='cxQuestionsSection';
  const shortcuts=document.createElement('nav');shortcuts.className='cx-section-links';shortcuts.setAttribute('aria-label','Ir a una sección');
@@ -2772,14 +2810,14 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
      if(direction&&change)delta.textContent=(amount?(sign>0?'Subió ':'Bajó '):'Se mantuvo · ')+delta.textContent.replace(/^[+-]/,'').replace(' puntos',id==='cmpNps'?' puntos':' puntos porcentuales');
    }
    if(!data?.valid)return;
-   const groups=[['Buena o muy buena',data.csat_pos],['Neutral',data.csat_neu],['Mala o muy mala',data.csat_neg]];
+   const groups=[['Buena o muy buena',data.csat_pos],['Aceptable',data.csat_neu],['Mala o muy mala',data.csat_neg]];
    if(groups.every(([,value])=>Number.isFinite(value))&&Math.abs(groups.reduce((sum,[,value])=>sum+value,0)-100)<1){
      const positive=groups[0][1],neutral=groups[1][1],negative=groups[2][1];
-     reading.insertAdjacentHTML('beforeend','<article><h3>Cómo calificaron la compra</h3><div class="cx-distribution"><div class="cx-ring" aria-hidden="true" style="--positive:'+positive+'%;--neutral:'+Math.min(100,positive+neutral)+'%"><strong>'+positive.toFixed(1)+'%</strong></div><ul>'+groups.map(([label,value])=>'<li>'+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></div></article>');
+     reading.insertAdjacentHTML('beforeend','<article><h3>Cómo calificaron la compra</h3><div class="cx-distribution"><div class="cx-ring" aria-hidden="true" style="--positive:'+positive+'%;--neutral:'+Math.min(100,positive+neutral)+'%"><strong>'+positive.toFixed(1)+'%</strong></div><ul>'+groups.map(([label,value],i)=>'<li><span class="cx-color-key cx-color-'+i+'" aria-hidden="true"></span>'+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></div></article>');
    }
    const split=[['9 o 10',data.promoters_pct],['7 u 8',data.passives_pct],['0 a 6',data.detractors_pct]];
    if(split.every(([,value])=>Number.isFinite(value))&&Math.abs(split.reduce((sum,[,value])=>sum+value,0)-100)<1){
-     reading.insertAdjacentHTML('beforeend','<article><h3>Qué tan dispuestos están a recomendar</h3><p>El índice se obtiene al restar el porcentaje de notas de 0 a 6 al de notas de 9 y 10.</p><div class="cx-stack" aria-hidden="true">'+split.map(([,value])=>'<span style="flex:'+value+'"></span>').join('')+'</div><ul>'+split.map(([label,value])=>'<li>'+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></article>');
+     reading.insertAdjacentHTML('beforeend','<article><h3>Qué tan dispuestos están a recomendar</h3><p>El índice se obtiene al restar el porcentaje de notas de 0 a 6 al de notas de 9 y 10.</p><div class="cx-stack" aria-hidden="true">'+split.map(([,value])=>'<span style="flex:'+value+'"></span>').join('')+'</div><ul>'+split.map(([label,value],i)=>'<li><span class="cx-color-key cx-color-'+i+'" aria-hidden="true"></span>Calificación '+label+' · <strong>'+value.toFixed(1)+'%</strong></li>').join('')+'</ul></article>');
    }
  }
  const metric=chart.querySelector('select'),bars=chart.querySelector('.cx-chart-bars');
@@ -2849,5 +2887,13 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
  plain();
 })();
 </script>
-</body>
+<script>
+(()=>{
+
+
+
+ const exact=document.getElementById('cxExactAnswers');
+ if(exact){exact.setAttribute('aria-live','polite');}
+})();
+</script></body>
 </html>
