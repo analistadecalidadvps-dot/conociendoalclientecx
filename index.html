@@ -920,7 +920,14 @@ body{background:#f2f5fa;color:#14284c} main.container{max-width:1200px;margin:18
 #cxThreeScreenNav button[aria-current="page"]{background:#0a1e73;color:#fff;border-color:#0a1e73}
 @media(max-width:650px){#cxThreeScreenNav .cx-page-nav button{flex:1 1 100%;text-align:left}}
 </style>
-</head>
+<style id="cx-three-screen-corrections">
+#cxResultsPage>.cx-page-tabs[hidden],#cxResultsPage>.cx-page-tabs{display:none!important}
+#cxExecutivePage[hidden],#cxSurveyPage[hidden],#cxAnalysisPage[hidden]{display:none!important}
+#cxModelPicker.cx-original-model-picker-hidden{display:none!important}
+#cxModelSelectCompactLabel{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:#17365d}
+#cxModelSelectCompact{width:min(100%,360px);min-width:180px;padding:9px 12px;border:1px solid #cbd5e1;border-radius:9px;background:white;color:#14284c;font:inherit}
+#cxExecutivePage>.panel,#cxExecutivePage>.cx-month-chart{margin-bottom:22px}
+</style></head>
 <body>
 <div id="cxHomeOverlay">
   <div class="cx-home-head"><div class="cx-home-head-inner"><div><h1>Conociendo al cliente</h1><p>Resumen ejecutivo y comportamiento mes con mes · VENTO Motorcycles</p></div><div class="cx-home-source">Fuente: histórico de la encuesta por canal de venta</div></div></div>
@@ -3076,42 +3083,77 @@ cxSimplifyVisibleCopy();cxCopyObserver.observe(document.body,{childList:true,sub
 
 <script id="cx-three-screen-navigation-script">
 (function(){
-  function init(){
-    var main=document.querySelector('main.container');
-    var filters=document.getElementById('cxApprovedFilters');
-    if(!main||!filters||document.getElementById('cxThreeScreenNav'))return;
-    var sections=Array.from(main.children).filter(function(el){return el.tagName==='SECTION'&&el.classList.contains('panel');});
-    var monthly=document.getElementById('monthlyComparisonSection');
-    var trend=document.getElementById('trendSection');
-    var health=document.getElementById('healthSection');
-    var groups={resumen:[],encuesta:[],canales:[]};
-    sections.forEach(function(el){
-      if(el===filters)return;
-      if(el===monthly||el===trend||el===health){groups.resumen.push(el);return;}
-      var heading=(el.querySelector('.section-title h2')||el.querySelector('h2'));
-      var name=(heading?heading.textContent:'').toLowerCase();
-      if(name.indexOf('cada canal')!==-1||name.indexOf('por canal')!==-1||el.querySelector('#channelTable'))groups.canales.push(el);
-      else groups.encuesta.push(el);
-    });
-    var nav=document.createElement('nav');nav.id='cxThreeScreenNav';nav.setAttribute('aria-label','Secciones del dashboard');
-    nav.innerHTML='<div class="cx-page-nav" role="group" aria-label="Pantallas del dashboard">'+
-      '<button type="button" data-cx-screen="resumen">Resumen ejecutivo</button>'+
-      '<button type="button" data-cx-screen="encuesta">Resultados de la encuesta</button>'+
-      '<button type="button" data-cx-screen="canales">Análisis por canal y modelo</button></div>'+
-      '<p class="cx-screen-context" id="cxScreenContext" aria-live="polite"></p>';
-    filters.insertAdjacentElement('afterend',nav);
-    var descriptions={resumen:'Indicadores y evolución de la experiencia del cliente.',encuesta:'Resultados, motivos de compra, áreas de mejora, comentarios y calidad de los datos.',canales:'Comparación de resultados entre canales de venta.'};
-    function show(key,scroll){
-      if(!groups[key])key='resumen';
-      Object.keys(groups).forEach(function(group){groups[group].forEach(function(el){el.classList.toggle('cx-screen-hidden',group!==key);});});
-      nav.querySelectorAll('[data-cx-screen]').forEach(function(b){if(b.dataset.cxScreen===key)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-      document.getElementById('cxScreenContext').textContent=descriptions[key];
-      if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-    nav.addEventListener('click',function(e){var b=e.target.closest('[data-cx-screen]');if(b)show(b.dataset.cxScreen,true);});
-    show('resumen',false);
+ function init(){
+  var filters=document.getElementById('cxApprovedFilters');
+  var results=document.getElementById('cxResultsPage');
+  var survey=document.getElementById('cxSurveyPage');
+  var analysis=document.getElementById('cxAnalysisPage');
+  var overview=document.getElementById('monthlyComparisonSection');
+  var health=document.getElementById('healthSection');
+  var trend=document.getElementById('trendSection');
+  if(!filters||!results||!survey||!analysis||!overview||!health)return;
+  var nav=document.getElementById('cxThreeScreenNav');
+  if(!nav){
+   nav=document.createElement('nav');nav.id='cxThreeScreenNav';nav.setAttribute('aria-label','Pantallas del dashboard');
+   nav.innerHTML='<div class="cx-page-nav"><button type="button" data-cx-screen="resumen">Resumen ejecutivo</button><button type="button" data-cx-screen="encuesta">Resultados de la encuesta</button><button type="button" data-cx-screen="canales">Análisis por canal y modelo</button></div><p class="cx-screen-context" id="cxScreenContext" aria-live="polite"></p>';
+   filters.insertAdjacentElement('afterend',nav);
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  /* Las vistas originales ya fueron reagrupadas por otros scripts. Trabajamos con sus contenedores reales. */
+  var executive=document.getElementById('cxExecutivePage');
+  if(!executive){executive=document.createElement('div');executive.id='cxExecutivePage';executive.className='cx-page-panel';results.insertBefore(executive,survey);}
+  executive.append(health);
+  var chart=document.querySelector('.cx-month-chart');
+  if(chart)health.after(chart);
+  if(trend)chart?chart.after(trend):health.after(trend);
+  var purchase=document.getElementById('npsTable');
+  var purchaseSection=purchase&&purchase.closest('section.panel,details.panel');
+  if(purchaseSection) (trend||chart||health).after(purchaseSection);
+  /* Los modelos y canales permanecen juntos en la pantalla de análisis. */
+  var models=document.getElementById('cxModelsTable');
+  if(models&&models.parentElement!==analysis)analysis.prepend(models);
+  var channel=document.getElementById('channelTable');
+  var channelSection=channel&&channel.closest('section.panel,details.panel');
+  if(channelSection&&channelSection.parentElement!==analysis)analysis.append(channelSection);
+  /* Se ocultan las pestañas antiguas para evitar navegación contradictoria. */
+  var oldTabs=results.querySelector('.cx-page-tabs');if(oldTabs)oldTabs.hidden=true;
+  var descriptions={resumen:'Indicadores principales, evolución mensual y evaluación de la compra.',encuesta:'Motivos de compra, factores de decisión, áreas de mejora y comentarios.',canales:'Resultados por canal de venta y por modelo.'};
+  function show(key,scroll){
+   executive.hidden=key!=='resumen';survey.hidden=key!=='encuesta';analysis.hidden=key!=='canales';
+   nav.querySelectorAll('[data-cx-screen]').forEach(function(b){var active=b.dataset.cxScreen===key;b.setAttribute('aria-pressed',String(active));if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
+   document.getElementById('cxScreenContext').textContent=descriptions[key];
+   if(scroll)nav.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  nav.addEventListener('click',function(e){var b=e.target.closest('[data-cx-screen]');if(b)show(b.dataset.cxScreen,true);});
+  show('resumen',false);
+  /* Lista desplegable nativa, conectada a los filtros de modelos existentes. */
+  var modelTools=document.getElementById('cxModelTools'),modelOptions=document.getElementById('cxModels');
+  if(modelTools&&modelOptions&&!document.getElementById('cxModelSelectCompact')){
+   var label=document.createElement('label');label.id='cxModelSelectCompactLabel';label.textContent='Modelo ';
+   var select=document.createElement('select');select.id='cxModelSelectCompact';select.setAttribute('aria-label','Seleccionar modelo');
+   label.append(select);modelTools.prepend(label);
+   var picker=document.getElementById('cxModelPicker');if(picker)picker.classList.add('cx-original-model-picker-hidden');
+   function syncOptions(){
+    var checkboxes=Array.from(modelOptions.querySelectorAll('input[type="checkbox"]'));
+    if(!checkboxes.length)return;
+    var current=select.value,selected=checkboxes.filter(function(c){return c.checked;});
+    select.innerHTML='';
+    var all=document.createElement('option');all.value='';all.textContent='Todos los modelos';select.append(all);
+    checkboxes.forEach(function(c){var opt=document.createElement('option');opt.value=c.value;opt.textContent=c.value;select.append(opt);});
+    select.value=selected.length===1?selected[0]:'';
+    if(!select.value&&current&&checkboxes.some(function(c){return c.value===current&&c.checked;}))select.value=current;
+   }
+   select.addEventListener('change',function(){
+    Array.from(modelOptions.querySelectorAll('input[type="checkbox"]')).forEach(function(c){
+     var desired=!!select.value&&c.value===select.value;
+     if(c.checked!==desired){c.checked=desired;c.dispatchEvent(new Event('change',{bubbles:true}));}
+    });
+    syncOptions();
+   });
+   new MutationObserver(syncOptions).observe(modelOptions,{childList:true,subtree:true});
+   syncOptions();
+  }
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 </body>
