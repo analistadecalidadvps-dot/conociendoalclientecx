@@ -135,11 +135,12 @@
       </div>
       <section id="bp-comments" class="bp-content" role="tabpanel" aria-labelledby="bp-comment-tab">
         <div class="bp-comments-title"><div><h3>Lo que nos cuentan los clientes</h3><p class="bp-sub">El comentario junto a su calificación de compra y recomendación.</p></div><span class="bp-safe"><i data-lucide="shield-check" aria-hidden="true"></i>Consulta pública sin datos personales</span></div>
+        <div class="bp-more" style="justify-content:flex-start;margin:0 0 14px"><a class="bp-button" href="https://docs.google.com/spreadsheets/d/11ePq_ZMks0hVuHKuGiH9Aebyzw1YG1LwDCi3YJAAVpk/edit#gid=156835854" target="_blank" rel="noopener noreferrer">Abrir todos los comentarios en Google Sheets</a></div>
         <div class="bp-toolbar"><label>Buscar en comentarios<input id="bp-search" type="search" placeholder="Por ejemplo: entrega, atención, accesorios"></label><label>Calificación de compra<select id="bp-experience"><option value="">Todas las calificaciones</option><option value="positive">Buena o muy buena</option><option value="neutral">Aceptable</option><option value="negative">Mala o muy mala</option></select></label></div>
         <div class="bp-context"><span id="bp-active"></span><span id="bp-count" aria-live="polite"></span></div>
         <div class="bp-list" id="bp-list"></div>
         <div class="bp-more"><button class="bp-button" id="bp-more" type="button">Ver más comentarios</button></div>
-        <div class="bp-footer">En el dashboard público se mostrarían únicamente comentarios aprobados y revisados para retirar datos personales. La falta de comentarios publicados no equivale a ausencia de opiniones.</div>
+        <div class="bp-footer">La hoja de consulta incluye periodo, canal, modelo y calificaciones. Los filtros de esta pantalla se aplican a los comentarios mostrados aquí.</div>
       </section>
       <section id="bp-questions" class="bp-content" role="tabpanel" aria-labelledby="bp-question-tab" hidden>
         <h3>Preguntas y respuestas</h3><p class="bp-sub">Cantidades y porcentajes del corte. Los títulos resumidos de esta muestra se validarían con el cuestionario original.</p>
@@ -200,7 +201,7 @@
           const tone=r.type==='positive'?'good':r.type==='negative'?'bad':'neutral';
           const scoreTone=r.score>=9?'good':r.score<=6?'bad':'neutral';
           return '<article class="bp-comment"><div class="bp-card-head"><div><div class="bp-model">'+escape(r.model)+'</div><div class="bp-meta">'+escape(r.channel)+' · '+escape(r.period)+'</div></div><span class="bp-topic">'+escape(r.topic)+'</span></div><p class="bp-quote">“'+escape(r.text)+'”</p><div class="bp-ratings"><span>Calificó su compra: <b class="bp-'+tone+'">'+escape(r.csat)+'</b></span><span>Recomendación: <b class="bp-'+scoreTone+'">'+(r.score===null?'Sin respuesta':r.score+' de 10')+'</b> '+recommend+'</span></div></article>';
-        }).join('')||'<div class="bp-empty">No hay comentarios aprobados para esta selección.</div>';
+        }).join('')||'<div class="bp-empty">No hay comentarios disponibles aquí para esta selección. Puedes consultar el listado en Google Sheets.</div>';
         q('bp-more').hidden=filtered.length<=limit;
         q('bp-question-base').textContent='Base: '+base.length+' respuestas · '+context;
         const options=[['Buena o muy buena','positive'],['Aceptable','neutral'],['Mala o muy mala','negative']];
